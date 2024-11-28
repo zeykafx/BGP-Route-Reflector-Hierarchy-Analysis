@@ -1,0 +1,87 @@
+name: scenario-hierarchy
+
+topology:
+  defaults:
+    kind: linux
+    image: quay.io/frrouting/frr:10.1.1
+    network-mode: none
+    sysctls:
+      net.ipv6.conf.all.forwarding: 1
+    binds:
+      # FRR does not like "bind" file
+      # So nasty hack, mount frr.conf as readonly (ro) file.
+      # Then startup.sh will copy the ro frr.conf file into the
+      # RW frr.conf and finally FRR starts
+      - startup.sh:/etc/frr/startup.sh:ro
+      - daemons:/etc/frr/daemons
+      - vtysh.conf:/etc/frr/vtysh.conf
+      - __clabNodeDir__/frr.conf:/etc/frr/frr.ro.conf:ro
+  nodes:
+    RR1T:
+      cmd: /etc/frr/startup.sh
+    RR2T:
+      cmd: /etc/frr/startup.sh
+    RR1S:
+      cmd: /etc/frr/startup.sh
+    RR2S:
+      cmd: /etc/frr/startup.sh
+    # s3:
+    #   cmd: /etc/frr/startup.sh
+    # s4:
+    #   cmd: /etc/frr/startup.sh
+    # s5:
+    #   cmd: /etc/frr/startup.sh
+    # s6:
+    #   cmd: /etc/frr/startup.sh
+    # h1:
+    #   sysctls:
+    #     net.ipv6.conf.all.forwarding: 0
+    #   image: host:latest
+    #   exec: 
+    #     - ip -6 addr add fc00:2142:1::2/64 dev eth-s1
+    #     - ip -6 route add default via fc00:2142:1::1 dev eth-s1
+    h2:
+      image: host:latest
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      exec:
+        - ip -6 addr add fc00:2142:3:3::2/64 dev eth-rr1s
+        - ip -6 route add default via fc00:2142:3:3::1 dev eth-rr1s
+    # h3:
+    #   image: host:latest
+    #   sysctls:
+    #     net.ipv6.conf.all.forwarding: 0
+    #   exec:
+    #     - ip -6 addr add fc00:2142:5::2/64 dev eth-s5
+    #     - ip -6 route add default via fc00:2142:5::1 dev eth-s5
+
+  links:
+    # top level route reflectors connected in full mesh
+    - endpoints: [RR1T:eth-rr2t, RR2T:eth-rr1t]
+    # second level route reflectors
+    - endpoints: [RR1T:eth-rr1s, RR1S:eth-rr1t]
+    - endpoints: [RR2T:eth-rr1s, RR1S:eth-rr2t]
+    - endpoints: [RR1T:eth-rr2s, RR2S:eth-rr1t]
+    - endpoints: [RR2T:eth-rr2s, RR2S:eth-rr2t]
+    - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
+    # - endpoints: [s2:eth-s3, s3:eth-s2]
+    # - endpoints: [ "h1:eth-s1", "s1:eth-h1"]
+    #   mtu: 1500
+    # - endpoints: [ "s1:eth-s2", "s2:eth-s1" ]
+    #   mtu: 1500
+    # - endpoints: [ "s1:eth-s4", "s4:eth-s1" ]
+    #   mtu: 1500
+    # - endpoints: [ "s2:eth-s3", "s3:eth-s2" ]
+    #   mtu: 1500
+    # - endpoints: [ "s3:eth-s4", "s4:eth-s3" ]
+    #   mtu: 1500
+    # - endpoints: [ "s4:eth-s5", "s5:eth-s4" ]
+    #   mtu: 1500
+    # - endpoints: [ "s3:eth-s6", "s6:eth-s3" ]
+    #   mtu: 1500
+    # - endpoints: [ "s5:eth-s6", "s6:eth-s5" ]
+    #   mtu: 1500
+    # - endpoints: [ "s3:eth-h2", "h2:eth-s3" ]
+    #   mtu: 1500
+    # - endpoints: [ "s5:eth-h3", "h3:eth-s5" ]
+    #   mtu: 1500
