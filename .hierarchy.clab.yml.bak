@@ -25,6 +25,12 @@ topology:
       cmd: /etc/frr/startup.sh
     RR2S:
       cmd: /etc/frr/startup.sh
+    RR3S:
+      cmd: /etc/frr/startup.sh
+    RR4S:
+      cmd: /etc/frr/startup.sh
+    E1:
+      cmd: /etc/frr/startup.sh
     # s3:
     #   cmd: /etc/frr/startup.sh
     # s4:
@@ -47,23 +53,35 @@ topology:
       exec:
         - ip -6 addr add fc00:2142:3:3::2/64 dev eth-rr1s
         - ip -6 route add default via fc00:2142:3:3::1 dev eth-rr1s
-    # h3:
-    #   image: host:latest
-    #   sysctls:
-    #     net.ipv6.conf.all.forwarding: 0
-    #   exec:
-    #     - ip -6 addr add fc00:2142:5::2/64 dev eth-s5
-    #     - ip -6 route add default via fc00:2142:5::1 dev eth-s5
+    h3:
+      image: host:latest
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      exec:
+        - ip -6 addr add fc00:2142:a:1::2/64 dev eth-e1
+        - ip -6 route add default via fc00:2142:a:1::1 dev eth-e1
 
   links:
     # top level route reflectors connected in full mesh
     - endpoints: [RR1T:eth-rr2t, RR2T:eth-rr1t]
     # second level route reflectors
+    # RR1S:
     - endpoints: [RR1T:eth-rr1s, RR1S:eth-rr1t]
-    - endpoints: [RR2T:eth-rr1s, RR1S:eth-rr2t]
+    - endpoints: [RR2T:eth-rr1s, RR1S:eth-rr2t]    
+    - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
+    # RR2S:
     - endpoints: [RR1T:eth-rr2s, RR2S:eth-rr1t]
     - endpoints: [RR2T:eth-rr2s, RR2S:eth-rr2t]
-    - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
+    # RR3S:
+    - endpoints: [RR1T:eth-rr3s, RR3S:eth-rr1t]
+    - endpoints: [RR2T:eth-rr3s, RR3S:eth-rr2t]
+    # RR4S:
+    - endpoints: [RR1T:eth-rr4s, RR4S:eth-rr1t]
+    - endpoints: [RR2T:eth-rr4s, RR4S:eth-rr2t]
+    # external routers
+    - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
+    - endpoints: [E1:eth-h3, h3:eth-e1]
+      mtu: 1500
     # - endpoints: [s2:eth-s3, s3:eth-s2]
     # - endpoints: [ "h1:eth-s1", "s1:eth-h1"]
     #   mtu: 1500
