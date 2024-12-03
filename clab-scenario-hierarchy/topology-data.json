@@ -6,7 +6,7 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-cdf5cdb63fc7",
+        "bridge": "br-92d31fa605bf",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -23,7 +23,7 @@
       "longname": "clab-scenario-hierarchy-E1",
       "fqdn": "E1.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/E1",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/E1",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -34,14 +34,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/E1",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/E1",
         "clab-node-name": "E1",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -53,7 +53,7 @@
       "longname": "clab-scenario-hierarchy-RR1S",
       "fqdn": "RR1S.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/RR1S",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR1S",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -64,14 +64,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/RR1S",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR1S",
         "clab-node-name": "RR1S",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -83,7 +83,7 @@
       "longname": "clab-scenario-hierarchy-RR1T",
       "fqdn": "RR1T.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/RR1T",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR1T",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -94,14 +94,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/RR1T",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR1T",
         "clab-node-name": "RR1T",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -113,7 +113,7 @@
       "longname": "clab-scenario-hierarchy-RR2S",
       "fqdn": "RR2S.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/RR2S",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR2S",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -124,14 +124,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/RR2S",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR2S",
         "clab-node-name": "RR2S",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -143,7 +143,7 @@
       "longname": "clab-scenario-hierarchy-RR2T",
       "fqdn": "RR2T.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/RR2T",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR2T",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -154,14 +154,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/RR2T",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR2T",
         "clab-node-name": "RR2T",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -173,7 +173,7 @@
       "longname": "clab-scenario-hierarchy-RR3S",
       "fqdn": "RR3S.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/RR3S",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR3S",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -184,14 +184,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/RR3S",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR3S",
         "clab-node-name": "RR3S",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -203,7 +203,7 @@
       "longname": "clab-scenario-hierarchy-RR4S",
       "fqdn": "RR4S.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/RR4S",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR4S",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -214,14 +214,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/RR4S",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR4S",
         "clab-node-name": "RR4S",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -233,7 +233,7 @@
       "longname": "clab-scenario-hierarchy-h2",
       "fqdn": "h2.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/h2",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h2",
       "kind": "linux",
       "image": "host:latest",
       "mgmt-net": "",
@@ -244,14 +244,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/h2",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h2",
         "clab-node-name": "h2",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -263,7 +263,7 @@
       "longname": "clab-scenario-hierarchy-h3",
       "fqdn": "h3.scenario-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-hierarchy/h3",
+      "labdir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h3",
       "kind": "linux",
       "image": "host:latest",
       "mgmt-net": "",
@@ -274,14 +274,14 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-cdf5cdb63fc7",
+        "clab-mgmt-net-bridge": "br-92d31fa605bf",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-hierarchy/h3",
+        "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h3",
         "clab-node-name": "h3",
         "clab-node-type": "",
-        "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/hierarchy.clab.yml",
+        "clab-owner": "juangt",
+        "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
       "port-bindings": [
@@ -293,13 +293,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr2t",
-        "mac": "aa:c1:ab:a2:b3:72",
+        "mac": "aa:c1:ab:e1:33:5b",
         "peer": "z"
       },
       "z": {
         "node": "RR2T",
         "interface": "eth-rr1t",
-        "mac": "aa:c1:ab:7b:a6:64",
+        "mac": "aa:c1:ab:2b:41:6e",
         "peer": "a"
       }
     },
@@ -307,13 +307,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr1s",
-        "mac": "aa:c1:ab:c0:f8:f7",
+        "mac": "aa:c1:ab:ac:d2:ae",
         "peer": "z"
       },
       "z": {
         "node": "RR1S",
         "interface": "eth-rr1t",
-        "mac": "aa:c1:ab:cc:65:58",
+        "mac": "aa:c1:ab:42:05:07",
         "peer": "a"
       }
     },
@@ -321,13 +321,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr1s",
-        "mac": "aa:c1:ab:24:ea:a0",
+        "mac": "aa:c1:ab:05:87:d2",
         "peer": "z"
       },
       "z": {
         "node": "RR1S",
         "interface": "eth-rr2t",
-        "mac": "aa:c1:ab:cd:ca:d4",
+        "mac": "aa:c1:ab:d4:99:99",
         "peer": "a"
       }
     },
@@ -335,13 +335,13 @@
       "a": {
         "node": "RR1S",
         "interface": "eth-h2",
-        "mac": "aa:c1:ab:c1:78:93",
+        "mac": "aa:c1:ab:83:56:e6",
         "peer": "z"
       },
       "z": {
         "node": "h2",
         "interface": "eth-rr1s",
-        "mac": "aa:c1:ab:7c:c7:e0",
+        "mac": "aa:c1:ab:d6:b8:cc",
         "peer": "a"
       }
     },
@@ -349,13 +349,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr2s",
-        "mac": "aa:c1:ab:32:2c:dc",
+        "mac": "aa:c1:ab:a9:99:4f",
         "peer": "z"
       },
       "z": {
         "node": "RR2S",
         "interface": "eth-rr1t",
-        "mac": "aa:c1:ab:64:c6:68",
+        "mac": "aa:c1:ab:ef:a8:9b",
         "peer": "a"
       }
     },
@@ -363,13 +363,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr2s",
-        "mac": "aa:c1:ab:87:54:2a",
+        "mac": "aa:c1:ab:54:4e:70",
         "peer": "z"
       },
       "z": {
         "node": "RR2S",
         "interface": "eth-rr2t",
-        "mac": "aa:c1:ab:ef:70:5b",
+        "mac": "aa:c1:ab:dd:2d:90",
         "peer": "a"
       }
     },
@@ -377,13 +377,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr3s",
-        "mac": "aa:c1:ab:cd:db:94",
+        "mac": "aa:c1:ab:ae:70:cd",
         "peer": "z"
       },
       "z": {
         "node": "RR3S",
         "interface": "eth-rr1t",
-        "mac": "aa:c1:ab:84:1c:14",
+        "mac": "aa:c1:ab:8d:c4:ae",
         "peer": "a"
       }
     },
@@ -391,13 +391,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr3s",
-        "mac": "aa:c1:ab:43:34:75",
+        "mac": "aa:c1:ab:da:d8:eb",
         "peer": "z"
       },
       "z": {
         "node": "RR3S",
         "interface": "eth-rr2t",
-        "mac": "aa:c1:ab:dd:a9:07",
+        "mac": "aa:c1:ab:a6:5f:25",
         "peer": "a"
       }
     },
@@ -405,13 +405,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr4s",
-        "mac": "aa:c1:ab:57:41:ee",
+        "mac": "aa:c1:ab:21:6a:f6",
         "peer": "z"
       },
       "z": {
         "node": "RR4S",
         "interface": "eth-rr1t",
-        "mac": "aa:c1:ab:ae:58:05",
+        "mac": "aa:c1:ab:e5:ea:14",
         "peer": "a"
       }
     },
@@ -419,13 +419,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr4s",
-        "mac": "aa:c1:ab:0a:27:49",
+        "mac": "aa:c1:ab:00:1d:a4",
         "peer": "z"
       },
       "z": {
         "node": "RR4S",
         "interface": "eth-rr2t",
-        "mac": "aa:c1:ab:e8:79:8f",
+        "mac": "aa:c1:ab:b6:fe:50",
         "peer": "a"
       }
     },
@@ -433,13 +433,13 @@
       "a": {
         "node": "RR4S",
         "interface": "eth-e1",
-        "mac": "aa:c1:ab:88:ef:ff",
+        "mac": "aa:c1:ab:95:47:5e",
         "peer": "z"
       },
       "z": {
         "node": "E1",
         "interface": "eth-rr4s",
-        "mac": "aa:c1:ab:58:2f:67",
+        "mac": "aa:c1:ab:b6:39:5e",
         "peer": "a"
       }
     },
@@ -447,13 +447,13 @@
       "a": {
         "node": "E1",
         "interface": "eth-h3",
-        "mac": "aa:c1:ab:c2:6c:9f",
+        "mac": "aa:c1:ab:6e:a2:d2",
         "peer": "z"
       },
       "z": {
         "node": "h3",
         "interface": "eth-e1",
-        "mac": "aa:c1:ab:ef:2a:47",
+        "mac": "aa:c1:ab:a9:d1:f4",
         "peer": "a"
       }
     }

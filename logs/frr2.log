@@ -1,0 +1,462 @@
+2024/12/03 14:19:16 MGMTD: [VNSS1-Q9XX7] XXX txn in progress, retry init
+2024/12/03 14:19:16 STATIC: [VTVCM-Y2NW3] Configuration Read in Took: 00:00:00
+2024/12/03 14:19:16 STATIC: [G6NKK-8C6DV] end_config: VTY:0x71eb49602740, pending SET-CFG: 0
+2024/12/03 14:19:16 MGMTD: [VTVCM-Y2NW3] Configuration Read in Took: 00:00:00
+2024/12/03 14:19:16 MGMTD: [G6NKK-8C6DV] end_config: VTY:0x70f498c463b0, pending SET-CFG: 12
+2024/12/03 14:19:16 BGP: [VTVCM-Y2NW3] Configuration Read in Took: 00:00:00
+2024/12/03 14:19:16 BGP: [G6NKK-8C6DV] end_config: VTY:0x740aaeb741b0, pending SET-CFG: 0
+2024/12/03 14:19:16 ISIS: [VTVCM-Y2NW3] Configuration Read in Took: 00:00:00
+2024/12/03 14:19:16 ISIS: [G6NKK-8C6DV] end_config: VTY:0x7fc921813100, pending SET-CFG: 0
+2024/12/03 14:19:16 ZEBRA: [VTVCM-Y2NW3] Configuration Read in Took: 00:00:00
+2024/12/03 14:19:16 ZEBRA: [G6NKK-8C6DV] end_config: VTY:0x77b5e13c75e0, pending SET-CFG: 0
+2024/12/03 14:19:17 ZEBRA: [V98V0-MTWPF] client 52 says hello and bids fair to announce only bgp routes vrf=0
+2024/12/03 14:19:17 BGP: [GYE1R-WA4DN] eth-rr1s: released from config-pending hold
+2024/12/03 14:19:17 BGP: [GYE1R-WA4DN] eth-rr2s: released from config-pending hold
+2024/12/03 14:19:17 BGP: [GYE1R-WA4DN] eth-rr3s: released from config-pending hold
+2024/12/03 14:19:17 BGP: [GYE1R-WA4DN] eth-rr4s: released from config-pending hold
+2024/12/03 14:19:18 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:3::/64 from connected: distance 0.
+2024/12/03 14:19:18 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:4::/64 from connected: distance 0.
+2024/12/03 14:19:18 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:6::/64 from connected: distance 0.
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] BGP_Start (Idle->Connect), fd -1
+2024/12/03 14:19:18 BGP: [S7AHN-X0695] eth-rr1s [FSM] Waiting for NHT, no path to neighbor present
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd -1 went from Idle to Connect
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] TCP_connection_open_failed (Connect->Active), fd -1
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd -1 went from Connect to Active
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] ConnectRetry_timer_expired (Active->Connect), fd -1
+2024/12/03 14:19:18 BGP: [Z195V-FNKRK] eth-rr1s [Event] Connect start to eth-rr1s fd 26
+2024/12/03 14:19:18 BGP: [G0837-S7QES] eth-rr1s [FSM] Non blocking connect waiting result, fd 26
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd 26 went from Active to Connect
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] TCP_connection_open (Connect->OpenSent), fd 26
+2024/12/03 14:19:18 BGP: [RWZTG-AA74G] eth-rr1s open active, local address fe80::a8c1:abff:feff:ba03
+2024/12/03 14:19:18 BGP: [XKJ09-9VTZ7] eth-rr1s Sending hostname cap with hn = RR1T, dn = (null)
+2024/12/03 14:19:18 BGP: [YJSKD-N5GGC] eth-rr1s Sending Software Version cap, value: FRRouting/10.1.1_git
+2024/12/03 14:19:18 BGP: [JFFAN-DEGED] eth-rr1s sending OPEN, version 4, my as 65000, holdtime 9, id 10.10.10.11
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenSent established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd 26 went from Connect to OpenSent
+2024/12/03 14:19:18 BGP: [NJ2F2-2W769] eth-rr1s [Event] BGP connection closed fd 26
+2024/12/03 14:19:18 BGP: [NTX3S-9Q8YV] eth-rr1s [Event] BGP error 5 on fd 26
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] TCP_connection_closed (OpenSent->Active), fd 26
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd -1 went from OpenSent to Active
+2024/12/03 14:19:18 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:2::/64 from connected: distance 0.
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] BGP_Start (Idle->Connect), fd -1
+2024/12/03 14:19:18 BGP: [S7AHN-X0695] eth-rr4s [FSM] Waiting for NHT, no path to neighbor present
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd -1 went from Idle to Connect
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] TCP_connection_open_failed (Connect->Active), fd -1
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd -1 went from Connect to Active
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] ConnectRetry_timer_expired (Active->Connect), fd -1
+2024/12/03 14:19:18 BGP: [Z195V-FNKRK] eth-rr4s [Event] Connect start to eth-rr4s fd 26
+2024/12/03 14:19:18 BGP: [G0837-S7QES] eth-rr4s [FSM] Non blocking connect waiting result, fd 26
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd 26 went from Active to Connect
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] TCP_connection_open (Connect->OpenSent), fd 26
+2024/12/03 14:19:18 BGP: [RWZTG-AA74G] eth-rr4s open active, local address fe80::a8c1:abff:fe27:cc49
+2024/12/03 14:19:18 BGP: [XKJ09-9VTZ7] eth-rr4s Sending hostname cap with hn = RR1T, dn = (null)
+2024/12/03 14:19:18 BGP: [YJSKD-N5GGC] eth-rr4s Sending Software Version cap, value: FRRouting/10.1.1_git
+2024/12/03 14:19:18 BGP: [JFFAN-DEGED] eth-rr4s sending OPEN, version 4, my as 65000, holdtime 9, id 10.10.10.11
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenSent established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd 26 went from Connect to OpenSent
+2024/12/03 14:19:18 BGP: [H4B4J-DCW2R][EC 33554455] eth-rr4s [Error] bgp_read_packet error: Connection reset by peer
+2024/12/03 14:19:18 BGP: [NTX3S-9Q8YV] eth-rr4s [Event] BGP error 7 on fd 26
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] TCP_fatal_error (OpenSent->Active), fd 26
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd -1 went from OpenSent to Active
+2024/12/03 14:19:18 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:5::/64 from connected: distance 0.
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] BGP_Start (Idle->Connect), fd -1
+2024/12/03 14:19:18 BGP: [S7AHN-X0695] eth-rr3s [FSM] Waiting for NHT, no path to neighbor present
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd -1 went from Idle to Connect
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] TCP_connection_open_failed (Connect->Active), fd -1
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd -1 went from Connect to Active
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] ConnectRetry_timer_expired (Active->Connect), fd -1
+2024/12/03 14:19:18 BGP: [Z195V-FNKRK] eth-rr3s [Event] Connect start to eth-rr3s fd 26
+2024/12/03 14:19:18 BGP: [G0837-S7QES] eth-rr3s [FSM] Non blocking connect waiting result, fd 26
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd 26 went from Active to Connect
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] TCP_connection_open (Connect->OpenSent), fd 26
+2024/12/03 14:19:18 BGP: [RWZTG-AA74G] eth-rr3s open active, local address fe80::a8c1:abff:fe36:1f89
+2024/12/03 14:19:18 BGP: [XKJ09-9VTZ7] eth-rr3s Sending hostname cap with hn = RR1T, dn = (null)
+2024/12/03 14:19:18 BGP: [YJSKD-N5GGC] eth-rr3s Sending Software Version cap, value: FRRouting/10.1.1_git
+2024/12/03 14:19:18 BGP: [JFFAN-DEGED] eth-rr3s sending OPEN, version 4, my as 65000, holdtime 9, id 10.10.10.11
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenSent established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd 26 went from Connect to OpenSent
+2024/12/03 14:19:18 BGP: [NJ2F2-2W769] eth-rr3s [Event] BGP connection closed fd 26
+2024/12/03 14:19:18 BGP: [NTX3S-9Q8YV] eth-rr3s [Event] BGP error 5 on fd 26
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] TCP_connection_closed (OpenSent->Active), fd 26
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd -1 went from OpenSent to Active
+2024/12/03 14:19:18 BGP: [T04AP-5W1P3] [Event] connection from fe80::a8c1:abff:fec3:57ef fd 26, active peer status 3 fd -1
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd 26 went from Idle to Active
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] TCP_connection_open (Active->OpenSent), fd 26
+2024/12/03 14:19:18 BGP: [WECS1-Q4P17] eth-rr1s passive open
+2024/12/03 14:19:18 BGP: [XKJ09-9VTZ7] eth-rr1s Sending hostname cap with hn = RR1T, dn = (null)
+2024/12/03 14:19:18 BGP: [YJSKD-N5GGC] eth-rr1s Sending Software Version cap, value: FRRouting/10.1.1_git
+2024/12/03 14:19:18 BGP: [JFFAN-DEGED] eth-rr1s sending OPEN, version 4, my as 65000, holdtime 9, id 10.10.10.11
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenSent established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd 26 went from Active to OpenSent
+2024/12/03 14:19:18 BGP: [T04AP-5W1P3] [Event] connection from fe80::a8c1:abff:fec2:548 fd 27, active peer status 3 fd -1
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd 27 went from Idle to Active
+2024/12/03 14:19:18 BGP: [WNM1E-D314G] eth-rr1s rcv OPEN, version 4, remote-as (in open) 65000, holdtime 9, id 10.10.10.21
+2024/12/03 14:19:18 BGP: [QG29C-5TSVS] eth-rr1s rcv OPEN w/ OPTION parameter len: 131
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:19:18 BGP: [VXVH9-3MXR0] eth-rr1s OPEN has MultiProtocol Extensions capability for afi/safi: IPv4/unicast
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has Extended Next Hop Encoding capability (5), length 6
+2024/12/03 14:19:18 BGP: [XCS8V-P66M1] eth-rr1s Received with afi/safi/next-hop afi: IPv4/unicast/2
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:19:18 BGP: [VXVH9-3MXR0] eth-rr1s OPEN has MultiProtocol Extensions capability for afi/safi: IPv6/unicast
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has Route Refresh capability (2), length 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has Enhanced Route Refresh capability (70), length 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has 4-octet AS number capability (65), length 4
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has BGP Extended Message capability (6), length 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 10
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has AddPath capability (69), length 8
+2024/12/03 14:19:18 BGP: [SBSKM-G6QBW] eth-rr1s OPEN has AddPath capability for afi/safi: IPv4/unicast, receive
+2024/12/03 14:19:18 BGP: [SBSKM-G6QBW] eth-rr1s OPEN has AddPath capability for afi/safi: IPv6/unicast, receive
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 12
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has Paths-Limit capability (76), length 10
+2024/12/03 14:19:18 BGP: [MSJ7S-E9MRG] eth-rr1s OPEN has Paths-Limit capability for afi/safi: IPv4/unicast limit: 0
+2024/12/03 14:19:18 BGP: [MSJ7S-E9MRG] eth-rr1s OPEN has Paths-Limit capability for afi/safi: IPv6/unicast limit: 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has FQDN capability (73), length 6
+2024/12/03 14:19:18 BGP: [MR6EG-NS6N7] eth-rr1s received hostname RR1S, domainname (null)
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 4
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has Graceful Restart capability (64), length 2
+2024/12/03 14:19:18 BGP: [KDY57-R1CN0] eth-rr1s Peer has restarted. Restart Time: 120, N-bit set: yes
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 16
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has Long-lived BGP Graceful Restart capability (71), length 14
+2024/12/03 14:19:18 BGP: [ZVHDJ-HW40B] eth-rr1s Addr-family IPv4/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:19:18 BGP: [ZVHDJ-HW40B] eth-rr1s Addr-family IPv6/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr1s rcvd OPEN w/ optional parameter type 2 (Capability) len 23
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr1s OPEN has Software Version capability (75), length 21
+2024/12/03 14:19:18 BGP: [N5H8N-2BZ13] eth-rr1s received Software Version: FRRouting/10.1.1_git
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] Receive_OPEN_message (OpenSent->OpenConfirm), fd 26
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenConfirm established_peers 0
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd 26 went from OpenSent to OpenConfirm
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr1s [FSM] Receive_KEEPALIVE_message (OpenConfirm->Established), fd 26
+2024/12/03 14:19:18 BGP: [X9KQ0-V0CBB] eth-rr1s: peer transfer 0x740aae773220 fd 26 -> 0x740aaeb6b320 fd -1)
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Established established_peers 1
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd 26 went from OpenConfirm to Established
+2024/12/03 14:19:18 BGP: [N9HHH-F8H1M] %ADJCHANGE: neighbor eth-rr1s(RR1S) in vrf default Up
+2024/12/03 14:19:18 BGP: [V4R0W-D4WGF] eth-rr1s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:19:18 BGP: [NVVBY-K8MCE] eth-rr1s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 18432 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:19:18 BGP: [X4CQ0-63QKB] eth-rr1s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:19:18 BGP: [Z8Q37-65KK3] eth-rr1s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:19:18 BGP: [SM2F3-HRYKP] eth-rr1s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:19:18 BGP: [V8B3M-T6VFC] eth-rr1s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 0
+2024/12/03 14:19:18 BGP: [Y5EX3-GHT5V] eth-rr1s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:19:18 BGP: [X19K7-9V4K2] eth-rr1s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:19:18 BGP: [SQ314-QBJCR] eth-rr1s(Unknown) Update Group Hash key: 2256524570
+2024/12/03 14:19:18 BGP: [V4R0W-D4WGF] eth-rr1s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:19:18 BGP: [NVVBY-K8MCE] eth-rr1s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 2048 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:19:18 BGP: [X4CQ0-63QKB] eth-rr1s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:19:18 BGP: [Z8Q37-65KK3] eth-rr1s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:19:18 BGP: [SM2F3-HRYKP] eth-rr1s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:19:18 BGP: [V8B3M-T6VFC] eth-rr1s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 1
+2024/12/03 14:19:18 BGP: [Y5EX3-GHT5V] eth-rr1s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:19:18 BGP: [X19K7-9V4K2] eth-rr1s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:19:18 BGP: [SQ314-QBJCR] eth-rr1s(Unknown) Update Group Hash key: 2260390180
+2024/12/03 14:19:18 BGP: [GBN7X-KK0W4] [Event] Deleting stub connection for peer eth-rr1s
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Deleted established_peers 1
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr1s fd -1 went from Active to Deleted
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] TCP_connection_open (Active->OpenSent), fd 27
+2024/12/03 14:19:18 BGP: [WECS1-Q4P17] eth-rr4s passive open
+2024/12/03 14:19:18 BGP: [XKJ09-9VTZ7] eth-rr4s Sending hostname cap with hn = RR1T, dn = (null)
+2024/12/03 14:19:18 BGP: [YJSKD-N5GGC] eth-rr4s Sending Software Version cap, value: FRRouting/10.1.1_git
+2024/12/03 14:19:18 BGP: [JFFAN-DEGED] eth-rr4s sending OPEN, version 4, my as 65000, holdtime 9, id 10.10.10.11
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenSent established_peers 1
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd 27 went from Active to OpenSent
+2024/12/03 14:19:18 BGP: [WNM1E-D314G] eth-rr4s rcv OPEN, version 4, remote-as (in open) 65000, holdtime 9, id 10.10.10.24
+2024/12/03 14:19:18 BGP: [QG29C-5TSVS] eth-rr4s rcv OPEN w/ OPTION parameter len: 131
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:19:18 BGP: [VXVH9-3MXR0] eth-rr4s OPEN has MultiProtocol Extensions capability for afi/safi: IPv4/unicast
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has Extended Next Hop Encoding capability (5), length 6
+2024/12/03 14:19:18 BGP: [XCS8V-P66M1] eth-rr4s Received with afi/safi/next-hop afi: IPv4/unicast/2
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:19:18 BGP: [VXVH9-3MXR0] eth-rr4s OPEN has MultiProtocol Extensions capability for afi/safi: IPv6/unicast
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has Route Refresh capability (2), length 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has Enhanced Route Refresh capability (70), length 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has 4-octet AS number capability (65), length 4
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has BGP Extended Message capability (6), length 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 10
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has AddPath capability (69), length 8
+2024/12/03 14:19:18 BGP: [SBSKM-G6QBW] eth-rr4s OPEN has AddPath capability for afi/safi: IPv4/unicast, receive
+2024/12/03 14:19:18 BGP: [SBSKM-G6QBW] eth-rr4s OPEN has AddPath capability for afi/safi: IPv6/unicast, receive
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 12
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has Paths-Limit capability (76), length 10
+2024/12/03 14:19:18 BGP: [MSJ7S-E9MRG] eth-rr4s OPEN has Paths-Limit capability for afi/safi: IPv4/unicast limit: 0
+2024/12/03 14:19:18 BGP: [MSJ7S-E9MRG] eth-rr4s OPEN has Paths-Limit capability for afi/safi: IPv6/unicast limit: 0
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has FQDN capability (73), length 6
+2024/12/03 14:19:18 BGP: [MR6EG-NS6N7] eth-rr4s received hostname RR4S, domainname (null)
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 4
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has Graceful Restart capability (64), length 2
+2024/12/03 14:19:18 BGP: [KDY57-R1CN0] eth-rr4s Peer has restarted. Restart Time: 120, N-bit set: yes
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 16
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has Long-lived BGP Graceful Restart capability (71), length 14
+2024/12/03 14:19:18 BGP: [ZVHDJ-HW40B] eth-rr4s Addr-family IPv4/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:19:18 BGP: [ZVHDJ-HW40B] eth-rr4s Addr-family IPv6/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:19:18 BGP: [NVZPF-5ST3B] eth-rr4s rcvd OPEN w/ optional parameter type 2 (Capability) len 23
+2024/12/03 14:19:18 BGP: [SCW43-WN4M1] eth-rr4s OPEN has Software Version capability (75), length 21
+2024/12/03 14:19:18 BGP: [N5H8N-2BZ13] eth-rr4s received Software Version: FRRouting/10.1.1_git
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] Receive_OPEN_message (OpenSent->OpenConfirm), fd 27
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenConfirm established_peers 1
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd 27 went from OpenSent to OpenConfirm
+2024/12/03 14:19:18 BGP: [P3D3N-3277A] eth-rr1s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:19:18 BGP: [ZWCSR-M7FG9] eth-rr4s [FSM] Receive_KEEPALIVE_message (OpenConfirm->Established), fd 27
+2024/12/03 14:19:18 BGP: [X9KQ0-V0CBB] eth-rr4s: peer transfer 0x740aae777b50 fd 27 -> 0x740aae96e3d0 fd -1)
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Established established_peers 2
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd 27 went from OpenConfirm to Established
+2024/12/03 14:19:18 BGP: [N9HHH-F8H1M] %ADJCHANGE: neighbor eth-rr4s(RR4S) in vrf default Up
+2024/12/03 14:19:18 BGP: [V4R0W-D4WGF] eth-rr4s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:19:18 BGP: [NVVBY-K8MCE] eth-rr4s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 18432 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:19:18 BGP: [X4CQ0-63QKB] eth-rr4s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:19:18 BGP: [Z8Q37-65KK3] eth-rr4s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:19:18 BGP: [SM2F3-HRYKP] eth-rr4s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:19:18 BGP: [V8B3M-T6VFC] eth-rr4s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 0
+2024/12/03 14:19:18 BGP: [Y5EX3-GHT5V] eth-rr4s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:19:18 BGP: [X19K7-9V4K2] eth-rr4s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:19:18 BGP: [SQ314-QBJCR] eth-rr4s(Unknown) Update Group Hash key: 2256524570
+2024/12/03 14:19:18 BGP: [V4R0W-D4WGF] eth-rr4s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:19:18 BGP: [NVVBY-K8MCE] eth-rr4s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 2048 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:19:18 BGP: [X4CQ0-63QKB] eth-rr4s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:19:18 BGP: [Z8Q37-65KK3] eth-rr4s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:19:18 BGP: [SM2F3-HRYKP] eth-rr4s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:19:18 BGP: [V8B3M-T6VFC] eth-rr4s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 1
+2024/12/03 14:19:18 BGP: [Y5EX3-GHT5V] eth-rr4s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:19:18 BGP: [X19K7-9V4K2] eth-rr4s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:19:18 BGP: [SQ314-QBJCR] eth-rr4s(Unknown) Update Group Hash key: 2260390180
+2024/12/03 14:19:18 BGP: [GBN7X-KK0W4] [Event] Deleting stub connection for peer eth-rr4s
+2024/12/03 14:19:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Deleted established_peers 2
+2024/12/03 14:19:18 BGP: [HKWM3-ZC5QP] eth-rr4s fd -1 went from Active to Deleted
+2024/12/03 14:19:18 BGP: [P3D3N-3277A] eth-rr4s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:19:19 BGP: [ZWCSR-M7FG9] eth-rr2s [FSM] BGP_Start (Idle->Connect), fd -1
+2024/12/03 14:19:19 BGP: [S7AHN-X0695] eth-rr2s [FSM] Waiting for NHT, no path to neighbor present
+2024/12/03 14:19:19 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 2
+2024/12/03 14:19:19 BGP: [HKWM3-ZC5QP] eth-rr2s fd -1 went from Idle to Connect
+2024/12/03 14:19:19 BGP: [ZWCSR-M7FG9] eth-rr2s [FSM] TCP_connection_open_failed (Connect->Active), fd -1
+2024/12/03 14:19:19 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Active established_peers 2
+2024/12/03 14:19:19 BGP: [HKWM3-ZC5QP] eth-rr2s fd -1 went from Connect to Active
+2024/12/03 14:19:19 BGP: [ZWCSR-M7FG9] eth-rr2s [FSM] ConnectRetry_timer_expired (Active->Connect), fd -1
+2024/12/03 14:19:19 BGP: [Z195V-FNKRK] eth-rr2s [Event] Connect start to eth-rr2s fd 28
+2024/12/03 14:19:19 BGP: [G0837-S7QES] eth-rr2s [FSM] Non blocking connect waiting result, fd 28
+2024/12/03 14:19:19 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 2
+2024/12/03 14:19:19 BGP: [HKWM3-ZC5QP] eth-rr2s fd 28 went from Active to Connect
+2024/12/03 14:19:19 BGP: [ZWCSR-M7FG9] eth-rr2s [FSM] TCP_connection_open (Connect->OpenSent), fd 28
+2024/12/03 14:19:19 BGP: [RWZTG-AA74G] eth-rr2s open active, local address fe80::a8c1:abff:fed8:4af4
+2024/12/03 14:19:19 BGP: [XKJ09-9VTZ7] eth-rr2s Sending hostname cap with hn = RR1T, dn = (null)
+2024/12/03 14:19:19 BGP: [YJSKD-N5GGC] eth-rr2s Sending Software Version cap, value: FRRouting/10.1.1_git
+2024/12/03 14:19:19 BGP: [JFFAN-DEGED] eth-rr2s sending OPEN, version 4, my as 65000, holdtime 9, id 10.10.10.11
+2024/12/03 14:19:19 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenSent established_peers 2
+2024/12/03 14:19:19 BGP: [HKWM3-ZC5QP] eth-rr2s fd 28 went from Connect to OpenSent
+2024/12/03 14:19:19 BGP: [WNM1E-D314G] eth-rr2s rcv OPEN, version 4, remote-as (in open) 65000, holdtime 9, id 10.10.10.22
+2024/12/03 14:19:19 BGP: [QG29C-5TSVS] eth-rr2s rcv OPEN w/ OPTION parameter len: 131
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:19:19 BGP: [VXVH9-3MXR0] eth-rr2s OPEN has MultiProtocol Extensions capability for afi/safi: IPv4/unicast
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has Extended Next Hop Encoding capability (5), length 6
+2024/12/03 14:19:19 BGP: [XCS8V-P66M1] eth-rr2s Received with afi/safi/next-hop afi: IPv4/unicast/2
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:19:19 BGP: [VXVH9-3MXR0] eth-rr2s OPEN has MultiProtocol Extensions capability for afi/safi: IPv6/unicast
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has Route Refresh capability (2), length 0
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has Enhanced Route Refresh capability (70), length 0
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has 4-octet AS number capability (65), length 4
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has BGP Extended Message capability (6), length 0
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 10
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has AddPath capability (69), length 8
+2024/12/03 14:19:19 BGP: [SBSKM-G6QBW] eth-rr2s OPEN has AddPath capability for afi/safi: IPv4/unicast, receive
+2024/12/03 14:19:19 BGP: [SBSKM-G6QBW] eth-rr2s OPEN has AddPath capability for afi/safi: IPv6/unicast, receive
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 12
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has Paths-Limit capability (76), length 10
+2024/12/03 14:19:19 BGP: [MSJ7S-E9MRG] eth-rr2s OPEN has Paths-Limit capability for afi/safi: IPv4/unicast limit: 0
+2024/12/03 14:19:19 BGP: [MSJ7S-E9MRG] eth-rr2s OPEN has Paths-Limit capability for afi/safi: IPv6/unicast limit: 0
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has FQDN capability (73), length 6
+2024/12/03 14:19:19 BGP: [MR6EG-NS6N7] eth-rr2s received hostname RR2S, domainname (null)
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 4
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has Graceful Restart capability (64), length 2
+2024/12/03 14:19:19 BGP: [KDY57-R1CN0] eth-rr2s Peer has restarted. Restart Time: 120, N-bit set: yes
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 16
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has Long-lived BGP Graceful Restart capability (71), length 14
+2024/12/03 14:19:19 BGP: [ZVHDJ-HW40B] eth-rr2s Addr-family IPv4/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:19:19 BGP: [ZVHDJ-HW40B] eth-rr2s Addr-family IPv6/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:19:19 BGP: [NVZPF-5ST3B] eth-rr2s rcvd OPEN w/ optional parameter type 2 (Capability) len 23
+2024/12/03 14:19:19 BGP: [SCW43-WN4M1] eth-rr2s OPEN has Software Version capability (75), length 21
+2024/12/03 14:19:19 BGP: [N5H8N-2BZ13] eth-rr2s received Software Version: FRRouting/10.1.1_git
+2024/12/03 14:19:19 BGP: [ZWCSR-M7FG9] eth-rr2s [FSM] Receive_OPEN_message (OpenSent->OpenConfirm), fd 28
+2024/12/03 14:19:19 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenConfirm established_peers 2
+2024/12/03 14:19:19 BGP: [HKWM3-ZC5QP] eth-rr2s fd 28 went from OpenSent to OpenConfirm
+2024/12/03 14:19:19 BGP: [ZWCSR-M7FG9] eth-rr2s [FSM] Receive_KEEPALIVE_message (OpenConfirm->Established), fd 28
+2024/12/03 14:19:19 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Established established_peers 3
+2024/12/03 14:19:19 BGP: [HKWM3-ZC5QP] eth-rr2s fd 28 went from OpenConfirm to Established
+2024/12/03 14:19:19 BGP: [N9HHH-F8H1M] %ADJCHANGE: neighbor eth-rr2s(RR2S) in vrf default Up
+2024/12/03 14:19:19 BGP: [V4R0W-D4WGF] eth-rr2s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:19:19 BGP: [NVVBY-K8MCE] eth-rr2s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 18432 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:19:19 BGP: [X4CQ0-63QKB] eth-rr2s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:19:19 BGP: [Z8Q37-65KK3] eth-rr2s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:19:19 BGP: [SM2F3-HRYKP] eth-rr2s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:19:19 BGP: [V8B3M-T6VFC] eth-rr2s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 0
+2024/12/03 14:19:19 BGP: [Y5EX3-GHT5V] eth-rr2s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:19:19 BGP: [X19K7-9V4K2] eth-rr2s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:19:19 BGP: [SQ314-QBJCR] eth-rr2s(Unknown) Update Group Hash key: 2256524570
+2024/12/03 14:19:19 BGP: [V4R0W-D4WGF] eth-rr2s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:19:19 BGP: [NVVBY-K8MCE] eth-rr2s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 2048 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:19:19 BGP: [X4CQ0-63QKB] eth-rr2s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:19:19 BGP: [Z8Q37-65KK3] eth-rr2s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:19:19 BGP: [SM2F3-HRYKP] eth-rr2s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:19:19 BGP: [V8B3M-T6VFC] eth-rr2s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 1
+2024/12/03 14:19:19 BGP: [Y5EX3-GHT5V] eth-rr2s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:19:19 BGP: [X19K7-9V4K2] eth-rr2s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:19:19 BGP: [SQ314-QBJCR] eth-rr2s(Unknown) Update Group Hash key: 2260390180
+2024/12/03 14:19:19 BGP: [P3D3N-3277A] eth-rr2s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:19:19 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:19:19 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv4 Unicast from eth-rr1s in vrf default
+2024/12/03 14:19:19 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:19:19 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv6 Unicast from eth-rr1s in vrf default
+2024/12/03 14:19:19 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:3:1::/64 from bgp: distance 200.
+2024/12/03 14:19:19 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:3:2::/64 from bgp: distance 200.
+2024/12/03 14:19:19 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:3:3::/64 from bgp: distance 200.
+2024/12/03 14:19:19 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:19:19 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv4 Unicast from eth-rr4s in vrf default
+2024/12/03 14:19:19 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:19:19 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv6 Unicast from eth-rr4s in vrf default
+2024/12/03 14:19:19 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:6::/64 from bgp: distance 200.
+2024/12/03 14:19:19 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:6:1::/64 from bgp: distance 200.
+2024/12/03 14:19:19 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:6:2::/64 from bgp: distance 200.
+2024/12/03 14:19:19 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:a::1/128 from bgp: distance 200.
+2024/12/03 14:19:20 BGP: [P3D3N-3277A] eth-rr2s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:19:20 BGP: [P3D3N-3277A] eth-rr4s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:19:20 BGP: [P3D3N-3277A] eth-rr1s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:19:20 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv4 Unicast to eth-rr2s
+2024/12/03 14:19:20 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv6 Unicast to eth-rr2s
+2024/12/03 14:19:20 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv4 Unicast to eth-rr4s
+2024/12/03 14:19:20 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv6 Unicast to eth-rr4s
+2024/12/03 14:19:20 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv4 Unicast to eth-rr1s
+2024/12/03 14:19:20 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv6 Unicast to eth-rr1s
+2024/12/03 14:19:20 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:19:20 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv4 Unicast from eth-rr2s in vrf default
+2024/12/03 14:19:20 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:19:20 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv6 Unicast from eth-rr2s in vrf default
+2024/12/03 14:19:46 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:2::/64 from connected: distance 0.
+2024/12/03 14:19:46 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:3::/64 from connected: distance 0.
+2024/12/03 14:19:46 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:4::/64 from connected: distance 0.
+2024/12/03 14:19:46 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:5::/64 from connected: distance 0.
+2024/12/03 14:19:46 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:6::/64 from connected: distance 0.
+2024/12/03 14:19:47 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:2::/64 from connected: distance 0.
+2024/12/03 14:19:47 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:3::/64 from connected: distance 0.
+2024/12/03 14:19:47 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:4::/64 from connected: distance 0.
+2024/12/03 14:19:47 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:5::/64 from connected: distance 0.
+2024/12/03 14:19:47 ISIS: [TMR1C-1X1AY] isis_redist_add: New route fc00:2142:1:6::/64 from connected: distance 0.
+2024/12/03 14:21:18 BGP: [JFMSW-YMBC7] eth-rr3s [FSM] Timer (connect timer expire)
+2024/12/03 14:21:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] ConnectRetry_timer_expired (Active->Connect), fd -1
+2024/12/03 14:21:18 BGP: [Z195V-FNKRK] eth-rr3s [Event] Connect start to eth-rr3s fd 29
+2024/12/03 14:21:18 BGP: [G0837-S7QES] eth-rr3s [FSM] Non blocking connect waiting result, fd 29
+2024/12/03 14:21:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Connect established_peers 3
+2024/12/03 14:21:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd 29 went from Active to Connect
+2024/12/03 14:21:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] TCP_connection_open (Connect->OpenSent), fd 29
+2024/12/03 14:21:18 BGP: [RWZTG-AA74G] eth-rr3s open active, local address fe80::a8c1:abff:fe36:1f89
+2024/12/03 14:21:18 BGP: [XKJ09-9VTZ7] eth-rr3s Sending hostname cap with hn = RR1T, dn = (null)
+2024/12/03 14:21:18 BGP: [YJSKD-N5GGC] eth-rr3s Sending Software Version cap, value: FRRouting/10.1.1_git
+2024/12/03 14:21:18 BGP: [JFFAN-DEGED] eth-rr3s sending OPEN, version 4, my as 65000, holdtime 9, id 10.10.10.11
+2024/12/03 14:21:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenSent established_peers 3
+2024/12/03 14:21:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd 29 went from Connect to OpenSent
+2024/12/03 14:21:18 BGP: [WNM1E-D314G] eth-rr3s rcv OPEN, version 4, remote-as (in open) 65000, holdtime 9, id 10.10.10.23
+2024/12/03 14:21:18 BGP: [QG29C-5TSVS] eth-rr3s rcv OPEN w/ OPTION parameter len: 131
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:21:18 BGP: [VXVH9-3MXR0] eth-rr3s OPEN has MultiProtocol Extensions capability for afi/safi: IPv4/unicast
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has Extended Next Hop Encoding capability (5), length 6
+2024/12/03 14:21:18 BGP: [XCS8V-P66M1] eth-rr3s Received with afi/safi/next-hop afi: IPv4/unicast/2
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has MultiProtocol Extensions capability (1), length 4
+2024/12/03 14:21:18 BGP: [VXVH9-3MXR0] eth-rr3s OPEN has MultiProtocol Extensions capability for afi/safi: IPv6/unicast
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has Route Refresh capability (2), length 0
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has Enhanced Route Refresh capability (70), length 0
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 6
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has 4-octet AS number capability (65), length 4
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 2
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has BGP Extended Message capability (6), length 0
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 10
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has AddPath capability (69), length 8
+2024/12/03 14:21:18 BGP: [SBSKM-G6QBW] eth-rr3s OPEN has AddPath capability for afi/safi: IPv4/unicast, receive
+2024/12/03 14:21:18 BGP: [SBSKM-G6QBW] eth-rr3s OPEN has AddPath capability for afi/safi: IPv6/unicast, receive
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 12
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has Paths-Limit capability (76), length 10
+2024/12/03 14:21:18 BGP: [MSJ7S-E9MRG] eth-rr3s OPEN has Paths-Limit capability for afi/safi: IPv4/unicast limit: 0
+2024/12/03 14:21:18 BGP: [MSJ7S-E9MRG] eth-rr3s OPEN has Paths-Limit capability for afi/safi: IPv6/unicast limit: 0
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 8
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has FQDN capability (73), length 6
+2024/12/03 14:21:18 BGP: [MR6EG-NS6N7] eth-rr3s received hostname RR3S, domainname (null)
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 4
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has Graceful Restart capability (64), length 2
+2024/12/03 14:21:18 BGP: [KDY57-R1CN0] eth-rr3s Peer has not restarted. Restart Time: 120, N-bit set: yes
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 16
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has Long-lived BGP Graceful Restart capability (71), length 14
+2024/12/03 14:21:18 BGP: [ZVHDJ-HW40B] eth-rr3s Addr-family IPv4/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:21:18 BGP: [ZVHDJ-HW40B] eth-rr3s Addr-family IPv6/unicast(afi/safi) not enabled. Ignore the Long-lived Graceful Restart capability
+2024/12/03 14:21:18 BGP: [NVZPF-5ST3B] eth-rr3s rcvd OPEN w/ optional parameter type 2 (Capability) len 23
+2024/12/03 14:21:18 BGP: [SCW43-WN4M1] eth-rr3s OPEN has Software Version capability (75), length 21
+2024/12/03 14:21:18 BGP: [N5H8N-2BZ13] eth-rr3s received Software Version: FRRouting/10.1.1_git
+2024/12/03 14:21:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] Receive_OPEN_message (OpenSent->OpenConfirm), fd 29
+2024/12/03 14:21:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: OpenConfirm established_peers 3
+2024/12/03 14:21:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd 29 went from OpenSent to OpenConfirm
+2024/12/03 14:21:18 BGP: [ZWCSR-M7FG9] eth-rr3s [FSM] Receive_KEEPALIVE_message (OpenConfirm->Established), fd 29
+2024/12/03 14:21:18 BGP: [T91AW-FGMHW] bgp_fsm_change_status : vrf default(0), Status: Established established_peers 4
+2024/12/03 14:21:18 BGP: [HKWM3-ZC5QP] eth-rr3s fd 29 went from OpenConfirm to Established
+2024/12/03 14:21:18 BGP: [N9HHH-F8H1M] %ADJCHANGE: neighbor eth-rr3s(RR3S) in vrf default Up
+2024/12/03 14:21:18 BGP: [V4R0W-D4WGF] eth-rr3s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:21:18 BGP: [NVVBY-K8MCE] eth-rr3s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 18432 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:21:18 BGP: [X4CQ0-63QKB] eth-rr3s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:21:18 BGP: [Z8Q37-65KK3] eth-rr3s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:21:18 BGP: [SM2F3-HRYKP] eth-rr3s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:21:18 BGP: [V8B3M-T6VFC] eth-rr3s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 0
+2024/12/03 14:21:18 BGP: [Y5EX3-GHT5V] eth-rr3s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:21:18 BGP: [X19K7-9V4K2] eth-rr3s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:21:18 BGP: [SQ314-QBJCR] eth-rr3s(Unknown) Update Group Hash key: 2256524570
+2024/12/03 14:21:18 BGP: [V4R0W-D4WGF] eth-rr3s(Unknown) Update Group Hash: sort: 1 sub_sort: 0 UpdGrpFlags: 0 UpdGrpAFFlags: 553648131
+2024/12/03 14:21:18 BGP: [NVVBY-K8MCE] eth-rr3s(Unknown) Update Group Hash: addpath: 4 UpdGrpCapFlag: 256 UpdGrpCapAFFlag: 2048 route_adv: 0 change local as: 0, as_path_loop_detection: 0
+2024/12/03 14:21:18 BGP: [X4CQ0-63QKB] eth-rr3s(Unknown) Update Group Hash: addpath paths-limit: (send 0, receive 0)
+2024/12/03 14:21:18 BGP: [Z8Q37-65KK3] eth-rr3s(Unknown) Update Group Hash: max packet size: 65535 pmax_out: 0 Peer Group: SECOND_LEVEL rmap out: (NONE)
+2024/12/03 14:21:18 BGP: [SM2F3-HRYKP] eth-rr3s(Unknown) Update Group Hash: dlist out: (NONE) plist out: (NONE) aslist out: (NONE) usmap out: (NONE) advmap: (NONE) 0
+2024/12/03 14:21:18 BGP: [V8B3M-T6VFC] eth-rr3s(Unknown) Update Group Hash: default rmap: (NONE) shared network and afi active network: 1
+2024/12/03 14:21:18 BGP: [Y5EX3-GHT5V] eth-rr3s(Unknown) Update Group Hash: Lonesoul: 0 ORF prefix: 0 max prefix out: 0
+2024/12/03 14:21:18 BGP: [X19K7-9V4K2] eth-rr3s(Unknown) Update Group Hash: local role: 255 AIGP: 0 SOO: (NONE)
+2024/12/03 14:21:18 BGP: [SQ314-QBJCR] eth-rr3s(Unknown) Update Group Hash key: 2260390180
+2024/12/03 14:21:18 BGP: [P3D3N-3277A] eth-rr3s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:21:18 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv4 Unicast to eth-rr3s
+2024/12/03 14:21:19 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:21:19 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv4 Unicast from eth-rr3s in vrf default
+2024/12/03 14:21:19 BGP: [WT375-N4KPV] EOR REQ 0, EOR RCV 0
+2024/12/03 14:21:19 BGP: [M59KS-A3ZXZ] bgp_update_receive: rcvd End-of-RIB for IPv6 Unicast from eth-rr3s in vrf default
+2024/12/03 14:21:19 BGP: [P3D3N-3277A] eth-rr3s [FSM] Timer (routeadv timer expire)
+2024/12/03 14:21:19 BGP: [ZP3RE-J4Q8C] send End-of-RIB for IPv6 Unicast to eth-rr3s
