@@ -39,13 +39,13 @@ topology:
     #   cmd: /etc/frr/startup.sh
     # s6:
     #   cmd: /etc/frr/startup.sh
-    # h1:
-    #   sysctls:
-    #     net.ipv6.conf.all.forwarding: 0
-    #   image: host:latest
-    #   exec: 
-    #     - ip -6 addr add fc00:2142:1::2/64 dev eth-s1
-    #     - ip -6 route add default via fc00:2142:1::1 dev eth-s1
+    h1:
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      image: host:latest
+      exec: 
+        - ip -6 addr add fc00:2142:4:3::2/64 dev eth-rr2s
+        - ip -6 route add default via fc00:2142:4:3::1 dev eth-rr2s
     h2:
       image: host:latest
       sysctls:
@@ -60,6 +60,20 @@ topology:
       exec:
         - ip -6 addr add fc00:2142:a:2::2/64 dev eth-e1
         - ip -6 route add default via fc00:2142:a:2::1 dev eth-e1
+    h4:
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      image: host:latest
+      exec: 
+        - ip -6 addr add fc00:2142:5:3::2/64 dev eth-rr3s
+        - ip -6 route add default via fc00:2142:5:3::1 dev eth-rr3s
+    h5:
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      image: host:latest
+      exec: 
+        - ip -6 addr add fc00:2142:6:3::2/64 dev eth-rr4s
+        - ip -6 route add default via fc00:2142:6:3::1 dev eth-rr4s
 
   links:
     # top level route reflectors connected in full mesh
@@ -72,34 +86,16 @@ topology:
     # RR2S:
     - endpoints: [RR1T:eth-rr2s, RR2S:eth-rr1t]
     - endpoints: [RR2T:eth-rr2s, RR2S:eth-rr2t]
+    - endpoints: [RR2S:eth-h1, h1:eth-rr2s]
     # RR3S:
     - endpoints: [RR1T:eth-rr3s, RR3S:eth-rr1t]
     - endpoints: [RR2T:eth-rr3s, RR3S:eth-rr2t]
+    - endpoints: [RR3S:eth-h4, h4:eth-rr3s]
     # RR4S:
     - endpoints: [RR1T:eth-rr4s, RR4S:eth-rr1t]
     - endpoints: [RR2T:eth-rr4s, RR4S:eth-rr2t]
+    - endpoints: [RR4S:eth-h5, h5:eth-rr4s]
     # external routers
     - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
     - endpoints: [E1:eth-h3, h3:eth-e1]
       mtu: 1500
-    # - endpoints: [s2:eth-s3, s3:eth-s2]
-    # - endpoints: [ "h1:eth-s1", "s1:eth-h1"]
-    #   mtu: 1500
-    # - endpoints: [ "s1:eth-s2", "s2:eth-s1" ]
-    #   mtu: 1500
-    # - endpoints: [ "s1:eth-s4", "s4:eth-s1" ]
-    #   mtu: 1500
-    # - endpoints: [ "s2:eth-s3", "s3:eth-s2" ]
-    #   mtu: 1500
-    # - endpoints: [ "s3:eth-s4", "s4:eth-s3" ]
-    #   mtu: 1500
-    # - endpoints: [ "s4:eth-s5", "s5:eth-s4" ]
-    #   mtu: 1500
-    # - endpoints: [ "s3:eth-s6", "s6:eth-s3" ]
-    #   mtu: 1500
-    # - endpoints: [ "s5:eth-s6", "s6:eth-s5" ]
-    #   mtu: 1500
-    # - endpoints: [ "s3:eth-h2", "h2:eth-s3" ]
-    #   mtu: 1500
-    # - endpoints: [ "s5:eth-h3", "h3:eth-s5" ]
-    #   mtu: 1500
