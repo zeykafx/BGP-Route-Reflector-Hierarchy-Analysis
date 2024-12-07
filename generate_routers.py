@@ -143,7 +143,7 @@ def generate_clab_file():
 
     # Generate configuration file
     output = template_clab.render()
-    output_dir = scripts_dir
+    output_dir = "./"
     os.makedirs(output_dir, exist_ok=True)
     output_file = os.path.join(output_dir, 'hierarchy.clab.yml')
     with open(output_file, 'w') as f:

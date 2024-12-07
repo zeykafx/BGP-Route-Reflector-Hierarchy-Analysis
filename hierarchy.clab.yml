@@ -17,10 +17,13 @@ topology:
       - vtysh.conf:/etc/frr/vtysh.conf
       - __clabNodeDir__/frr.conf:/etc/frr/frr.ro.conf:ro
   nodes:
+    # Top level route reflectors
     RR1T:
       cmd: /etc/frr/startup.sh
     RR2T:
       cmd: /etc/frr/startup.sh
+    
+    # Second level route reflectors
     RR1S:
       cmd: /etc/frr/startup.sh
     RR2S:
@@ -29,12 +32,30 @@ topology:
       cmd: /etc/frr/startup.sh
     RR4S:
       cmd: /etc/frr/startup.sh
-    E1:
-      cmd: /etc/frr/startup.sh
+
+    # Regular routers
     R1:
       cmd: /etc/frr/startup.sh
     R2:
       cmd: /etc/frr/startup.sh
+    R3:
+      cmd: /etc/frr/startup.sh
+    R4:
+      cmd: /etc/frr/startup.sh
+    R5:
+      cmd: /etc/frr/startup.sh
+    R6:
+      cmd: /etc/frr/startup.sh
+    R7:
+      cmd: /etc/frr/startup.sh
+    R8:
+      cmd: /etc/frr/startup.sh
+
+    # External router
+    E1:
+      cmd: /etc/frr/startup.sh
+    # Hosts
+    
     h2:
       image: host:latest
       sysctls:
@@ -51,29 +72,50 @@ topology:
         - ip -6 route add default via fc00:2142:a:2::1 dev eth-e1
 
   links:
-    # top level route reflectors connected in full mesh
+    # Top level route reflectors connected in full mesh
     - endpoints: [RR1T:eth-rr2t, RR2T:eth-rr1t]
-    # second level route reflectors
-    # RR1S:
+
+    # Second level route reflectors connected to top level
+    # RR1S connections
     - endpoints: [RR1T:eth-rr1s, RR1S:eth-rr1t]
-    - endpoints: [RR2T:eth-rr1s, RR1S:eth-rr2t]    
-    - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
-    # RR2S:
+    - endpoints: [RR2T:eth-rr1s, RR1S:eth-rr2t]
+    # RR2S connections
     - endpoints: [RR1T:eth-rr2s, RR2S:eth-rr1t]
     - endpoints: [RR2T:eth-rr2s, RR2S:eth-rr2t]
-    # RR3S:
+    # RR3S connections
     - endpoints: [RR1T:eth-rr3s, RR3S:eth-rr1t]
     - endpoints: [RR2T:eth-rr3s, RR3S:eth-rr2t]
-    # RR4S:
+    # RR4S connections
     - endpoints: [RR1T:eth-rr4s, RR4S:eth-rr1t]
     - endpoints: [RR2T:eth-rr4s, RR4S:eth-rr2t]
-    # external routers
+
+    # Host and External connections
+    - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
     - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
     - endpoints: [E1:eth-h3, h3:eth-e1]
-    # Normal routers
-    # R1: connected to RR1S and RR2S
+
+    # Regular routers connections
+    # R1: connections to RR1S and RR2S
     - endpoints: [RR1S:eth-r1, R1:eth-rr1s]
     - endpoints: [RR2S:eth-r1, R1:eth-rr2s]
-    # R2: connected to RR3S and RR4S
-    - endpoints: [RR3S:eth-r2, R2:eth-rr3s]
-    - endpoints: [RR4S:eth-r2, R2:eth-rr4s]
+    # R2: connections to RR1S and RR2S
+    - endpoints: [RR1S:eth-r2, R2:eth-rr1s]
+    - endpoints: [RR2S:eth-r2, R2:eth-rr2s]
+    # R3: connections to RR1S and RR2S
+    - endpoints: [RR1S:eth-r3, R3:eth-rr1s]
+    - endpoints: [RR2S:eth-r3, R3:eth-rr2s]
+    # R4: connections to RR1S and RR2S
+    - endpoints: [RR1S:eth-r4, R4:eth-rr1s]
+    - endpoints: [RR2S:eth-r4, R4:eth-rr2s]
+    # R5: connections to RR3S and RR4S
+    - endpoints: [RR3S:eth-r5, R5:eth-rr3s]
+    - endpoints: [RR4S:eth-r5, R5:eth-rr4s]
+    # R6: connections to RR3S and RR4S
+    - endpoints: [RR3S:eth-r6, R6:eth-rr3s]
+    - endpoints: [RR4S:eth-r6, R6:eth-rr4s]
+    # R7: connections to RR3S and RR4S
+    - endpoints: [RR3S:eth-r7, R7:eth-rr3s]
+    - endpoints: [RR4S:eth-r7, R7:eth-rr4s]
+    # R8: connections to RR3S and RR4S
+    - endpoints: [RR3S:eth-r8, R8:eth-rr3s]
+    - endpoints: [RR4S:eth-r8, R8:eth-rr4s]
