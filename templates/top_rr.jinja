@@ -1,33 +1,32 @@
 frr version 10.1.1_git
 frr defaults traditional
-hostname RR1T
+hostname {{ hostname }}
 service integrated-vtysh-config
 !
 ipv6 forward
 !
-router isis RR1T
-    net 49.0001.0000.0000.0001.00
+router isis {{ hostname }}
+    net {{ net }}
     is-type level-1
 exit
 !
 ! ipv6 route fc00:2142:1::/48 Null0
 !
 router bgp 65000
-    bgp router-id 1.0.0.1
-    bgp cluster-id 1.0.0.1
+    bgp router-id {{ bgp_router_cluster_id }}
+    bgp cluster-id {{ bgp_router_cluster_id }}
     bgp default ipv6-unicast
     no bgp default ipv4-unicast
     ! Top route reflector ---------
     neighbor TOP_LEVEL_PEER peer-group
     neighbor TOP_LEVEL_PEER remote-as 65000
-    neighbor eth-rr2t interface peer-group TOP_LEVEL_PEER
+    neighbor {{ interfaces[0].name }} interface peer-group TOP_LEVEL_PEER
     ! Second level route reflector ---------
     neighbor SECOND_LEVEL peer-group
     neighbor SECOND_LEVEL remote-as 65000
-    neighbor eth-rr1s interface peer-group SECOND_LEVEL
-    neighbor eth-rr2s interface peer-group SECOND_LEVEL
-    neighbor eth-rr3s interface peer-group SECOND_LEVEL
-    neighbor eth-rr4s interface peer-group SECOND_LEVEL
+    {% for interface in interfaces[1:] %}
+    neighbor {{ interface.name }} interface peer-group SECOND_LEVEL
+    {% endfor %}
     ! Address family ---------
     address-family ipv4 unicast
         no neighbor SECOND_LEVEL activate
@@ -58,7 +57,6 @@ route-map FROM_TOP_LEVEL_IN permit 10
 exit
 !
 route-map TO_TOP_LEVEL_OUT permit 10
-    ! match ipv6 address all
     match community FROM_SECOND_LEVEL
     set ipv6 next-hop peer-address
 exit
@@ -75,42 +73,17 @@ route-map TO_SECOND_LEVEL_OUT permit 10
 exit
 !
 interface loopback
-    ipv6 address fc00:2142:1::1/128
-    ipv6 router isis RR1T
+    ipv6 address {{ loopback.ipv6_address }}
+    ipv6 router isis {{ hostname }}
     isis passive
 exit
 !   
-interface eth-rr2t
-    ipv6 address fc00:2142:1:2::1/64
-    ipv6 router isis RR1T
+{% for interface in interfaces %}
+interface {{ interface.name }}
+    ipv6 address {{ interface.ipv6_address }}
+    ipv6 router isis {{ hostname }}
     isis circuit-type level-1
     isis network point-to-point
 exit
 !
-interface eth-rr1s
-    ipv6 address fc00:2142:1:11::1/64
-    ipv6 router isis RR1T
-    isis circuit-type level-1
-    isis network point-to-point
-exit
-!
-interface eth-rr2s
-    ipv6 address fc00:2142:1:12::1/64
-    ipv6 router isis RR1T
-    isis circuit-type level-1
-    isis network point-to-point
-exit
-!
-interface eth-rr3s
-    ipv6 address fc00:2142:1:13::1/64
-    ipv6 router isis RR1T
-    isis circuit-type level-1
-    isis network point-to-point
-exit
-!
-interface eth-rr4s
-    ipv6 address fc00:2142:1:14::1/64
-    ipv6 router isis RR1T
-    isis circuit-type level-1
-    isis network point-to-point
-exit
+{% endfor %}
