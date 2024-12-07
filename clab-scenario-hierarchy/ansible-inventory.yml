@@ -11,6 +11,8 @@ all:
           ansible_host: 
         clab-scenario-hierarchy-R1:
           ansible_host: 
+        clab-scenario-hierarchy-R2:
+          ansible_host: 
         clab-scenario-hierarchy-RR1S:
           ansible_host: 
         clab-scenario-hierarchy-RR1T:
