@@ -3,10 +3,10 @@ from jinja2 import Environment, FileSystemLoader
 
 # Define the template directory and the output directory
 template_dir = './templates'
+scripts_dir = './script_tests'
 
 # Create the environment and load the template
 env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True, lstrip_blocks=True)
-
 
 def generate_top_level_rr():
     template_top_rr = env.get_template("top_rr.jinja")
@@ -36,7 +36,7 @@ def generate_top_level_rr():
     # Generate configuration files for each context
     for ctx in contexts:
         output = template_top_rr.render(ctx)
-        output_dir = f"script_tests/{ctx['hostname']}"
+        output_dir = f"{scripts_dir}/{ctx['hostname']}"
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, 'frr.conf')
         with open(output_file, 'w') as f:
@@ -91,7 +91,7 @@ def generate_second_level_rr():
     # Generate configuration files
     for ctx in contexts:
         output = template_second_rr.render(ctx)
-        output_dir = f"script_tests/{ctx['hostname']}"
+        output_dir = f"{scripts_dir}/{ctx['hostname']}"
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, 'frr.conf')
         with open(output_file, 'w') as f:
@@ -131,14 +131,28 @@ def generate_regular_routers():
     # Generate configuration files
     for ctx in contexts:
         output = template_regular.render(ctx)
-        output_dir = f"script_tests/{ctx['hostname']}"
+        output_dir = f"{scripts_dir}/{ctx['hostname']}"
         os.makedirs(output_dir, exist_ok=True)
         output_file = os.path.join(output_dir, 'frr.conf')
         with open(output_file, 'w') as f:
             f.write(output)
         print(f"Configuration file generated at {output_file}")
 
+def generate_clab_file():
+    template_clab = env.get_template('clab_file.jinja')
+    
+    # Generate configuration file
+    output = template_clab.render()
+    output_dir = scripts_dir
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, 'hierarchy.clab.yml')
+    with open(output_file, 'w') as f:
+        f.write(output)
+    print(f"Containerlab file generated at {output_file}")
+
+
 if __name__ == '__main__':
+    generate_clab_file()
     generate_top_level_rr()
     generate_second_level_rr()
     generate_regular_routers()

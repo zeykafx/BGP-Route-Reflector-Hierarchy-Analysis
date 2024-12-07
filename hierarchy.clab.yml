@@ -35,19 +35,6 @@ topology:
       cmd: /etc/frr/startup.sh
     R2:
       cmd: /etc/frr/startup.sh
-    # s4:
-    #   cmd: /etc/frr/startup.sh
-    # s5:
-    #   cmd: /etc/frr/startup.sh
-    # s6:
-    #   cmd: /etc/frr/startup.sh
-    # h1:
-    #   sysctls:
-    #     net.ipv6.conf.all.forwarding: 0
-    #   image: host:latest
-    #   exec: 
-    #     - ip -6 addr add fc00:2142:1::2/64 dev eth-s1
-    #     - ip -6 route add default via fc00:2142:1::1 dev eth-s1
     h2:
       image: host:latest
       sysctls:
@@ -83,7 +70,6 @@ topology:
     # external routers
     - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
     - endpoints: [E1:eth-h3, h3:eth-e1]
-      mtu: 1500
     # Normal routers
     # R1: connected to RR1S and RR2S
     - endpoints: [RR1S:eth-r1, R1:eth-rr1s]
@@ -91,24 +77,3 @@ topology:
     # R2: connected to RR3S and RR4S
     - endpoints: [RR3S:eth-r2, R2:eth-rr3s]
     - endpoints: [RR4S:eth-r2, R2:eth-rr4s]
-    # - endpoints: [s2:eth-s3, s3:eth-s2]
-    # - endpoints: [ "h1:eth-s1", "s1:eth-h1"]
-    #   mtu: 1500
-    # - endpoints: [ "s1:eth-s2", "s2:eth-s1" ]
-    #   mtu: 1500
-    # - endpoints: [ "s1:eth-s4", "s4:eth-s1" ]
-    #   mtu: 1500
-    # - endpoints: [ "s2:eth-s3", "s3:eth-s2" ]
-    #   mtu: 1500
-    # - endpoints: [ "s3:eth-s4", "s4:eth-s3" ]
-    #   mtu: 1500
-    # - endpoints: [ "s4:eth-s5", "s5:eth-s4" ]
-    #   mtu: 1500
-    # - endpoints: [ "s3:eth-s6", "s6:eth-s3" ]
-    #   mtu: 1500
-    # - endpoints: [ "s5:eth-s6", "s6:eth-s5" ]
-    #   mtu: 1500
-    # - endpoints: [ "s3:eth-h2", "h2:eth-s3" ]
-    #   mtu: 1500
-    # - endpoints: [ "s5:eth-h3", "h3:eth-s5" ]
-    #   mtu: 1500
