@@ -6,7 +6,7 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-d6204cb14e4d",
+        "bridge": "br-e559d0d6e768",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -34,17 +34,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/E1",
         "clab-node-name": "E1",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -68,17 +64,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR1S",
         "clab-node-name": "RR1S",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -102,17 +94,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR1T",
         "clab-node-name": "RR1T",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -136,17 +124,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR2S",
         "clab-node-name": "RR2S",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -170,17 +154,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR2T",
         "clab-node-name": "RR2T",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -204,17 +184,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR3S",
         "clab-node-name": "RR3S",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -238,17 +214,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/RR4S",
         "clab-node-name": "RR4S",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -272,17 +244,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h1",
         "clab-node-name": "h1",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -306,17 +274,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h2",
         "clab-node-name": "h2",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -340,17 +304,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h3",
         "clab-node-name": "h3",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -374,17 +334,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h4",
         "clab-node-name": "h4",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -408,17 +364,13 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-<<<<<<< HEAD
-        "clab-mgmt-net-bridge": "br-d6204cb14e4d",
-=======
-        "clab-mgmt-net-bridge": "br-e8fbb6bb73cc",
->>>>>>> tmp
+        "clab-mgmt-net-bridge": "br-e559d0d6e768",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/clab-scenario-hierarchy/h5",
         "clab-node-name": "h5",
         "clab-node-type": "",
-        "clab-owner": "juangt",
+        "clab-owner": "root",
         "clab-topo-file": "/home/juangt/Documents/Study/network/LINFO2142-project-2-BGP-Route-Reflector-Hierarchy/hierarchy.clab.yml",
         "containerlab": "scenario-hierarchy"
       },
@@ -431,21 +383,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr2t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:6c:cd:c2",
-=======
-        "mac": "aa:c1:ab:97:c4:73",
->>>>>>> tmp
+        "mac": "aa:c1:ab:fe:fc:e7",
         "peer": "z"
       },
       "z": {
         "node": "RR2T",
         "interface": "eth-rr1t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:b8:ab:50",
-=======
-        "mac": "aa:c1:ab:68:d3:d8",
->>>>>>> tmp
+        "mac": "aa:c1:ab:28:b3:2d",
         "peer": "a"
       }
     },
@@ -453,21 +397,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr1s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:e9:83:86",
-=======
-        "mac": "aa:c1:ab:50:4c:2d",
->>>>>>> tmp
+        "mac": "aa:c1:ab:e6:e8:24",
         "peer": "z"
       },
       "z": {
         "node": "RR1S",
         "interface": "eth-rr1t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:2b:67:31",
-=======
-        "mac": "aa:c1:ab:3b:f5:78",
->>>>>>> tmp
+        "mac": "aa:c1:ab:73:d3:b9",
         "peer": "a"
       }
     },
@@ -475,21 +411,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr1s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:7a:8c:83",
-=======
-        "mac": "aa:c1:ab:e2:3d:df",
->>>>>>> tmp
+        "mac": "aa:c1:ab:0e:dd:3f",
         "peer": "z"
       },
       "z": {
         "node": "RR1S",
         "interface": "eth-rr2t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:5e:00:10",
-=======
-        "mac": "aa:c1:ab:c4:7d:62",
->>>>>>> tmp
+        "mac": "aa:c1:ab:91:ea:2e",
         "peer": "a"
       }
     },
@@ -497,21 +425,13 @@
       "a": {
         "node": "RR1S",
         "interface": "eth-h2",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:db:99:a9",
-=======
-        "mac": "aa:c1:ab:28:fe:d9",
->>>>>>> tmp
+        "mac": "aa:c1:ab:b6:d7:d4",
         "peer": "z"
       },
       "z": {
         "node": "h2",
         "interface": "eth-rr1s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:dc:bb:89",
-=======
-        "mac": "aa:c1:ab:ed:79:89",
->>>>>>> tmp
+        "mac": "aa:c1:ab:2a:01:56",
         "peer": "a"
       }
     },
@@ -519,21 +439,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr2s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:a2:6c:81",
-=======
-        "mac": "aa:c1:ab:1b:74:ae",
->>>>>>> tmp
+        "mac": "aa:c1:ab:29:ba:30",
         "peer": "z"
       },
       "z": {
         "node": "RR2S",
         "interface": "eth-rr1t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:19:66:84",
-=======
-        "mac": "aa:c1:ab:bb:de:38",
->>>>>>> tmp
+        "mac": "aa:c1:ab:2f:74:72",
         "peer": "a"
       }
     },
@@ -541,21 +453,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr2s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:c9:5c:ab",
-=======
-        "mac": "aa:c1:ab:40:e5:00",
->>>>>>> tmp
+        "mac": "aa:c1:ab:88:5e:ff",
         "peer": "z"
       },
       "z": {
         "node": "RR2S",
         "interface": "eth-rr2t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:dd:e2:d7",
-=======
-        "mac": "aa:c1:ab:98:65:c9",
->>>>>>> tmp
+        "mac": "aa:c1:ab:1c:8e:45",
         "peer": "a"
       }
     },
@@ -563,21 +467,13 @@
       "a": {
         "node": "RR2S",
         "interface": "eth-h1",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:60:04:15",
-=======
-        "mac": "aa:c1:ab:24:a6:24",
->>>>>>> tmp
+        "mac": "aa:c1:ab:2a:d6:78",
         "peer": "z"
       },
       "z": {
         "node": "h1",
         "interface": "eth-rr2s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:39:69:06",
-=======
-        "mac": "aa:c1:ab:92:18:f9",
->>>>>>> tmp
+        "mac": "aa:c1:ab:e5:14:4a",
         "peer": "a"
       }
     },
@@ -585,21 +481,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr3s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:79:66:9e",
-=======
-        "mac": "aa:c1:ab:60:7d:e4",
->>>>>>> tmp
+        "mac": "aa:c1:ab:2b:2b:5b",
         "peer": "z"
       },
       "z": {
         "node": "RR3S",
         "interface": "eth-rr1t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:1c:aa:9a",
-=======
-        "mac": "aa:c1:ab:ea:f9:19",
->>>>>>> tmp
+        "mac": "aa:c1:ab:ff:58:98",
         "peer": "a"
       }
     },
@@ -607,21 +495,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr3s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:26:8c:aa",
-=======
-        "mac": "aa:c1:ab:56:72:09",
->>>>>>> tmp
+        "mac": "aa:c1:ab:c5:a2:35",
         "peer": "z"
       },
       "z": {
         "node": "RR3S",
         "interface": "eth-rr2t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:28:e0:42",
-=======
-        "mac": "aa:c1:ab:74:cb:4b",
->>>>>>> tmp
+        "mac": "aa:c1:ab:8b:9e:90",
         "peer": "a"
       }
     },
@@ -629,21 +509,13 @@
       "a": {
         "node": "RR3S",
         "interface": "eth-h4",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:2b:9e:c3",
-=======
-        "mac": "aa:c1:ab:b4:78:47",
->>>>>>> tmp
+        "mac": "aa:c1:ab:91:c0:f6",
         "peer": "z"
       },
       "z": {
         "node": "h4",
         "interface": "eth-rr3s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:cd:d2:33",
-=======
-        "mac": "aa:c1:ab:a0:94:37",
->>>>>>> tmp
+        "mac": "aa:c1:ab:dd:07:6d",
         "peer": "a"
       }
     },
@@ -651,21 +523,13 @@
       "a": {
         "node": "RR1T",
         "interface": "eth-rr4s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:79:23:a5",
-=======
-        "mac": "aa:c1:ab:5c:79:fb",
->>>>>>> tmp
+        "mac": "aa:c1:ab:bd:b0:c3",
         "peer": "z"
       },
       "z": {
         "node": "RR4S",
         "interface": "eth-rr1t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:00:2c:aa",
-=======
-        "mac": "aa:c1:ab:ff:f3:90",
->>>>>>> tmp
+        "mac": "aa:c1:ab:f2:75:1e",
         "peer": "a"
       }
     },
@@ -673,21 +537,13 @@
       "a": {
         "node": "RR2T",
         "interface": "eth-rr4s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:65:5f:93",
-=======
-        "mac": "aa:c1:ab:38:b6:56",
->>>>>>> tmp
+        "mac": "aa:c1:ab:4a:85:25",
         "peer": "z"
       },
       "z": {
         "node": "RR4S",
         "interface": "eth-rr2t",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:23:62:9c",
-=======
-        "mac": "aa:c1:ab:62:88:31",
->>>>>>> tmp
+        "mac": "aa:c1:ab:dc:34:32",
         "peer": "a"
       }
     },
@@ -695,21 +551,13 @@
       "a": {
         "node": "RR4S",
         "interface": "eth-h5",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:24:2a:3e",
-=======
-        "mac": "aa:c1:ab:55:29:ba",
->>>>>>> tmp
+        "mac": "aa:c1:ab:da:c3:9d",
         "peer": "z"
       },
       "z": {
         "node": "h5",
         "interface": "eth-rr4s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:bf:6a:63",
-=======
-        "mac": "aa:c1:ab:8f:22:52",
->>>>>>> tmp
+        "mac": "aa:c1:ab:a0:cd:7d",
         "peer": "a"
       }
     },
@@ -717,21 +565,13 @@
       "a": {
         "node": "RR4S",
         "interface": "eth-e1",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:5e:82:df",
-=======
-        "mac": "aa:c1:ab:6f:32:2a",
->>>>>>> tmp
+        "mac": "aa:c1:ab:62:84:03",
         "peer": "z"
       },
       "z": {
         "node": "E1",
         "interface": "eth-rr4s",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:d9:55:fd",
-=======
-        "mac": "aa:c1:ab:87:7a:9e",
->>>>>>> tmp
+        "mac": "aa:c1:ab:9b:13:5a",
         "peer": "a"
       }
     },
@@ -739,21 +579,13 @@
       "a": {
         "node": "E1",
         "interface": "eth-h3",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:07:4d:cd",
-=======
-        "mac": "aa:c1:ab:e8:71:2c",
->>>>>>> tmp
+        "mac": "aa:c1:ab:af:e0:bb",
         "peer": "z"
       },
       "z": {
         "node": "h3",
         "interface": "eth-e1",
-<<<<<<< HEAD
-        "mac": "aa:c1:ab:4c:5d:d7",
-=======
-        "mac": "aa:c1:ab:c7:8d:14",
->>>>>>> tmp
+        "mac": "aa:c1:ab:65:de:2a",
         "peer": "a"
       }
     }
