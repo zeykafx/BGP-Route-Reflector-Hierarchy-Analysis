@@ -3,7 +3,7 @@ from jinja2 import Environment, FileSystemLoader
 
 # Define the template directory and the output directory
 template_dir = './templates'
-scripts_dir = './script_tests'
+scripts_dir = './clab-scenario-hierarchy'
 
 # Create the environment and load the template
 env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True, lstrip_blocks=True)
@@ -140,7 +140,7 @@ def generate_regular_routers():
 
 def generate_clab_file():
     template_clab = env.get_template('clab_file.jinja')
-    
+
     # Generate configuration file
     output = template_clab.render()
     output_dir = scripts_dir
