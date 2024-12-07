@@ -31,8 +31,8 @@ topology:
       cmd: /etc/frr/startup.sh
     E1:
       cmd: /etc/frr/startup.sh
-    # s3:
-    #   cmd: /etc/frr/startup.sh
+    R1:
+      cmd: /etc/frr/startup.sh
     # s4:
     #   cmd: /etc/frr/startup.sh
     # s5:
@@ -82,6 +82,10 @@ topology:
     - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
     - endpoints: [E1:eth-h3, h3:eth-e1]
       mtu: 1500
+    # Normal routers
+    - endpoints: [RR1S:eth-r1, R1:eth-rr1s]
+    - endpoints: [RR2S:eth-r1, R1:eth-rr2s]
+
     # - endpoints: [s2:eth-s3, s3:eth-s2]
     # - endpoints: [ "h1:eth-s1", "s1:eth-h1"]
     #   mtu: 1500
