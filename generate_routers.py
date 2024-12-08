@@ -142,6 +142,31 @@ def generate_regular_routers():
             f.write(output)
         print(f"Configuration file generated at {output_file}")
 
+def generate_external_router():
+    template_external = env.get_template('external_router.jinja')
+
+    # Define context for external router E1
+    context = {
+        'hostname': 'E1',
+        'bgp_router_id': '4.0.0.1', 
+        'bgp_as': '65010',
+        'net': '49.0001.0000.0000.0021.00',
+        'loopback': {'ipv6_address': 'fc00:2142:a::1/128'},
+        'has_host': True,
+        'host_interface': {
+            'ipv6_address': 'fc00:2142:a:2::1/64'
+        }
+    }
+
+    # Generate configuration file
+    output = template_external.render(context)
+    output_dir = f"{scripts_dir}/E1"
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, 'frr.conf')
+    with open(output_file, 'w') as f:
+        f.write(output)
+    print(f"Configuration file generated at {output_file}")
+
 def generate_clab_file():
     template_clab = env.get_template('clab_file.jinja')
 
@@ -159,4 +184,5 @@ if __name__ == '__main__':
     generate_clab_file()
     generate_top_level_rr()
     generate_second_level_rr()
+    generate_external_router()
     generate_regular_routers()
