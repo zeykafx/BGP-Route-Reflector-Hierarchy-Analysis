@@ -28,10 +28,6 @@ router bgp 65000
     neighbor {{ interface.name }} interface peer-group SECOND_LEVEL
     {% endfor %}
     ! Address family ---------
-    address-family ipv4 unicast
-        no neighbor SECOND_LEVEL activate
-    exit-address-family
-    !
     address-family ipv6 unicast
         network fc00:2142:1::/48
         ! Top level

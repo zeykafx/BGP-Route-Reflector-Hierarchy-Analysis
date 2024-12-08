@@ -60,10 +60,14 @@ def generate_second_level_rr():
             {'name': 'eth-rr2t', 'ipv6_address': f'fc00:2142:1:2{i}::2/64'}
         ]
         
-        # Client interfaces
-        client_interfaces = [
-            {'name': f'eth-r{(i+1)//2}', 'ipv6_address': f'fc00:2142:1:{i+2}1::1/64'}
-        ]
+        # Client interfaces - RR1S/RR2S connect to R1-R4, RR3S/RR4S connect to R5-R8
+        client_interfaces = []
+        start_router = 1 if i <= 2 else 5
+        end_router = 5 if i <= 2 else 9
+        for r in range(start_router, end_router):
+            client_interfaces.append(
+                {'name': f'eth-r{r}', 'ipv6_address': f'fc00:2142:1:{i+2}{r}::1/64'}
+            )
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i+2}/128'}
         
@@ -82,9 +86,9 @@ def generate_second_level_rr():
         if i == 1:
             context['host_interface'] = {
                 'name': 'eth-h2',
-                'ipv6_address': 'fc00:2142:1:33::1/64'
+                'ipv6_address': 'fc00:2142:1:3::1/64'
             }
-            context['host_prefix'] = 'fc00:2142:1:33::1/64'
+            context['host_prefix'] = 'fc00:2142:1:3::2/64'
             
         contexts.append(context)
 
@@ -113,8 +117,8 @@ def generate_regular_routers():
         rr_pair = ((i-1) // 4) * 2 + 1  # This will give 1 for R1-R4, and 3 for R5-R8
         # basically, R1-R4 connect to RR1S and RR2S, while R5-R8 connect to RR3S and RR4S
         rr_interfaces = [
-            {'name': f'eth-rr{rr_pair}s', 'ipv6_address': f'fc00:2142:1:{(rr_pair+2)*10+1}::2/64'},
-            {'name': f'eth-rr{rr_pair+1}s', 'ipv6_address': f'fc00:2142:1:{(rr_pair+3)*10+1}::2/64'}
+            {'name': f'eth-rr{rr_pair}s', 'ipv6_address': f'fc00:2142:1:{(rr_pair+2)}{i}::2/64'},
+            {'name': f'eth-rr{rr_pair+1}s', 'ipv6_address': f'fc00:2142:1:{(rr_pair+3)}{i}::2/64'}
         ]
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i+10:02d}/128'}

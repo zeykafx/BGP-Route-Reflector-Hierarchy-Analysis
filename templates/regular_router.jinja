@@ -12,16 +12,13 @@ exit
 !
 router bgp 65000
     bgp router-id {{ bgp_router_id }}
-    no bgp default ipv4-unicast
     bgp default ipv6-unicast
+    no bgp default ipv4-unicast
     neighbor SECOND_LEVEL peer-group
     neighbor SECOND_LEVEL remote-as 65000
     {% for interface in rr_interfaces %}
     neighbor {{ interface.name }} interface peer-group SECOND_LEVEL
     {% endfor %}
-    address-family ipv4 unicast
-        no neighbor SECOND_LEVEL activate
-    exit-address-family
     address-family ipv6 unicast
         network fc00:2142:1::/48
         neighbor SECOND_LEVEL activate

@@ -35,12 +35,6 @@ router bgp 65000
     neighbor {{ client.name }} interface peer-group CLIENTS
     {% endfor %}
     ! Address family
-    address-family ipv4 unicast
-        no neighbor TOP_LEVEL activate
-        {% if has_external_peer %}
-        no neighbor EXTERNAL activate
-        {% endif %}
-    exit-address-family
     address-family ipv6 unicast
         network fc00:2142:1::/48
         {% if has_host %}
@@ -59,6 +53,8 @@ router bgp 65000
         ! Client routers
         neighbor CLIENTS activate
         neighbor CLIENTS route-reflector-client
+        neighbor CLIENTS route-map to_client_in in
+        neighbor CLIENTS route-map to_client_out out
     exit-address-family
 exit
 !
@@ -68,8 +64,6 @@ exit
 ! using this we can choose to only send these routes to the top level peer
 bgp community-list standard EXTERNAL permit 65000:100
 {% endif %}
-!
-ipv6 access-list all seq 5 permit any
 !
 route-map TO_TOP_LEVEL_OUT permit 10
     ! match community EXTERNAL
@@ -82,11 +76,24 @@ route-map FROM_TOP_LEVEL_IN permit 10
     set ipv6 next-hop prefer-global
 exit
 !
+route-map to_client_in permit 10
+    match ipv6 address all
+    set ipv6 next-hop prefer-global
+exit
+!
+route-map to_client_out permit 10
+    match ipv6 address all
+    set ipv6 next-hop peer-address
+exit
+!
+ipv6 access-list all seq 5 permit any
 {% if has_external_peer %}
+!
 route-map accept_from_external permit 10
     match ipv6 address all
     set community 65000:100
     set local-preference 1000
+    set ipv6 next-hop peer-address
 exit
 !
 route-map send_to_external deny 10
@@ -95,7 +102,7 @@ exit
 !
 route-map send_to_external permit 20
     match ipv6 address all
-    set ipv6 next-hop peer-address
+    ! set ipv6 next-hop peer-address
 exit
 {% endif %}
 !
@@ -128,6 +135,7 @@ interface {{ client.name }}
     ipv6 address {{ client.ipv6_address }}
     ipv6 router isis {{ hostname }}
     isis circuit-type level-1
+    isis network point-to-point
 exit
 !
 {% endfor %}
