@@ -32,6 +32,10 @@ topology:
       cmd: /etc/frr/startup.sh
     RR4S:
       cmd: /etc/frr/startup.sh
+    RR5S:
+      cmd: /etc/frr/startup.sh
+    RR6S:
+      cmd: /etc/frr/startup.sh
 
     # Regular routers
     R1:
@@ -49,6 +53,8 @@ topology:
     R7:
       cmd: /etc/frr/startup.sh
     R8:
+      cmd: /etc/frr/startup.sh
+    R9:
       cmd: /etc/frr/startup.sh
 
     # External router
@@ -88,6 +94,12 @@ topology:
     # RR4S connections
     - endpoints: [RR1T:eth-rr4s, RR4S:eth-rr1t]
     - endpoints: [RR2T:eth-rr4s, RR4S:eth-rr2t]
+    # RR5S connections
+    - endpoints: [RR1T:eth-rr5s, RR5S:eth-rr1t]
+    - endpoints: [RR2T:eth-rr5s, RR5S:eth-rr2t]
+    # RR6S connections
+    - endpoints: [RR1T:eth-rr6s, RR6S:eth-rr1t]
+    - endpoints: [RR2T:eth-rr6s, RR6S:eth-rr2t]
 
     # Host and External connections
     - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
@@ -98,24 +110,27 @@ topology:
     # R1: connections to RR1S and RR2S
     - endpoints: [RR1S:eth-r1, R1:eth-rr1s]
     - endpoints: [RR2S:eth-r1, R1:eth-rr2s]
-    # R2: connections to RR1S and RR2S
-    - endpoints: [RR1S:eth-r2, R2:eth-rr1s]
+    # R2: connections to RR2S and RR3S
     - endpoints: [RR2S:eth-r2, R2:eth-rr2s]
-    # R3: connections to RR1S and RR2S
-    - endpoints: [RR1S:eth-r3, R3:eth-rr1s]
-    - endpoints: [RR2S:eth-r3, R3:eth-rr2s]
-    # R4: connections to RR1S and RR2S
-    - endpoints: [RR1S:eth-r4, R4:eth-rr1s]
-    - endpoints: [RR2S:eth-r4, R4:eth-rr2s]
-    # R5: connections to RR3S and RR4S
-    - endpoints: [RR3S:eth-r5, R5:eth-rr3s]
-    - endpoints: [RR4S:eth-r5, R5:eth-rr4s]
-    # R6: connections to RR3S and RR4S
-    - endpoints: [RR3S:eth-r6, R6:eth-rr3s]
-    - endpoints: [RR4S:eth-r6, R6:eth-rr4s]
-    # R7: connections to RR3S and RR4S
+    - endpoints: [RR3S:eth-r2, R2:eth-rr3s]
+    # R3: connections to RR3S and RR4S
+    - endpoints: [RR3S:eth-r3, R3:eth-rr3s]
+    - endpoints: [RR4S:eth-r3, R3:eth-rr4s]
+    # R4: connections to RR4S and RR5S
+    - endpoints: [RR4S:eth-r4, R4:eth-rr4s]
+    - endpoints: [RR5S:eth-r4, R4:eth-rr5s]
+    # R5: connections to RR5S and RR6S
+    - endpoints: [RR5S:eth-r5, R5:eth-rr5s]
+    - endpoints: [RR6S:eth-r5, R5:eth-rr6s]
+    # R6: connections to RR1S and RR2S
+    - endpoints: [RR1S:eth-r6, R6:eth-rr1s]
+    - endpoints: [RR2S:eth-r6, R6:eth-rr2s]
+    # R7: connections to RR2S and RR3S
+    - endpoints: [RR2S:eth-r7, R7:eth-rr2s]
     - endpoints: [RR3S:eth-r7, R7:eth-rr3s]
-    - endpoints: [RR4S:eth-r7, R7:eth-rr4s]
     # R8: connections to RR3S and RR4S
     - endpoints: [RR3S:eth-r8, R8:eth-rr3s]
     - endpoints: [RR4S:eth-r8, R8:eth-rr4s]
+    # R9: connections to RR4S and RR5S
+    - endpoints: [RR4S:eth-r9, R9:eth-rr4s]
+    - endpoints: [RR5S:eth-r9, R9:eth-rr5s]
