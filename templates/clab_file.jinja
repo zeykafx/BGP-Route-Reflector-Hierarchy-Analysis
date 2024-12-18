@@ -35,25 +35,52 @@ topology:
       cmd: /etc/frr/startup.sh
     {% endfor %}
 
-    # External router
-    E1:
+    # AS 65010
+    AS2_R1:
       cmd: /etc/frr/startup.sh
+
+    # AS 65020
+    AS3_R1:
+      cmd: /etc/frr/startup.sh
+
     # Hosts
-    
-    h2:
+    H1:
       image: host:latest
       sysctls:
         net.ipv6.conf.all.forwarding: 0
       exec:
-        - ip -6 addr add fc00:2142:1:3::2/64 dev eth-rr1s
-        - ip -6 route add default via fc00:2142:1:3::1 dev eth-rr1s
-    h3:
+        - ip -6 addr add fc00:2142:1:1::2/64 dev eth-rr1s
+        - ip -6 route add default via fc00:2142:1:1::1 dev eth-rr1s
+    H2:
       image: host:latest
       sysctls:
         net.ipv6.conf.all.forwarding: 0
       exec:
-        - ip -6 addr add fc00:2142:a:2::2/64 dev eth-e1
-        - ip -6 route add default via fc00:2142:a:2::1 dev eth-e1
+        - ip -6 addr add fc00:2142:1:2::2/64 dev eth-r4
+        - ip -6 route add default via fc00:2142:1:2::1 dev eth-r4
+    H3:
+      image: host:latest
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      exec:
+        - ip -6 addr add fc00:2142:1:3::2/64 dev eth-r8
+        - ip -6 route add default via fc00:2142:1:3::1 dev eth-r8
+
+    AS2_H1:
+      image: host:latest
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      exec:
+        - ip -6 addr add fc00:2142:a:2::2/64 dev eth-as2r1
+        - ip -6 route add default via fc00:2142:a:2::1 dev eth-as2r1
+
+    AS3_H1:
+      image: host:latest
+      sysctls:
+        net.ipv6.conf.all.forwarding: 0
+      exec:
+        - ip -6 addr add fc00:2142:b:2::2/64 dev eth-as3r1
+        - ip -6 route add default via fc00:2142:b:2::1 dev eth-as3r1
 
   links:
     # Top level route reflectors connected in full mesh
@@ -67,10 +94,20 @@ topology:
     {% endfor %}
 
 
-    # Host and External connections
-    - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
-    - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
-    - endpoints: [E1:eth-h3, h3:eth-e1]
+    # Host connections
+    - endpoints: [RR1S:eth-h2, h1:eth-rr1s]
+    - endpoints: [R4:eth-h2, h2:eth-r4]
+    - endpoints: [R8:eth-h3, h3:eth-r8]
+    # External Hosts connections
+    - endpoints: [AS2_R1:eth-h1, AS2_H1:eth-as2r1]
+    - endpoints: [AS3_R1:eth-h1, AS3_H1:eth-as3r1]
+
+    # AS 65010 connections
+    - endpoints: [RR4S:eth-as2r1, AS2_R1:eth-rr4s]
+
+    # AS 65020 connections
+    - endpoints: [R2:eth-as3r1, AS3_R1:eth-r2]
+
 
     # Regular routers connections
     {% for i in range(1, 9) %}
@@ -78,11 +115,4 @@ topology:
     # R{{ i }}: connections to RR{{ rr_pair }}S and RR{{ rr_pair + 1 }}S
     - endpoints: [RR{{ rr_pair }}S:eth-r{{ i }}, R{{ i }}:eth-rr{{ rr_pair }}s]
     - endpoints: [RR{{ rr_pair + 1 }}S:eth-r{{ i }}, R{{ i }}:eth-rr{{ rr_pair + 1}}s]
-    {% endfor %}
-
-    # Regular router ring connections
-    {% for i in range(1, 9) %}
-    # R{{ i }}: connections to R{{ i + 1 }} (or R1 if i == 8)
-    {% set next = 1 if i == 8 else i + 1 %}
-    - endpoints: [R{{ i }}:eth-r{{ next }}, R{{ next }}:eth-r{{ i }}]
     {% endfor %}

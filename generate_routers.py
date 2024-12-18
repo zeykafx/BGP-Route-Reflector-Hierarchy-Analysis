@@ -20,10 +20,10 @@ def generate_top_level_rr():
 
         # Interface connecting to the other top-level peer
         interfaces = [
-            {'name': f'eth-rr{3-i}t', "has_ip": False, 'ipv6_address': f'fc00:2142:1:2::{i}/64'}
+            {'name': f'eth-rr{3-i}t', "has_ip": False}
         ]
         for j in range(1, 5):
-            interfaces.append({'name': f'eth-rr{j}s', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{i}{j}::1/64'})
+            interfaces.append({'name': f'eth-rr{j}s', 'has_ip': False})
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i}/128'}
         context = {
@@ -59,8 +59,8 @@ def generate_second_level_rr():
         
         # Interfaces connecting to top-level RRs
         top_rr_interfaces = [
-            {'name': 'eth-rr1t', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:1{i}::2/64'},
-            {'name': 'eth-rr2t', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:2{i}::2/64'}
+            {'name': 'eth-rr1t', 'has_ip': False},
+            {'name': 'eth-rr2t', 'has_ip': False}
         ]
         
         # Client interfaces - RR1S/RR2S connect to R1-R4, RR3S/RR4S connect to R5-R8
@@ -69,7 +69,7 @@ def generate_second_level_rr():
         end_router = 5 if i <= 2 else 9
         for r in range(start_router, end_router):
             client_interfaces.append(
-                {'name': f'eth-r{r}', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{i+2}{r}::1/64'}
+                {'name': f'eth-r{r}', 'has_ip': False}
             )
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i+2}/128'}
@@ -83,16 +83,18 @@ def generate_second_level_rr():
             'client_interfaces': client_interfaces,
             'loopback': loopback,
             'has_external_peer': (i == 4),  # Only RR4S has external peer
+            'external_peer_interface': "eth-as2r1",
+            'external_peer_as': 65010,
             'has_host': (i == 1),  # Only RR1S has host interface
         }
         
         # Add host interface for RR1S
         if i == 1:
             context['host_interface'] = {
-                'name': 'eth-h2',
-                'ipv6_address': 'fc00:2142:1:3::1/64'
+                'name': 'eth-h1',
+                'ipv6_address': 'fc00:2142:1:1::1/64'
             }
-            context['host_prefix'] = 'fc00:2142:1:3::2/64'
+            context['host_prefix'] = 'fc00:2142:1:1::2/64'
             
         contexts.append(context)
 
@@ -121,25 +123,11 @@ def generate_regular_routers():
         rr_pair = ((i-1) // 4) * 2 + 1  # This will give 1 for R1-R4, and 3 for R5-R8
         # basically, R1-R4 connect to RR1S and RR2S, while R5-R8 connect to RR3S and RR4S
         rr_interfaces = [
-            {'name': f'eth-rr{rr_pair}s',   'has_ip': False, 'ipv6_address': f'fc00:2142:1:{(rr_pair+2)}{i}::2/64'},
-            {'name': f'eth-rr{rr_pair+1}s', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{(rr_pair+3)}{i}::2/64'}            
+            {'name': f'eth-rr{rr_pair}s',   'has_ip': False},
+            {'name': f'eth-rr{rr_pair+1}s', 'has_ip': False}            
         ]
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i+10:02d}/128'}
-        
-
-        # connect each regular router to its next neighbor, forming a ring
-        neighbor_interfaces = []
-        if i < 8:
-            neighbor_interfaces.append(
-                {'name': f'eth-r{i+1}', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{i+11:02d}::1/64'}
-            )
-        else:
-            neighbor_interfaces.append(
-                {'name': 'eth-r1', 'has_ip': False, 'ipv6_address': 'fc00:2142:1:11::1/64'}
-            )
-
-        interfaces = rr_interfaces + neighbor_interfaces
 
         context = {
             'hostname': hostname,
@@ -147,9 +135,21 @@ def generate_regular_routers():
             'bgp_router_id': bgp_router_id,
             'net': net,
             "rr_interfaces": rr_interfaces,
-            'interfaces': interfaces,
             'loopback': loopback,
+            'has_external_peer': (i == 2),  # Only R2 has external peer on this level
+            'external_peer_interface': "eth-as3r1",
+            'external_peer_as': 65020,
+            'has_host': (i == 4 or i == 8),  # Only 4 and 8 have hosts on this level
         }
+
+        # Add host interface for R4 and R8
+        if i == 4 or i == 8:
+            context['host_interface'] = {
+                'name': 'eth-h2' if i == 4 else 'eth-h3',
+                'ipv6_address': f'fc00:2142:1:2::1/64' if i == 4 else f'fc00:2142:1:3::1/64'
+            }
+            context['host_prefix'] = f'fc00:2142:1:2::2/64' if i == 4 else f'fc00:2142:1:3::2/64'
+
         contexts.append(context)
 
     # Generate configuration files
@@ -165,28 +165,52 @@ def generate_regular_routers():
 def generate_external_router():
     template_external = env.get_template('external_router.jinja')
 
-    # Define context for external router E1
-    context = {
-        'hostname': 'E1',
-        'isis_router_name': 'E1',
-        'bgp_router_id': '4.0.0.1', 
-        'bgp_as': '65010',        
-        'net': '47.0003.0000.0000.0000.0000.0000.0000.0002.0001.00',
-        'loopback': {'ipv6_address': 'fc00:2142:a::1/128'},
-        'has_host': True,
-        'host_interface': {
-            'ipv6_address': 'fc00:2142:a:2::1/64'
+    contexts = [
+        {
+            'hostname': 'AS2_R1',
+            'isis_router_name': 'AS2_R1',
+            'bgp_router_id': '4.0.0.1',
+            'bgp_as': '65010',
+            'prefix': 'fc00:2142:a::/48',
+            'net': '47.0003.0000.0000.0000.0000.0000.0000.0004.0001.00',
+            'external_peer_as': 65000,
+            'external_peer_interface': 'eth-rr4s',
+            'loopback': {'ipv6_address': 'fc00:2142:a::1/128'},
+            'has_host': True,
+            'host_interface': {
+                'name': 'eth-as2h1',
+                'ipv6_address': 'fc00:2142:a:2::1/64',
+                'host_prefix': 'fc00:2142:a:2::2/64'
+            }
+        },
+        {
+            'hostname': 'AS3_R1', 
+            'isis_router_name': 'AS3_R1',
+            'bgp_router_id': '5.0.0.1',
+            'bgp_as': '65020',
+            'prefix': 'fc00:2142:b::/48',
+            'net': '47.0003.0000.0000.0000.0000.0000.0000.0005.0001.00',
+            'external_peer_as': 65000,
+            'external_peer_interface': 'eth-r2',
+            'loopback': {'ipv6_address': 'fc00:2142:b::1/128'},
+            'has_host': True,
+            'host_interface': {
+                'name': 'eth-as3h1',
+                'ipv6_address': 'fc00:2142:b:2::1/64',
+                'host_prefix': 'fc00:2142:b:2::2/64'
+            }
         }
-    }
+    ]
 
-    # Generate configuration file
-    output = template_external.render(context)
-    output_dir = f"{scripts_dir}/E1"
-    os.makedirs(output_dir, exist_ok=True)
-    output_file = os.path.join(output_dir, 'frr.conf')
-    with open(output_file, 'w') as f:
-        f.write(output)
-    print(f"Configuration file generated at {output_file}")
+    # Generate configuration files
+    for context in contexts:
+        output = template_external.render(context)
+        output_dir = f"{scripts_dir}/{context['hostname']}"
+        os.makedirs(output_dir, exist_ok=True)
+        output_file = os.path.join(output_dir, 'frr.conf')
+        with open(output_file, 'w') as f:
+            f.write(output)
+        print(f"Configuration file generated at {output_file}")
 
 def generate_clab_file():
     template_clab = env.get_template('clab_file.jinja')

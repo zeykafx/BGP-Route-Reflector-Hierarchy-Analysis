@@ -10,19 +10,19 @@ router isis {{ hostname }}
     is-type level-1
 exit
 !
-ipv6 route fc00:2142:a::/48 Null0
+ipv6 route {{ prefix }} Null0
 !
 router bgp {{ bgp_as }}
     bgp router-id {{ bgp_router_id }}
     bgp default ipv6-unicast
     no bgp default ipv4-unicast
     neighbor EXTERNAL peer-group
-    neighbor EXTERNAL remote-as 65000
-    neighbor eth-rr4s interface peer-group EXTERNAL
+    neighbor EXTERNAL remote-as {{ external_peer_as }}
+    neighbor {{ external_peer_interface }} interface peer-group EXTERNAL
     address-family ipv6 unicast
-        network fc00:2142:a::/48
+        network {{ prefix }}
         {% if has_host %}
-        network fc00:2142:a:2::2/64
+        network {{ host_interface.host_prefix }}
         {% endif %}
         neighbor EXTERNAL activate
         neighbor EXTERNAL route-map accept_from_external in
@@ -30,13 +30,13 @@ router bgp {{ bgp_as }}
     exit-address-family
 exit
 !
-bgp community-list standard EXTERNAL permit 65010:100
+bgp community-list standard EXTERNAL permit {{ bgp_as }}:100
 !
 ipv6 access-list all seq 5 permit any
 !
 route-map accept_from_external permit 10
     match ipv6 address all
-    set community 65010:100
+    set community {{ bgp_as }}:100
     set local-preference 1000
 exit
 !
@@ -52,7 +52,7 @@ interface lo
 exit
 !
 {% if has_host %}
-interface eth-h3
+interface {{ host_interface.name }}
     ipv6 address {{ host_interface.ipv6_address }}
     ipv6 router isis {{ hostname }}
     isis passive

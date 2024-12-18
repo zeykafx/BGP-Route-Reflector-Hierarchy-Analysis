@@ -25,8 +25,8 @@ router bgp 65000
     {% if has_external_peer %}
     ! External peer
     neighbor EXTERNAL peer-group
-    neighbor EXTERNAL remote-as 65010
-    neighbor eth-e1 interface peer-group EXTERNAL
+    neighbor EXTERNAL remote-as {{ external_peer_as}}
+    neighbor {{ external_peer_interface }} interface peer-group EXTERNAL
     {% endif %}
     ! Client routers
     neighbor CLIENTS peer-group
