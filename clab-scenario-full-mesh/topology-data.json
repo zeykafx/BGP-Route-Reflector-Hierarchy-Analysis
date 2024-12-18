@@ -1,0 +1,1045 @@
+{
+  "name": "scenario-full-mesh",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-269c7ab0cd31",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "AS2_H1": {
+      "index": "0",
+      "shortname": "AS2_H1",
+      "longname": "clab-scenario-full-mesh-AS2_H1",
+      "fqdn": "AS2_H1.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_H1",
+      "kind": "linux",
+      "image": "host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_H1",
+        "clab-node-name": "AS2_H1",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "AS2_R1": {
+      "index": "1",
+      "shortname": "AS2_R1",
+      "longname": "clab-scenario-full-mesh-AS2_R1",
+      "fqdn": "AS2_R1.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_R1",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_R1",
+        "clab-node-name": "AS2_R1",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "AS3_H1": {
+      "index": "2",
+      "shortname": "AS3_H1",
+      "longname": "clab-scenario-full-mesh-AS3_H1",
+      "fqdn": "AS3_H1.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_H1",
+      "kind": "linux",
+      "image": "host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_H1",
+        "clab-node-name": "AS3_H1",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "AS3_R1": {
+      "index": "3",
+      "shortname": "AS3_R1",
+      "longname": "clab-scenario-full-mesh-AS3_R1",
+      "fqdn": "AS3_R1.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_R1",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_R1",
+        "clab-node-name": "AS3_R1",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "H1": {
+      "index": "4",
+      "shortname": "H1",
+      "longname": "clab-scenario-full-mesh-H1",
+      "fqdn": "H1.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/H1",
+      "kind": "linux",
+      "image": "host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/H1",
+        "clab-node-name": "H1",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "H2": {
+      "index": "5",
+      "shortname": "H2",
+      "longname": "clab-scenario-full-mesh-H2",
+      "fqdn": "H2.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/H2",
+      "kind": "linux",
+      "image": "host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/H2",
+        "clab-node-name": "H2",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "H3": {
+      "index": "6",
+      "shortname": "H3",
+      "longname": "clab-scenario-full-mesh-H3",
+      "fqdn": "H3.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/H3",
+      "kind": "linux",
+      "image": "host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/H3",
+        "clab-node-name": "H3",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R1": {
+      "index": "7",
+      "shortname": "R1",
+      "longname": "clab-scenario-full-mesh-R1",
+      "fqdn": "R1.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R1",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R1",
+        "clab-node-name": "R1",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R10": {
+      "index": "8",
+      "shortname": "R10",
+      "longname": "clab-scenario-full-mesh-R10",
+      "fqdn": "R10.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R10",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R10",
+        "clab-node-name": "R10",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R11": {
+      "index": "9",
+      "shortname": "R11",
+      "longname": "clab-scenario-full-mesh-R11",
+      "fqdn": "R11.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R11",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R11",
+        "clab-node-name": "R11",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R12": {
+      "index": "10",
+      "shortname": "R12",
+      "longname": "clab-scenario-full-mesh-R12",
+      "fqdn": "R12.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R12",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R12",
+        "clab-node-name": "R12",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R13": {
+      "index": "11",
+      "shortname": "R13",
+      "longname": "clab-scenario-full-mesh-R13",
+      "fqdn": "R13.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R13",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R13",
+        "clab-node-name": "R13",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R14": {
+      "index": "12",
+      "shortname": "R14",
+      "longname": "clab-scenario-full-mesh-R14",
+      "fqdn": "R14.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R14",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R14",
+        "clab-node-name": "R14",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R2": {
+      "index": "13",
+      "shortname": "R2",
+      "longname": "clab-scenario-full-mesh-R2",
+      "fqdn": "R2.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R2",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R2",
+        "clab-node-name": "R2",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R3": {
+      "index": "14",
+      "shortname": "R3",
+      "longname": "clab-scenario-full-mesh-R3",
+      "fqdn": "R3.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R3",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R3",
+        "clab-node-name": "R3",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R4": {
+      "index": "15",
+      "shortname": "R4",
+      "longname": "clab-scenario-full-mesh-R4",
+      "fqdn": "R4.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R4",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R4",
+        "clab-node-name": "R4",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R5": {
+      "index": "16",
+      "shortname": "R5",
+      "longname": "clab-scenario-full-mesh-R5",
+      "fqdn": "R5.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R5",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R5",
+        "clab-node-name": "R5",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R6": {
+      "index": "17",
+      "shortname": "R6",
+      "longname": "clab-scenario-full-mesh-R6",
+      "fqdn": "R6.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R6",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R6",
+        "clab-node-name": "R6",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R7": {
+      "index": "18",
+      "shortname": "R7",
+      "longname": "clab-scenario-full-mesh-R7",
+      "fqdn": "R7.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R7",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R7",
+        "clab-node-name": "R7",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R8": {
+      "index": "19",
+      "shortname": "R8",
+      "longname": "clab-scenario-full-mesh-R8",
+      "fqdn": "R8.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R8",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R8",
+        "clab-node-name": "R8",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    },
+    "R9": {
+      "index": "20",
+      "shortname": "R9",
+      "longname": "clab-scenario-full-mesh-R9",
+      "fqdn": "R9.scenario-full-mesh.io",
+      "group": "",
+      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R9",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.1.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-269c7ab0cd31",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R9",
+        "clab-node-name": "R9",
+        "clab-node-type": "",
+        "clab-owner": "corentindetry",
+        "clab-topo-file": "/home/corentindetry/project/full_mesh.clab.yml",
+        "containerlab": "scenario-full-mesh"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "R1",
+        "interface": "eth-r2",
+        "mac": "aa:c1:ab:eb:7b:98",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R2",
+        "interface": "eth-r1",
+        "mac": "aa:c1:ab:25:f1:ac",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R1",
+        "interface": "eth-r3",
+        "mac": "aa:c1:ab:29:b6:fc",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R3",
+        "interface": "eth-r1",
+        "mac": "aa:c1:ab:47:3a:dc",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R1",
+        "interface": "eth-r5",
+        "mac": "aa:c1:ab:ff:5f:88",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R5",
+        "interface": "eth-r1",
+        "mac": "aa:c1:ab:b7:07:32",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R2",
+        "interface": "eth-r6",
+        "mac": "aa:c1:ab:4b:8b:66",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R6",
+        "interface": "eth-r2",
+        "mac": "aa:c1:ab:21:78:2d",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R2",
+        "interface": "eth-r4",
+        "mac": "aa:c1:ab:4e:bc:d4",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R4",
+        "interface": "eth-r2",
+        "mac": "aa:c1:ab:b9:b5:0c",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R2",
+        "interface": "eth-r8",
+        "mac": "aa:c1:ab:d4:e1:0b",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R8",
+        "interface": "eth-r2",
+        "mac": "aa:c1:ab:c0:f8:7f",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R3",
+        "interface": "eth-r4",
+        "mac": "aa:c1:ab:d7:4d:b1",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R4",
+        "interface": "eth-r3",
+        "mac": "aa:c1:ab:32:66:92",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R3",
+        "interface": "eth-r11",
+        "mac": "aa:c1:ab:6d:a0:aa",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R11",
+        "interface": "eth-r3",
+        "mac": "aa:c1:ab:ba:60:cb",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R4",
+        "interface": "eth-r9",
+        "mac": "aa:c1:ab:56:f3:62",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R9",
+        "interface": "eth-r4",
+        "mac": "aa:c1:ab:58:76:0d",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R5",
+        "interface": "eth-r6",
+        "mac": "aa:c1:ab:86:f1:bb",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R6",
+        "interface": "eth-r5",
+        "mac": "aa:c1:ab:cc:9d:e7",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R5",
+        "interface": "eth-r13",
+        "mac": "aa:c1:ab:72:28:9b",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R13",
+        "interface": "eth-r5",
+        "mac": "aa:c1:ab:63:d2:fd",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R5",
+        "interface": "eth-r14",
+        "mac": "aa:c1:ab:b3:f7:2a",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R14",
+        "interface": "eth-r5",
+        "mac": "aa:c1:ab:8b:da:7c",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R6",
+        "interface": "eth-r7",
+        "mac": "aa:c1:ab:cc:18:f8",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R7",
+        "interface": "eth-r6",
+        "mac": "aa:c1:ab:2f:c8:61",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R6",
+        "interface": "eth-h2",
+        "mac": "aa:c1:ab:06:d3:4e",
+        "peer": "z"
+      },
+      "z": {
+        "node": "H2",
+        "interface": "eth-r6",
+        "mac": "aa:c1:ab:89:c5:a9",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R7",
+        "interface": "eth-r8",
+        "mac": "aa:c1:ab:a9:83:0d",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R8",
+        "interface": "eth-r7",
+        "mac": "aa:c1:ab:4b:59:f6",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R7",
+        "interface": "eth-r14",
+        "mac": "aa:c1:ab:62:00:2a",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R14",
+        "interface": "eth-r7",
+        "mac": "aa:c1:ab:49:ce:d3",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R7",
+        "interface": "eth-as3r1",
+        "mac": "aa:c1:ab:8b:9b:f9",
+        "peer": "z"
+      },
+      "z": {
+        "node": "AS3_R1",
+        "interface": "eth-r7",
+        "mac": "aa:c1:ab:e8:53:8a",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R8",
+        "interface": "eth-r9",
+        "mac": "aa:c1:ab:9a:66:e0",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R9",
+        "interface": "eth-r8",
+        "mac": "aa:c1:ab:ea:3c:6e",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R8",
+        "interface": "eth-h1",
+        "mac": "aa:c1:ab:05:3d:49",
+        "peer": "z"
+      },
+      "z": {
+        "node": "H1",
+        "interface": "eth-r8",
+        "mac": "aa:c1:ab:cf:d4:e6",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R9",
+        "interface": "eth-r10",
+        "mac": "aa:c1:ab:51:00:ae",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R10",
+        "interface": "eth-r9",
+        "mac": "aa:c1:ab:17:3d:91",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R9",
+        "interface": "eth-as2r1",
+        "mac": "aa:c1:ab:8e:a6:ff",
+        "peer": "z"
+      },
+      "z": {
+        "node": "AS2_R1",
+        "interface": "eth-r9",
+        "mac": "aa:c1:ab:21:c8:b8",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R10",
+        "interface": "eth-r11",
+        "mac": "aa:c1:ab:5f:a7:bd",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R11",
+        "interface": "eth-r10",
+        "mac": "aa:c1:ab:e3:81:e7",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R11",
+        "interface": "eth-r12",
+        "mac": "aa:c1:ab:7f:ce:37",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R12",
+        "interface": "eth-r11",
+        "mac": "aa:c1:ab:df:ff:b4",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R11",
+        "interface": "eth-h3",
+        "mac": "aa:c1:ab:ed:92:be",
+        "peer": "z"
+      },
+      "z": {
+        "node": "H3",
+        "interface": "eth-r11",
+        "mac": "aa:c1:ab:f5:b9:4a",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R12",
+        "interface": "eth-r13",
+        "mac": "aa:c1:ab:95:bd:15",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R13",
+        "interface": "eth-r12",
+        "mac": "aa:c1:ab:64:4e:56",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "R13",
+        "interface": "eth-r14",
+        "mac": "aa:c1:ab:bb:55:76",
+        "peer": "z"
+      },
+      "z": {
+        "node": "R14",
+        "interface": "eth-r13",
+        "mac": "aa:c1:ab:e4:9c:b8",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "AS2_R1",
+        "interface": "eth-as2h1",
+        "mac": "aa:c1:ab:ce:a9:53",
+        "peer": "z"
+      },
+      "z": {
+        "node": "AS2_H1",
+        "interface": "eth-as2r1",
+        "mac": "aa:c1:ab:51:36:f7",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "AS3_R1",
+        "interface": "eth-as3h1",
+        "mac": "aa:c1:ab:78:1d:8f",
+        "peer": "z"
+      },
+      "z": {
+        "node": "AS3_H1",
+        "interface": "eth-as3r1",
+        "mac": "aa:c1:ab:b8:26:43",
+        "peer": "a"
+      }
+    }
+  ]
+}
