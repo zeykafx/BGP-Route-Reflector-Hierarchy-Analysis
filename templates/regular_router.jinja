@@ -20,7 +20,7 @@ router bgp 65000
     neighbor {{ interface.name }} interface peer-group SECOND_LEVEL
     {% endfor %}
     address-family ipv6 unicast
-        network fc00:2142:1::/48
+        ! network fc00:2142:1::/48
         neighbor SECOND_LEVEL activate
         neighbor SECOND_LEVEL route-map FROM_SECOND_LEVEL_IN in
         neighbor SECOND_LEVEL route-map TO_SECOND_LEVEL_OUT out
@@ -39,15 +39,17 @@ exit
 !
 ipv6 access-list all seq 5 permit any
 !
-interface loopback
+interface lo
     ipv6 address {{ loopback.ipv6_address }}
     ipv6 router isis {{ hostname }}
     isis passive
 exit
 !
-{% for interface in rr_interfaces %}
+{% for interface in interfaces %}
 interface {{ interface.name }}
+    {% if interface.has_ip %}
     ipv6 address {{ interface.ipv6_address }}
+    {% endif %}
     ipv6 router isis {{ hostname }}
     isis circuit-type level-1
     isis network point-to-point

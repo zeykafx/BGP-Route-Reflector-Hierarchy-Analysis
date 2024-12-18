@@ -3,6 +3,8 @@
 [[ "$(command -v docker)" ]] || { echo "docker is not installed" 1>&2 ; exit 1; }
 [[ "$(command -v clab)" ]] || { echo "clab is not installed" 1>&2 ; exit 1; }
 
+python3 generate_routers.py
+
 sudo docker build -t host:latest -f Dockerfile.host .
 
 sudo clab deploy

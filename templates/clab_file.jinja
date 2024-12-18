@@ -66,6 +66,7 @@ topology:
     - endpoints: [RR2T:eth-rr{{ i }}s, RR{{ i }}S:eth-rr2t]
     {% endfor %}
 
+
     # Host and External connections
     - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
     - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
@@ -77,4 +78,11 @@ topology:
     # R{{ i }}: connections to RR{{ rr_pair }}S and RR{{ rr_pair + 1 }}S
     - endpoints: [RR{{ rr_pair }}S:eth-r{{ i }}, R{{ i }}:eth-rr{{ rr_pair }}s]
     - endpoints: [RR{{ rr_pair + 1 }}S:eth-r{{ i }}, R{{ i }}:eth-rr{{ rr_pair + 1}}s]
+    {% endfor %}
+
+    # Regular router ring connections
+    {% for i in range(1, 9) %}
+    # R{{ i }}: connections to R{{ i + 1 }} (or R1 if i == 8)
+    {% set next = 1 if i == 8 else i + 1 %}
+    - endpoints: [R{{ i }}:eth-r{{ next }}, R{{ next }}:eth-r{{ i }}]
     {% endfor %}

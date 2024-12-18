@@ -68,7 +68,7 @@ route-map TO_SECOND_LEVEL_OUT permit 10
     ! set ipv6 next-hop peer-address
 exit
 !
-interface loopback
+interface lo
     ipv6 address {{ loopback.ipv6_address }}
     ipv6 router isis {{ hostname }}
     isis passive
@@ -76,7 +76,9 @@ exit
 !   
 {% for interface in interfaces %}
 interface {{ interface.name }}
+    {% if interface.has_ip %}
     ipv6 address {{ interface.ipv6_address }}
+    {% endif %}
     ipv6 router isis {{ hostname }}
     isis circuit-type level-1
     isis network point-to-point

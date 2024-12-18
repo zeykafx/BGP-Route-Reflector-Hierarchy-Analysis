@@ -45,7 +45,7 @@ route-map send_to_external permit 10
     set ipv6 next-hop peer-address
 exit
 !
-interface loopback
+interface lo
     ipv6 address {{ loopback.ipv6_address }}
     ipv6 router isis {{ hostname }}
     isis passive

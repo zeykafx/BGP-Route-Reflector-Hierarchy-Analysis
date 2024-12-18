@@ -106,7 +106,7 @@ route-map send_to_external permit 20
 exit
 {% endif %}
 !
-interface loopback
+interface lo
     ipv6 address {{ loopback.ipv6_address }}
     ipv6 router isis {{ hostname }}
     isis passive
@@ -114,7 +114,9 @@ exit
 !
 {% for interface in top_rr_interfaces %}
 interface {{ interface.name }}
+    {% if interface.has_ip %}
     ipv6 address {{ interface.ipv6_address }}
+    {% endif %}
     ipv6 router isis {{ hostname }}
     isis circuit-type level-1
     isis network point-to-point
@@ -132,7 +134,9 @@ exit
 {% endif %}
 {% for client in client_interfaces %}
 interface {{ client.name }}
+    {% if client.has_ip %}
     ipv6 address {{ client.ipv6_address }}
+    {% endif %}
     ipv6 router isis {{ hostname }}
     isis circuit-type level-1
     isis network point-to-point

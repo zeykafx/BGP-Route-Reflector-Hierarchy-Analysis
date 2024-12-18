@@ -89,6 +89,7 @@ topology:
     - endpoints: [RR1T:eth-rr4s, RR4S:eth-rr1t]
     - endpoints: [RR2T:eth-rr4s, RR4S:eth-rr2t]
 
+
     # Host and External connections
     - endpoints: [RR1S:eth-h2, h2:eth-rr1s]
     - endpoints: [RR4S:eth-e1, E1:eth-rr4s]
@@ -119,3 +120,21 @@ topology:
     # R8: connections to RR3S and RR4S
     - endpoints: [RR3S:eth-r8, R8:eth-rr3s]
     - endpoints: [RR4S:eth-r8, R8:eth-rr4s]
+
+    # Regular router ring connections
+    # R1: connections to R2 (or R1 if i == 8)
+    - endpoints: [R1:eth-r2, R2:eth-r1]
+    # R2: connections to R3 (or R1 if i == 8)
+    - endpoints: [R2:eth-r3, R3:eth-r2]
+    # R3: connections to R4 (or R1 if i == 8)
+    - endpoints: [R3:eth-r4, R4:eth-r3]
+    # R4: connections to R5 (or R1 if i == 8)
+    - endpoints: [R4:eth-r5, R5:eth-r4]
+    # R5: connections to R6 (or R1 if i == 8)
+    - endpoints: [R5:eth-r6, R6:eth-r5]
+    # R6: connections to R7 (or R1 if i == 8)
+    - endpoints: [R6:eth-r7, R7:eth-r6]
+    # R7: connections to R8 (or R1 if i == 8)
+    - endpoints: [R7:eth-r8, R8:eth-r7]
+    # R8: connections to R9 (or R1 if i == 8)
+    - endpoints: [R8:eth-r1, R1:eth-r8]

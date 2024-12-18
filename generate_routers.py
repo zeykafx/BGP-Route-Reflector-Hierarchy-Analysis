@@ -16,16 +16,19 @@ def generate_top_level_rr():
     for i in range(1, 3):  # Assuming we have 2 RRs: RR1T and RR2T
         hostname = f'RR{i}T'
         bgp_router_cluster_id = f'1.0.0.{i}'
-        net = f'49.0001.0000.0000.000{i}.00'
+        net = f'47.0003.0000.0000.0000.0000.0000.0000.0000.000{i}.00'
+
         # Interface connecting to the other top-level peer
         interfaces = [
-            {'name': f'eth-rr{3-i}t', 'ipv6_address': f'fc00:2142:1:2::{i}/64'}
+            {'name': f'eth-rr{3-i}t', "has_ip": False, 'ipv6_address': f'fc00:2142:1:2::{i}/64'}
         ]
         for j in range(1, 5):
-            interfaces.append({'name': f'eth-rr{j}s', 'ipv6_address': f'fc00:2142:1:{i}{j}::1/64'})
+            interfaces.append({'name': f'eth-rr{j}s', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{i}{j}::1/64'})
+        
         loopback = {'ipv6_address': f'fc00:2142:1::{i}/128'}
         context = {
             'hostname': hostname,
+            'isis_router_name': hostname,
             'bgp_router_cluster_id': bgp_router_cluster_id,
             'net': net,
             'interfaces': interfaces,
@@ -52,12 +55,12 @@ def generate_second_level_rr():
     for i in range(1, 5):
         hostname = f'RR{i}S'
         bgp_router_cluster_id = f'2.0.0.{i}'
-        net = f'49.0001.0000.0000.000{i+2}.00'
+        net = f'47.0003.0000.0000.0000.0000.0000.0000.0000.000{i+2}.00'
         
         # Interfaces connecting to top-level RRs
         top_rr_interfaces = [
-            {'name': 'eth-rr1t', 'ipv6_address': f'fc00:2142:1:1{i}::2/64'},
-            {'name': 'eth-rr2t', 'ipv6_address': f'fc00:2142:1:2{i}::2/64'}
+            {'name': 'eth-rr1t', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:1{i}::2/64'},
+            {'name': 'eth-rr2t', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:2{i}::2/64'}
         ]
         
         # Client interfaces - RR1S/RR2S connect to R1-R4, RR3S/RR4S connect to R5-R8
@@ -66,13 +69,14 @@ def generate_second_level_rr():
         end_router = 5 if i <= 2 else 9
         for r in range(start_router, end_router):
             client_interfaces.append(
-                {'name': f'eth-r{r}', 'ipv6_address': f'fc00:2142:1:{i+2}{r}::1/64'}
+                {'name': f'eth-r{r}', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{i+2}{r}::1/64'}
             )
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i+2}/128'}
         
         context = {
             'hostname': hostname,
+            'isis_router_name': hostname,
             'bgp_router_cluster_id': bgp_router_cluster_id,
             'net': net,
             'top_rr_interfaces': top_rr_interfaces,
@@ -111,23 +115,39 @@ def generate_regular_routers():
     for i in range(1, 9):
         hostname = f'R{i}'
         bgp_router_id = f'3.0.0.{i}'
-        net = f'49.0001.0000.0000.00{i+10:02d}.00'
+        net = f'47.0003.0000.0000.0000.0000.0000.0000.0000.00{i+10:02d}.00'
         
         # Each router connects to two RRs based on position
         rr_pair = ((i-1) // 4) * 2 + 1  # This will give 1 for R1-R4, and 3 for R5-R8
         # basically, R1-R4 connect to RR1S and RR2S, while R5-R8 connect to RR3S and RR4S
         rr_interfaces = [
-            {'name': f'eth-rr{rr_pair}s', 'ipv6_address': f'fc00:2142:1:{(rr_pair+2)}{i}::2/64'},
-            {'name': f'eth-rr{rr_pair+1}s', 'ipv6_address': f'fc00:2142:1:{(rr_pair+3)}{i}::2/64'}
+            {'name': f'eth-rr{rr_pair}s',   'has_ip': False, 'ipv6_address': f'fc00:2142:1:{(rr_pair+2)}{i}::2/64'},
+            {'name': f'eth-rr{rr_pair+1}s', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{(rr_pair+3)}{i}::2/64'}            
         ]
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i+10:02d}/128'}
         
+
+        # connect each regular router to its next neighbor, forming a ring
+        neighbor_interfaces = []
+        if i < 8:
+            neighbor_interfaces.append(
+                {'name': f'eth-r{i+1}', 'has_ip': False, 'ipv6_address': f'fc00:2142:1:{i+11:02d}::1/64'}
+            )
+        else:
+            neighbor_interfaces.append(
+                {'name': 'eth-r1', 'has_ip': False, 'ipv6_address': 'fc00:2142:1:11::1/64'}
+            )
+
+        interfaces = rr_interfaces + neighbor_interfaces
+
         context = {
             'hostname': hostname,
+            'isis_router_name': hostname,
             'bgp_router_id': bgp_router_id,
             'net': net,
-            'rr_interfaces': rr_interfaces,
+            "rr_interfaces": rr_interfaces,
+            'interfaces': interfaces,
             'loopback': loopback,
         }
         contexts.append(context)
@@ -148,9 +168,10 @@ def generate_external_router():
     # Define context for external router E1
     context = {
         'hostname': 'E1',
+        'isis_router_name': 'E1',
         'bgp_router_id': '4.0.0.1', 
-        'bgp_as': '65010',
-        'net': '49.0001.0000.0000.0021.00',
+        'bgp_as': '65010',        
+        'net': '47.0003.0000.0000.0000.0000.0000.0000.0002.0001.00',
         'loopback': {'ipv6_address': 'fc00:2142:a::1/128'},
         'has_host': True,
         'host_interface': {

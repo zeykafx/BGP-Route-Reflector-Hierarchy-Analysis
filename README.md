@@ -29,7 +29,7 @@ The templates are not super readable, so we still advise you to read the configu
 
 ## Running the lab
 
-To run the lab, you just need to run the `run.sh` script. This script will compile the hosts and start the containerlab topology.
+To run the lab, you just need to run the `run.sh` script. This script will compile the host docker image and start the containerlab topology.
 
 Once everything is running, you can test that the hosts are reachable by running these commands in any routers (you can access the routers by running `sudo docker exec -it clab-scenario-hierarchy-{ROUTER-NAME} vtysh`):
 - `ping fc00:2142:a:2::2`
