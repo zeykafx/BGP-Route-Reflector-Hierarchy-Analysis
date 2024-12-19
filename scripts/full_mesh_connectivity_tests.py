@@ -5,7 +5,7 @@ import time
 def run_docker_command(router, command):
     # run a command in a docker container and return the output
     docker_command = f"docker exec clab-scenario-full-mesh-{router} {command}"
-    result = subprocess.run(docker_command, shell=True, capture_output=True, text=True, timeout=10)
+    result = subprocess.run(docker_command, shell=True, capture_output=True, text=True, timeout=30)
     return result.stdout
 
 def ping_host(router, host_ip, count=1):

@@ -11,8 +11,8 @@ from scripts.generate_routers import generate_routers
 
 verbose = False
 
+# Run a shell command and handle errors
 def run_command(command, check=True, override_verbose=False):
-    """Run a shell command and handle errors"""
     try:
         result = subprocess.run(command, shell=True, check=check, 
                               capture_output=(not verbose or override_verbose), text=True)
@@ -26,6 +26,7 @@ def run_command(command, check=True, override_verbose=False):
 def stop_lab(lab_name):
     print(f"Stopping lab {lab_name}...")
     run_command(f"sudo clab destroy -t {lab_name}.clab.yml", check=False)
+    remove_info_file(lab_name)
 
 # Start a new lab deployment
 def start_lab(lab_name, build_host_image=False):
@@ -52,23 +53,31 @@ def start_lab(lab_name, build_host_image=False):
 def write_info_file(lab_name):
     # write info about the lab to a json file
     info = {
+        'lab': lab_name,
         'timestamp': datetime.now().timestamp(),
-        'lab': 'hierarchy' if lab_name == 'hierarchy' else 'full_mesh',
     }
 
-    with open('lab_info.json', 'w') as f:
+    with open(f'lab_info_{lab_name}.json', 'w') as f:
         json.dump(info, f, indent=2)
+
+
+def remove_info_file(lab_name):
+    try:
+        os.remove(f'lab_info_{lab_name}.json')
+    except FileNotFoundError:
+        pass
 
 def main():
     parser = argparse.ArgumentParser(description='Start a network lab scenario', allow_abbrev=True)
     parser.add_argument('lab', choices=['hierarchy', 'full_mesh'],
                       help='Lab scenario to start (hierarchy or full_mesh)')
-    parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit')
+    parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit', default=False)
     parser.add_argument('-s', '--stop-previous', action='store_true',
-                      help='Stop any previous lab deployment before starting')
-    parser.add_argument('-b', '--build-host-image', action='store_true', help="Build the host image")
-    parser.add_argument('-v', '--verbose', action='store_true', help="Enable verbose output")
-    parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations")
+                      help='Stop any previous lab deployment before starting', default=True)
+    parser.add_argument('-b', '--build-host-image', action='store_true', help="Build the host image", default=False)
+    parser.add_argument('-v', '--verbose', action='store_true', help="Enable verbose output", default=False)
+    parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations", default=False)
+    parser.add_argument('-a', '--allow-multiple', action='store_true', help="Allow multiple containers to run at the same time", default=False)
     
     
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help']) # parse the arguments or show help message if no arguments are provided
@@ -86,11 +95,6 @@ def main():
     global verbose
     verbose = args.verbose
 
-    # delete lab_info.json
-    try:
-        os.remove('lab_info.json')
-    except FileNotFoundError:
-        pass
 
     if args.clean_only:
         print("Cleaning up previous lab deployments... (and not starting a new lab)")
@@ -98,17 +102,18 @@ def main():
         stop_lab('full_mesh')
         sys.exit(0)
 
-    if args.lab == 'hierarchy':
-        stop_lab('hierarchy')
-    elif args.lab == 'full_mesh':
-        stop_lab('full_mesh')
-
-    # Stop previous lab if requested
-    if args.stop_previous:
+    if not args.allow_multiple:
         if args.lab == 'hierarchy':
             stop_lab('full_mesh')
         elif args.lab == 'full_mesh':
             stop_lab('hierarchy')
+
+    # Stop previous lab if requested
+    if args.stop_previous:
+        if args.lab == 'hierarchy':
+            stop_lab('hierarchy')
+        elif args.lab == 'full_mesh':
+            stop_lab('full_mesh')
 
     if args.rebuild_rr_configs and args.lab == 'hierarchy':
         print("Rebuilding Route Reflector configurations...")
