@@ -48,13 +48,19 @@ def test_connectivity():
             status = "✓" if success else "✗"
             print(f"{router} → {host_name} ({host_ip}): {status}")
 
+    BLUE = '\033[0;34m'
+    GREEN = '\033[0;32m'
+    RED = '\033[0;31m'
+    RESET = '\033[0m'
+
     print("\nConnectivity Test Summary:")
     print("=" * 50)
     success_count = len([r for r in results if r['success']])
     total_tests = len(results)
-    print(f"Total tests: {total_tests}")
-    print(f"Successful: {success_count}")
-    print(f"Failed: {total_tests - success_count}")
+    print(f"Total tests: {BLUE}{total_tests}{RESET}")
+    print(f"Successful:  {GREEN}{success_count}{RESET}")
+    print(f"Failed:  {RED}{total_tests - success_count}{RESET}")
+    
     
     # Print failed tests if any
     failed_tests = [r for r in results if not r['success']]

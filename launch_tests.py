@@ -22,7 +22,7 @@ def get_running_lab():
     if is_lab_running("hierarchy"):
         return "hierarchy"
     elif is_lab_running("full-mesh"):
-        return "full_mesh"
+        return "full-mesh"
     return None
 
 def main():
@@ -55,21 +55,26 @@ def main():
   
     if (current_date - start_date).seconds < 50:
         remaining = 50 - (current_date - start_date).seconds
-        print(f"Waiting {remaining:.1f} seconds for ISIS to converge")
-        for _ in range(int(remaining)):
-            sys.stdout.write('.')
+        print(f"Waiting for ISIS to converge (Otherwise nothing is reachable)")
+        for i in range(int(remaining)):
+            sys.stdout.write(f'\rTime remaining: {remaining-i} seconds')
             sys.stdout.flush()
             time.sleep(1)
         print("\nConvergence time complete")
 
     print(f"Running connectivity tests for lab: {lab_name}")
 
+    BOLD_YELLOW = '\033[1;33m'
+    RESET = '\033[0m'
+    
     # Run appropriate test script
     if lab_name == 'hierarchy':
         hierarchy_test()
+        print(f"{BOLD_YELLOW}-{RESET}" * 100)
         analyze_bgp_paths(lab_name='hierarchy', router_name='RR1T')
-    elif lab_name == 'full_mesh':
+    elif lab_name == 'full-mesh':
         full_mesh_test()
+        print(f"{BOLD_YELLOW}-{RESET}" * 100)
         analyze_bgp_paths(lab_name='full-mesh', router_name='R1')
     
 

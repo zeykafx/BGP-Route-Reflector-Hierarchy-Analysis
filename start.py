@@ -44,7 +44,7 @@ def start_lab(lab_name, build_host_image=False):
     print("\nYou can access the routers using:")
     print(f"sudo docker exec -it clab-scenario-{lab_name}-<ROUTER-NAME> vtysh")
     print("\nTest connectivity using:")
-    print("python3 full_mesh_connectivity_tests.py" if lab_name == "full_mesh" else "python3 rr_hierarchy_connectivity_test.py")
+    print("python3 full_mesh_connectivity_tests.py" if lab_name == "full-mesh" else "python3 rr_hierarchy_connectivity_test.py")
     print("\nCheck routes using:")
     print("show bgp ipv6 detail")
     print("show bgp ipv6 unicast")
@@ -69,8 +69,8 @@ def remove_info_file(lab_name):
 
 def main():
     parser = argparse.ArgumentParser(description='Start a network lab scenario', allow_abbrev=True)
-    parser.add_argument('lab', choices=['hierarchy', 'full_mesh'],
-                      help='Lab scenario to start (hierarchy or full_mesh)')
+    parser.add_argument('lab', choices=['hierarchy', 'full-mesh'],
+                      help='Lab scenario to start (hierarchy or full-mesh)')
     parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit', default=False)
     parser.add_argument('-s', '--stop-previous', action='store_true',
                       help='Stop any previous lab deployment before starting', default=True)
@@ -99,21 +99,21 @@ def main():
     if args.clean_only:
         print("Cleaning up previous lab deployments... (and not starting a new lab)")
         stop_lab('hierarchy')
-        stop_lab('full_mesh')
+        stop_lab('full-mesh')
         sys.exit(0)
 
     if not args.allow_multiple:
         if args.lab == 'hierarchy':
-            stop_lab('full_mesh')
-        elif args.lab == 'full_mesh':
+            stop_lab('full-mesh')
+        elif args.lab == 'full-mesh':
             stop_lab('hierarchy')
 
     # Stop previous lab if requested
     if args.stop_previous:
         if args.lab == 'hierarchy':
             stop_lab('hierarchy')
-        elif args.lab == 'full_mesh':
-            stop_lab('full_mesh')
+        elif args.lab == 'full-mesh':
+            stop_lab('full-mesh')
 
     if args.rebuild_rr_configs and args.lab == 'hierarchy':
         print("Rebuilding Route Reflector configurations...")

@@ -1,3 +1,5 @@
+from datetime import datetime
+import json
 import subprocess
 import re
 
@@ -13,7 +15,7 @@ def run_docker_command(command, lab_name, router_name):
         return None
 
 def analyze_bgp_paths(lab_name, router_name):
-    print(f"Starting BGP path diversity analysis for the {lab_name} topology on router {router_name} ...")
+    # print(f"Starting BGP path diversity analysis for the {lab_name} topology on router {router_name} ...")
     # Get BGP IPv6 routes with details
     output = run_docker_command("vtysh -c 'show bgp ipv6 unicast'", lab_name, router_name)
     if not output:
@@ -63,7 +65,53 @@ def analyze_bgp_paths(lab_name, router_name):
     if total_prefixes > 0:
         avg_paths = sum(path_counts.values()) / total_prefixes
         print(f"\nAverage paths per prefix: {avg_paths:.2f}")
+        results = {
+            'lab_name': lab_name,
+            'timestamp': datetime.now().timestamp(),
+            'total_prefixes': total_prefixes,
+            'path_counts': path_counts,
+            'average_paths': avg_paths
+        }
+        save_results_to_file(results, lab_name)
+        compare_current_res_to_other_lab_res(lab_name, results)
+
+def save_results_to_file(results, lab_name):
+    with open(f"bgp_path_diversity_results_{lab_name}.json", 'w') as f:
+        json.dump(results, f, indent=2)
+        
+
+def compare_current_res_to_other_lab_res(lab_name, results):
+    other_lab = 'full-mesh' if lab_name == 'hierarchy' else 'hierarchy'
+    # Load previous results (if any)
+    try:
+        with open(f"bgp_path_diversity_results_{other_lab}.json", 'r') as f:
+            prev_results = json.load(f)
+    except FileNotFoundError:
+        return
+    
+    print(f"Comparing path diversity results for {lab_name} to {other_lab}")
+    # Compare average path diversity
+    current_avg = results['average_paths']
+    other_avg = prev_results['average_paths']
+
+    # color codes, bold doesn't do anything idk why
+    GREEN = '\033[92m'
+    BOLD = '\033[1m'
+    RESET = '\033[0m'
+    
+    # Determine which lab has better path diversity
+    if current_avg > other_avg:
+        current_format = f"{BOLD}"
+        other_format = f"{GREEN}"
+    else:
+        current_format = f"{BOLD}"
+        other_format = f"{GREEN}"
+    
+    print(f"Average paths per prefix ({lab_name} - Current): {current_format}{current_avg:.2f}{RESET}")
+    print(f"Average paths per prefix ({other_lab} - Previous): {other_format}{other_avg:.2f}{RESET}")
+
 
 if __name__ == "__main__":
     analyze_bgp_paths(lab_name='hierarchy', router_name='RR1T')
     # analyze_bgp_paths(lab_name='full-mesh', router_name='R1')
+
