@@ -22,8 +22,8 @@ router bgp 65000
     ! Top level RRs
     neighbor TOP_LEVEL peer-group
     neighbor TOP_LEVEL remote-as 65000
-    neighbor eth-rr1t interface peer-group TOP_LEVEL
-    neighbor eth-rr2t interface peer-group TOP_LEVEL
+    neighbor fc00:2142:1::1 peer-group TOP_LEVEL
+    neighbor fc00:2142:1::2 peer-group TOP_LEVEL
     {% if has_external_peer %}
     ! External peer
     neighbor EXTERNAL peer-group
@@ -34,7 +34,7 @@ router bgp 65000
     neighbor CLIENTS peer-group
     neighbor CLIENTS remote-as 65000
     {% for client in client_interfaces %}
-    neighbor {{ client.name }} interface peer-group CLIENTS
+    neighbor {{ client.address }} peer-group CLIENTS
     {% endfor %}
     ! Address family
     address-family ipv6 unicast

@@ -20,12 +20,12 @@ router bgp 65000
     ! Top route reflector ---------
     neighbor TOP_LEVEL_PEER peer-group
     neighbor TOP_LEVEL_PEER remote-as 65000
-    neighbor {{ interfaces[0].name }} interface peer-group TOP_LEVEL_PEER
+    neighbor {{ interfaces[0].address }} peer-group TOP_LEVEL_PEER
     ! Second level route reflector ---------
     neighbor SECOND_LEVEL peer-group
     neighbor SECOND_LEVEL remote-as 65000
     {% for interface in interfaces[1:] %}
-    neighbor {{ interface.name }} interface peer-group SECOND_LEVEL
+    neighbor {{ interface.address }} peer-group SECOND_LEVEL
     {% endfor %}
     ! Address family ---------
     address-family ipv6 unicast

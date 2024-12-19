@@ -10,7 +10,7 @@ router isis {{ hostname }}
     is-type level-1
 exit
 !
-{% if has_external_peer or has_host %}
+{% if has_external_peer %}
 ipv6 route fc00:2142:1::/48 Null0
 !
 {% endif %}
@@ -21,7 +21,7 @@ router bgp 65000
     neighbor SECOND_LEVEL peer-group
     neighbor SECOND_LEVEL remote-as 65000
     {% for interface in rr_interfaces %}
-    neighbor {{ interface.name }} interface peer-group SECOND_LEVEL
+    neighbor {{ interface.address }} peer-group SECOND_LEVEL
     {% endfor %}
     {% if has_external_peer %}
     ! External peer
@@ -36,7 +36,7 @@ router bgp 65000
         neighbor SECOND_LEVEL activate
         neighbor SECOND_LEVEL route-map FROM_SECOND_LEVEL_IN in
         neighbor SECOND_LEVEL route-map TO_SECOND_LEVEL_OUT out
-        {% if has_external_peer or has_host %}
+        {% if has_external_peer %}
         network fc00:2142:1::/48
         ! External peer
         neighbor EXTERNAL activate

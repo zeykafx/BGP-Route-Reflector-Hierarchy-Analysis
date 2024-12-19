@@ -20,10 +20,10 @@ def generate_top_level_rr():
 
         # Interface connecting to the other top-level peer
         interfaces = [
-            {'name': f'eth-rr{3-i}t', "has_ip": False}
+            {'name': f'eth-rr{3-i}t', "has_ip": False, "address": f'fc00:2142:1::{3-i}'}
         ]
         for j in range(1, 5):
-            interfaces.append({'name': f'eth-rr{j}s', 'has_ip': False})
+            interfaces.append({'name': f'eth-rr{j}s', 'has_ip': False, "address": f'fc00:2142:1::{j+2}'})
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i}/128'}
         context = {
@@ -59,8 +59,8 @@ def generate_second_level_rr():
         
         # Interfaces connecting to top-level RRs
         top_rr_interfaces = [
-            {'name': 'eth-rr1t', 'has_ip': False},
-            {'name': 'eth-rr2t', 'has_ip': False}
+            {'name': 'eth-rr1t', 'has_ip': False, "address": 'fc00:2142:1::1'},
+            {'name': 'eth-rr2t', 'has_ip': False, "address": 'fc00:2142:1::2'},
         ]
         
         # Client interfaces - RR1S/RR2S connect to R1-R4, RR3S/RR4S connect to R5-R8
@@ -69,7 +69,7 @@ def generate_second_level_rr():
         end_router = 5 if i <= 2 else 9
         for r in range(start_router, end_router):
             client_interfaces.append(
-                {'name': f'eth-r{r}', 'has_ip': False}
+                {'name': f'eth-r{r}', 'has_ip': False, 'address': f'fc00:2142:1::{r+6:02x}'}
             )
         
         loopback = {'ipv6_address': f'fc00:2142:1::{i+2}/128'}
@@ -117,17 +117,18 @@ def generate_regular_routers():
     for i in range(1, 9):
         hostname = f'R{i}'
         bgp_router_id = f'3.0.0.{i}'
-        net = f'47.0003.0000.0000.0000.0000.0000.0000.0000.00{i+10:02d}.00'
+        net = f'47.0003.0000.0000.0000.0000.0000.0000.0000.00{i+6:02d}.00'
         
         # Each router connects to two RRs based on position
         rr_pair = ((i-1) // 4) * 2 + 1  # This will give 1 for R1-R4, and 3 for R5-R8
         # basically, R1-R4 connect to RR1S and RR2S, while R5-R8 connect to RR3S and RR4S
         rr_interfaces = [
-            {'name': f'eth-rr{rr_pair}s',   'has_ip': False},
-            {'name': f'eth-rr{rr_pair+1}s', 'has_ip': False}            
+            {'name': f'eth-rr{rr_pair}s',   'has_ip': False, "address": f'fc00:2142:1::{rr_pair+2}'},
+            {'name': f'eth-rr{rr_pair+1}s', 'has_ip': False, "address": f'fc00:2142:1::{rr_pair+3}'}            
         ]
         
-        loopback = {'ipv6_address': f'fc00:2142:1::{i+10:02d}/128'}
+        loopback = {'ipv6_address': f'fc00:2142:1::{i+6:02x}/128'}
+
 
         context = {
             'hostname': hostname,
