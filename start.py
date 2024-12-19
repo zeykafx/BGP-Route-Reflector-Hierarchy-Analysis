@@ -60,17 +60,19 @@ def write_info_file(lab_name):
         json.dump(info, f, indent=2)
 
 def main():
-    parser = argparse.ArgumentParser(description='Start a network lab scenario')
+    parser = argparse.ArgumentParser(description='Start a network lab scenario', allow_abbrev=True)
     parser.add_argument('lab', choices=['hierarchy', 'full_mesh'],
                       help='Lab scenario to start (hierarchy or full_mesh)')
-    parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments')
+    parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit')
     parser.add_argument('-s', '--stop-previous', action='store_true',
                       help='Stop any previous lab deployment before starting')
     parser.add_argument('-b', '--build-host-image', action='store_true', help="Build the host image")
     parser.add_argument('-v', '--verbose', action='store_true', help="Enable verbose output")
     parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations")
     
-    args = parser.parse_args()
+    
+    args = parser.parse_args(args=None if sys.argv[1:] else ['--help']) # parse the arguments or show help message if no arguments are provided
+
 
     # Check if docker and clab are installed
     if not (Path('/usr/bin/docker').exists() or Path('/usr/local/bin/docker').exists()):
@@ -84,16 +86,29 @@ def main():
     global verbose
     verbose = args.verbose
 
+    # delete lab_info.json
+    try:
+        os.remove('lab_info.json')
+    except FileNotFoundError:
+        pass
+
     if args.clean_only:
         print("Cleaning up previous lab deployments... (and not starting a new lab)")
         stop_lab('hierarchy')
         stop_lab('full_mesh')
         sys.exit(0)
 
+    if args.lab == 'hierarchy':
+        stop_lab('hierarchy')
+    elif args.lab == 'full_mesh':
+        stop_lab('full_mesh')
+
     # Stop previous lab if requested
     if args.stop_previous:
-        stop_lab('hierarchy')
-        stop_lab('full_mesh')
+        if args.lab == 'hierarchy':
+            stop_lab('full_mesh')
+        elif args.lab == 'full_mesh':
+            stop_lab('hierarchy')
 
     if args.rebuild_rr_configs and args.lab == 'hierarchy':
         print("Rebuilding Route Reflector configurations...")
