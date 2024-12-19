@@ -48,7 +48,7 @@ There are three hosts in our AS:
 ## Configuration Generation Script
 For the Route Reflector Hierarchy, we used a script to generate the configurations of the routers.
 
-Our router configurations are created using the `generate_configs.py` script. This script uses the `jinja` template engine to create configurations from the `templates` directory.
+Our router configurations are created using the `./scripts/generate_configs.py` script (it is not meant to be called directly, see later). This script uses the `jinja` template engine to create configurations from the `templates` directory.
 
 This simplifies the generation of router configurations and makes it easy to change them. Instead of manually modifying each router's configurations, we can simply modify the templates and rerun the script.
 
@@ -59,28 +59,26 @@ We didn't use the script for the full mesh topology since it is the templates do
 
 ## Running the lab
 
-We created a lot of different scripts to make running and testing the lab as simple as possible.
+We created a few different scripts to make it easier to run the lab, connect to routers, and test the connectivity and path diversity.
 
 ### Starting the lab
-Start the lab using the `start.py` file (called with `python3 start.py [ARGS]` or `./start.py [ARGS]` - you might need to run `chmod +x ./start.py` first for the latter).
+Start the lab using the `start.py` script (with `python3 start.py [ARGS]` or `./start.py [ARGS]` - you might need to run `chmod +x ./start.py` first).
 
 **Positional Arguments (required, first argument)**:
-- hierarchy: Start the Route Reflector Hierarchy lab
-- full-mesh: Start the Full Mesh lab
+- _hierarchy_: Start the Route Reflector Hierarchy lab
+- _full-mesh_: Start the Full Mesh lab
 
 **-> You must choose one of these two options.**
 
 **Optional Arguments**:
 -  _-h, --help_               :  show a help message and exit
--  _-c, --clean-only_         :  Clean up previous lab deployments and exit
--  _-s, --stop-previous_      :  Stop any previous lab deployment before starting
--  _-v, --verbose_            :  Enable verbose output
--  _-r, --rebuild_rr_configs_ :  Rebuild the RR configurations
--  _-a, --allow-multiple_     :  Allow multiple containers to run at the same time (_NOT RECOMMENDED_)
+-  _-c, --clean-only_         :  Clean up previous lab deployments and exit (Default: False)
+-  _-s, --stop-previous_      :  Stop any previous lab deployment before starting (Default: True)
+-  _-v, --verbose_            :  Enable verbose output (Default: False)
+-  _-r, --rebuild_rr_configs_ :  Rebuild the RR configurations (Default: False)
+-  _-a, --allow-multiple_     :  Allow multiple containers to run at the same time (_NOT RECOMMENDED_) (Default: False)
 
 If the docker image for the host is not built, the script will build it for you the first time.
-
-
 
 ### Stopping the lab
 You can stop the lab by using the `-c` or `--clean-only` flag with the `start.py` script (you need to pass in a lab type as well but it doesn't matter which one, the `c` option will stop both labs anyways).
