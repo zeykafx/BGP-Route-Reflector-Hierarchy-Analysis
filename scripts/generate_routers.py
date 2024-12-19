@@ -251,6 +251,3 @@ def generate_routers():
     generate_external_router()
     generate_regular_routers()
     create_hosts_directory()
-
-if __name__ == '__main__':
-    generate_routers()

@@ -55,13 +55,49 @@ This simplifies the generation of router configurations and makes it easy to cha
 We started this lab by configuring the routers manually to make sure that everything worked, then after lots of small errors due to mismatched configurations, we decided to automate the process.
 The templates are not super readable, so we still advise you to read the configurations manually to understand what is going on.
 
+We didn't use the script for the full mesh topology since it is the templates do make it hard to create a unique configuration for each router without being too complex.
+
 ## Running the lab
-# TODO
-To run the lab, you just need to run the `run.sh` script. This script will compile the host docker image and start the containerlab topology.
 
-Once everything is running, you can test that the hosts are reachable by running these commands in any routers (you can access the routers by running `sudo docker exec -it clab-scenario-hierarchy-{ROUTER-NAME} vtysh`):
-- `ping fc00:2142:a:2::2`
-- `ping fc00:2142:1:3::2`
+We created a lot of different scripts to make running and testing the lab as simple as possible.
 
-You can also check the BGP routes by running `show bgp ipv6 detail` or `show bgp ipv6 unicast` in any router.
-To view all the routes, run `show ipv6 route`.
+### Starting the lab
+Start the lab using the `start.py` file (called with `python3 start.py [ARGS]` or `./start.py [ARGS]` - you might need to run `chmod +x ./start.py` first for the latter).
+
+**Positional Arguments (required, first argument)**:
+- hierarchy: Start the Route Reflector Hierarchy lab
+- full-mesh: Start the Full Mesh lab
+
+**-> You must choose one of these two options.**
+
+**Optional Arguments**:
+-  _-h, --help_               :  show a help message and exit
+-  _-c, --clean-only_         :  Clean up previous lab deployments and exit
+-  _-s, --stop-previous_      :  Stop any previous lab deployment before starting
+-  _-v, --verbose_            :  Enable verbose output
+-  _-r, --rebuild_rr_configs_ :  Rebuild the RR configurations
+-  _-a, --allow-multiple_     :  Allow multiple containers to run at the same time (_NOT RECOMMENDED_)
+
+If the docker image for the host is not built, the script will build it for you the first time.
+
+
+
+### Stopping the lab
+You can stop the lab by using the `-c` or `--clean-only` flag with the `start.py` script (you need to pass in a lab type as well but it doesn't matter which one, the `c` option will stop both labs anyways).
+
+### Connecting to a router
+
+You can easily connect to a router using the `connect.py` script (called with `python3 connect.py ROUTER_NAME` or `./connect.py ROUTER_NAME`), e.g. `./connect.py RR1T` if the hierarchy lab is running.
+
+You can specify the lab type with the `-l` or `--lab` flag, e.g. `./connect.py RR1T -l hierarchy` or `./connect.py R1 --lab full-mesh`.
+This argument is optional, **if you don't specify it, the script will try to connect to the first lab it finds running.**
+
+### Testing Connectivity and Path Diversity
+
+You can test that all the routers can reach all the hosts (from any AS) as well as the path diversity using the `./launch_tests.py` script (called with `python3 launch_tests.py` or `./launch_tests.py`).
+
+This script also has the lab as an optional argument, it functions in the same way as the `connect.py` script, if you don't specify the lab, it will try to connect to the first lab it finds running.
+
+This test script will go one by one through all the routers and test the connectivity to all the hosts, then it will test the path diversity of the current topology on the central router (RR1T for the hierarchy lab, R1 for the full mesh lab).
+
+To make full use of this script you should compare the results of the full mesh and hierarchy labs: First run the full mesh lab, launch the tests, then run the hierarchy lab and run the tests again. After each run, the tests results are saved, and the script will compare the results of the two labs at the end.

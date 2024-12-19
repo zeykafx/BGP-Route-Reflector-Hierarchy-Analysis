@@ -29,23 +29,18 @@ def stop_lab(lab_name):
     remove_info_file(lab_name)
 
 # Start a new lab deployment
-def start_lab(lab_name, build_host_image=False):
+def start_lab(lab_name):
     print(f"Starting lab {lab_name}...")
-    
-    # Build host image if it doesn't exist
-    if build_host_image:
-        print("Building host image...")
-        run_command("sudo docker build -t host:latest -f Dockerfile.host .")
     
     # Deploy the lab
     run_command(f"sudo clab deploy -t {lab_name}.clab.yml")
     
     print(f"\nLab {lab_name} has been started successfully!")
     print("\nYou can access the routers using:")
-    print(f"sudo docker exec -it clab-scenario-{lab_name}-<ROUTER-NAME> vtysh")
-    print("\nTest connectivity using:")
-    print("python3 full_mesh_connectivity_tests.py" if lab_name == "full-mesh" else "python3 rr_hierarchy_connectivity_test.py")
-    print("\nCheck routes using:")
+    print(f"./connect.py RR1T" if lab_name == "hierarchy" else "./connect.py R1")
+    print("\nTest connectivity and path diversity using:")
+    print("./launch_tests.py")
+    print("\nCheck routes when connected to a router using:")
     print("show bgp ipv6 detail")
     print("show bgp ipv6 unicast")
     print("show ipv6 route")
@@ -57,15 +52,22 @@ def write_info_file(lab_name):
         'timestamp': datetime.now().timestamp(),
     }
 
-    with open(f'lab_info_{lab_name}.json', 'w') as f:
+    with open(f'./scripts/lab_info_{lab_name}.json', 'w') as f:
         json.dump(info, f, indent=2)
 
 
 def remove_info_file(lab_name):
     try:
-        os.remove(f'lab_info_{lab_name}.json')
+        os.remove(f'./scripts/lab_info_{lab_name}.json')
     except FileNotFoundError:
         pass
+
+def check_host_image():
+    # Check if the host image exists
+    result = run_command("sudo docker image inspect host:latest", check=False)
+    if result.returncode != 0:
+        print("Error: host:latest image not found. Please run start.py with the -b flag")
+        sys.exit(1)
 
 def main():
     parser = argparse.ArgumentParser(description='Start a network lab scenario', allow_abbrev=True)
@@ -74,14 +76,12 @@ def main():
     parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit', default=False)
     parser.add_argument('-s', '--stop-previous', action='store_true',
                       help='Stop any previous lab deployment before starting', default=True)
-    parser.add_argument('-b', '--build-host-image', action='store_true', help="Build the host image", default=False)
     parser.add_argument('-v', '--verbose', action='store_true', help="Enable verbose output", default=False)
     parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations", default=False)
-    parser.add_argument('-a', '--allow-multiple', action='store_true', help="Allow multiple containers to run at the same time", default=False)
+    parser.add_argument('-a', '--allow-multiple', action='store_true', help="Allow multiple containers to run at the same time (NOT RECOMMENDED)", default=False)
     
     
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help']) # parse the arguments or show help message if no arguments are provided
-
 
     # Check if docker and clab are installed
     if not (Path('/usr/bin/docker').exists() or Path('/usr/local/bin/docker').exists()):
@@ -95,6 +95,11 @@ def main():
     global verbose
     verbose = args.verbose
 
+    host_image_exists = check_host_image()
+    if not host_image_exists:
+        # Build host image if it doesn't exist
+        print("Building host image because it doesn't exist")
+        run_command("sudo docker build -t host:latest -f Dockerfile.host .")
 
     if args.clean_only:
         print("Cleaning up previous lab deployments... (and not starting a new lab)")
@@ -121,7 +126,7 @@ def main():
         generate_routers()
 
     # Start the requested lab
-    start_lab(args.lab, args.build_host_image)
+    start_lab(args.lab)
 
     write_info_file(args.lab)
 

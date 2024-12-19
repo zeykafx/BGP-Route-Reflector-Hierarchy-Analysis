@@ -76,7 +76,7 @@ def analyze_bgp_paths(lab_name, router_name):
         compare_current_res_to_other_lab_res(lab_name, results)
 
 def save_results_to_file(results, lab_name):
-    with open(f"bgp_path_diversity_results_{lab_name}.json", 'w') as f:
+    with open(f"./scripts/bgp_path_diversity_results_{lab_name}.json", 'w') as f:
         json.dump(results, f, indent=2)
         
 
@@ -84,27 +84,27 @@ def compare_current_res_to_other_lab_res(lab_name, results):
     other_lab = 'full-mesh' if lab_name == 'hierarchy' else 'hierarchy'
     # Load previous results (if any)
     try:
-        with open(f"bgp_path_diversity_results_{other_lab}.json", 'r') as f:
+        with open(f"./scripts/bgp_path_diversity_results_{other_lab}.json", 'r') as f:
             prev_results = json.load(f)
     except FileNotFoundError:
         return
     
+    print("\n")
     print(f"Comparing path diversity results for {lab_name} to {other_lab}")
     # Compare average path diversity
     current_avg = results['average_paths']
     other_avg = prev_results['average_paths']
 
-    # color codes, bold doesn't do anything idk why
-    GREEN = '\033[92m'
-    BOLD = '\033[1m'
+    GREEN = '\033[0;32m'
+    BLUE = '\033[0;34m'
     RESET = '\033[0m'
     
     # Determine which lab has better path diversity
     if current_avg > other_avg:
-        current_format = f"{BOLD}"
-        other_format = f"{GREEN}"
+        current_format = f"{GREEN}"
+        other_format = f"{BLUE}"
     else:
-        current_format = f"{BOLD}"
+        current_format = f"{BLUE}"
         other_format = f"{GREEN}"
     
     print(f"Average paths per prefix ({lab_name} - Current): {current_format}{current_avg:.2f}{RESET}")

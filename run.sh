@@ -1,5 +1,7 @@
 #!/bin/bash -xe
 
+echo "!!!! This script is not to be used, please use start.py !!!!"
+
 [[ "$(command -v docker)" ]] || { echo "docker is not installed" 1>&2 ; exit 1; }
 [[ "$(command -v clab)" ]] || { echo "clab is not installed" 1>&2 ; exit 1; }
 

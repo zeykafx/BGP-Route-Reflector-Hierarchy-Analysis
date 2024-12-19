@@ -2,22 +2,35 @@
 import json
 import sys
 import subprocess
+import argparse
 
-def connect_to_router(router_name):
-    # Read lab info from JSON file
-    try:
-        with open('lab_info.json', 'r') as f:
-            lab_info = json.load(f)
-    except FileNotFoundError:
-        print("Error: lab_info.json not found, please run start.py first")
-        sys.exit(1)
+def is_lab_running(lab_name):
+    # Check if the lab is running by trying to access a router
+    router = "RR1T" if lab_name == "hierarchy" else "R1"
+    full_command = f"sudo docker exec -it clab-scenario-{lab_name}-{router} vtysh -c 'show bgp ipv6 unicast'"
+    result = subprocess.run(full_command, shell=True, check=False, capture_output=True, text=True)
+    if "No such container" in result.stderr:
+        return False
+    return True
 
-    # Get lab name from info
-    lab_name = lab_info.get('lab')
-    if not lab_name:
-        print("Error: Could not determine lab name")
-        sys.exit(1)
-        
+def get_running_lab():
+    lab = None
+    if is_lab_running("hierarchy"):
+        lab = "hierarchy"
+
+    if is_lab_running("full-mesh"):
+        lab = "full-mesh"
+        if lab is not None:
+            print("Warning: Both labs are running. This is not recommended.")
+    return lab
+
+def connect_to_router(router_name, lab_name=None):
+    if lab_name is None:
+        lab_name = get_running_lab()
+        if lab_name is None:
+            print("Error: No lab is running")
+            sys.exit(1)
+
     # Build container name
     container = f"clab-scenario-{lab_name}-{router_name}"
 
@@ -29,8 +42,9 @@ def connect_to_router(router_name):
         sys.exit(1)
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: ./connect.py ROUTER_NAME")
-        sys.exit(1)
-        
-    connect_to_router(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Connect to a router in a lab environment')
+    parser.add_argument('router', help='Name of the router to connect to')
+    parser.add_argument('-l', '--lab', choices=['hierarchy', 'full-mesh'], help='Lab environment (optional)')
+    
+    args = parser.parse_args()
+    connect_to_router(args.router, args.lab)
