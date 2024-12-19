@@ -243,10 +243,14 @@ def create_hosts_directory():
     with open(f"{scripts_dir}/H3/frr.conf", 'w') as f:
         f.write("")
 
-if __name__ == '__main__':
+
+def generate_routers():
     generate_clab_file()
     generate_top_level_rr()
     generate_second_level_rr()
     generate_external_router()
     generate_regular_routers()
     create_hosts_directory()
+
+if __name__ == '__main__':
+    generate_routers()

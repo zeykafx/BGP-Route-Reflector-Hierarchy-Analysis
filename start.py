@@ -1,16 +1,21 @@
+#! /usr/bin/python3
 import argparse
 import subprocess
 import sys
 import os
 from pathlib import Path
+import json
+import time
+from datetime import datetime
+from scripts.generate_routers import generate_routers
 
 verbose = False
 
-def run_command(command, check=True):
+def run_command(command, check=True, override_verbose=False):
     """Run a shell command and handle errors"""
     try:
         result = subprocess.run(command, shell=True, check=check, 
-                              capture_output=not verbose, text=True)
+                              capture_output=(not verbose or override_verbose), text=True)
         return result
     except subprocess.CalledProcessError as e:
         print(f"Error executing command: {command}")
@@ -44,10 +49,21 @@ def start_lab(lab_name, build_host_image=False):
     print("show bgp ipv6 unicast")
     print("show ipv6 route")
 
+def write_info_file(lab_name):
+    # write info about the lab to a json file
+    info = {
+        'timestamp': datetime.now().timestamp(),
+        'lab': 'hierarchy' if lab_name == 'hierarchy' else 'full_mesh',
+    }
+
+    with open('lab_info.json', 'w') as f:
+        json.dump(info, f, indent=2)
+
 def main():
     parser = argparse.ArgumentParser(description='Start a network lab scenario')
     parser.add_argument('lab', choices=['hierarchy', 'full_mesh'],
                       help='Lab scenario to start (hierarchy or full_mesh)')
+    parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments')
     parser.add_argument('-s', '--stop-previous', action='store_true',
                       help='Stop any previous lab deployment before starting')
     parser.add_argument('-b', '--build-host-image', action='store_true', help="Build the host image")
@@ -68,23 +84,26 @@ def main():
     global verbose
     verbose = args.verbose
 
+    if args.clean_only:
+        print("Cleaning up previous lab deployments... (and not starting a new lab)")
+        stop_lab('hierarchy')
+        stop_lab('full_mesh')
+        sys.exit(0)
+
     # Stop previous lab if requested
     if args.stop_previous:
-        if args.lab == 'hierarchy':
-            stop_lab('hierarchy')
-        else:
-            stop_lab('full_mesh')
-            
-    # Stop the current lab type if it exists
-    stop_lab(args.lab)
+        stop_lab('hierarchy')
+        stop_lab('full_mesh')
 
     if args.rebuild_rr_configs and args.lab == 'hierarchy':
         print("Rebuilding Route Reflector configurations...")
         # Rebuild the configurations
-        run_command("python3 generate_routers.py")
-    
+        generate_routers()
+
     # Start the requested lab
     start_lab(args.lab, args.build_host_image)
+
+    write_info_file(args.lab)
 
 if __name__ == "__main__":
     main()

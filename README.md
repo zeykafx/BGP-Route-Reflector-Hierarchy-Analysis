@@ -8,7 +8,7 @@ This lab is designed to showcase BGP Route Reflection in a hiearchical design us
 
 ## Route Reflector Hierarchy Topology
 
-![Diagram of Route Reflector Hierarchy](./diagram_rr_hierarchy_2.png)
+![Diagram of Route Reflector Hierarchy](./diagram_rr_hierarchy.png)
 
 Our main AS (65000) has 2 Top Level Route Reflectors (RR1T and RR2T) connected in full mesh with each other, then we have 4 Second Level Route Reflectors (RR1S->RR4S), both connected to each top level route reflectors but not in full mesh with the others.
 
