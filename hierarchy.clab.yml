@@ -118,9 +118,9 @@ topology:
 
 
     # Host connections
-    - endpoints: [RR1S:eth-h2, h1:eth-rr1s]
-    - endpoints: [R4:eth-h2, h2:eth-r4]
-    - endpoints: [R8:eth-h3, h3:eth-r8]
+    - endpoints: [RR1S:eth-h1, H1:eth-rr1s]
+    - endpoints: [R4:eth-h2, H2:eth-r4]
+    - endpoints: [R8:eth-h3, H3:eth-r8]
     # External Hosts connections
     - endpoints: [AS2_R1:eth-h1, AS2_H1:eth-as2r1]
     - endpoints: [AS3_R1:eth-h1, AS3_H1:eth-as3r1]

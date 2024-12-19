@@ -7,7 +7,19 @@ all:
   children:
     linux:
       hosts:
-        clab-scenario-hierarchy-E1:
+        clab-scenario-hierarchy-AS2_H1:
+          ansible_host: 
+        clab-scenario-hierarchy-AS2_R1:
+          ansible_host: 
+        clab-scenario-hierarchy-AS3_H1:
+          ansible_host: 
+        clab-scenario-hierarchy-AS3_R1:
+          ansible_host: 
+        clab-scenario-hierarchy-H1:
+          ansible_host: 
+        clab-scenario-hierarchy-H2:
+          ansible_host: 
+        clab-scenario-hierarchy-H3:
           ansible_host: 
         clab-scenario-hierarchy-R1:
           ansible_host: 
@@ -36,8 +48,4 @@ all:
         clab-scenario-hierarchy-RR3S:
           ansible_host: 
         clab-scenario-hierarchy-RR4S:
-          ansible_host: 
-        clab-scenario-hierarchy-h2:
-          ansible_host: 
-        clab-scenario-hierarchy-h3:
           ansible_host: 

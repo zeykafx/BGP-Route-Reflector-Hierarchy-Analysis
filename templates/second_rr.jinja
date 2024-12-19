@@ -10,8 +10,10 @@ router isis {{ hostname }}
     is-type level-1
 exit
 !
+{% if has_external_peer or has_host %}
 ipv6 route fc00:2142:1::/48 Null0
 !
+{% endif %}
 router bgp 65000
     bgp router-id {{ bgp_router_cluster_id }}
     bgp cluster-id {{ bgp_router_cluster_id }}
@@ -36,7 +38,6 @@ router bgp 65000
     {% endfor %}
     ! Address family
     address-family ipv6 unicast
-        network fc00:2142:1::/48
         {% if has_host %}
         network {{ host_prefix }}
         {% endif %}
@@ -44,7 +45,8 @@ router bgp 65000
         neighbor TOP_LEVEL activate
         neighbor TOP_LEVEL route-map FROM_TOP_LEVEL_IN in
         neighbor TOP_LEVEL route-map TO_TOP_LEVEL_OUT out
-        {% if has_external_peer %}
+        {% if has_external_peer or has_host %}
+        network fc00:2142:1::/48
         ! External peer
         neighbor EXTERNAL activate
         neighbor EXTERNAL route-map accept_from_external in
@@ -96,11 +98,11 @@ route-map accept_from_external permit 10
     set ipv6 next-hop peer-address
 exit
 !
-route-map send_to_external deny 10
-    match community EXTERNAL
-exit
+! route-map send_to_external deny 10
+!     match community EXTERNAL
+! exit
 !
-route-map send_to_external permit 20
+route-map send_to_external permit 10
     match ipv6 address all
     ! set ipv6 next-hop peer-address
 exit

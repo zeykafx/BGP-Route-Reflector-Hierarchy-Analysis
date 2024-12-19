@@ -178,7 +178,7 @@ def generate_external_router():
             'loopback': {'ipv6_address': 'fc00:2142:a::1/128'},
             'has_host': True,
             'host_interface': {
-                'name': 'eth-as2h1',
+                'name': 'eth-h1',
                 'ipv6_address': 'fc00:2142:a:2::1/64',
                 'host_prefix': 'fc00:2142:a:2::2/64'
             }
@@ -195,7 +195,7 @@ def generate_external_router():
             'loopback': {'ipv6_address': 'fc00:2142:b::1/128'},
             'has_host': True,
             'host_interface': {
-                'name': 'eth-as3h1',
+                'name': 'eth-h1',
                 'ipv6_address': 'fc00:2142:b:2::1/64',
                 'host_prefix': 'fc00:2142:b:2::2/64'
             }
@@ -225,9 +225,27 @@ def generate_clab_file():
     print(f"Containerlab file generated at {output_file}")
 
 
+def create_hosts_directory():
+    os.makedirs(f"{scripts_dir}/AS2_H1", exist_ok=True)
+    with open(f"{scripts_dir}/AS2_H1/frr.conf", 'w') as f:
+        f.write("")
+    os.makedirs(f"{scripts_dir}/AS3_H1", exist_ok=True)
+    with open(f"{scripts_dir}/AS3_H1/frr.conf", 'w') as f:
+        f.write("")
+    os.makedirs(f"{scripts_dir}/H1", exist_ok=True)
+    with open(f"{scripts_dir}/H1/frr.conf", 'w') as f:
+        f.write("")
+    os.makedirs(f"{scripts_dir}/H2", exist_ok=True)
+    with open(f"{scripts_dir}/H2/frr.conf", 'w') as f:
+        f.write("")
+    os.makedirs(f"{scripts_dir}/H3", exist_ok=True)
+    with open(f"{scripts_dir}/H3/frr.conf", 'w') as f:
+        f.write("")
+
 if __name__ == '__main__':
     generate_clab_file()
     generate_top_level_rr()
     generate_second_level_rr()
     generate_external_router()
     generate_regular_routers()
+    create_hosts_directory()

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This lab is designed to showcase BGP Route Reflection in a hiearchical design. 
+This lab is designed to showcase BGP Route Reflection in a hiearchical design using FRRouting and containerlab (IPv6 only).
 
 ## Route Reflector Hierarchy Topology
 
@@ -25,14 +25,14 @@ There are three hosts in our AS:
 - H2 connected to R4 (Host address: `fc00:2142:1:2::2`)
 - H3 connected to R8 (Host address: `fc00:2142:1:3::2`)
 
-Those hosts are reachable from any host/router in any AS.
+The hosts are reachable from any router/host in any AS.
 
 ## Full Mesh Topology
 ![Diagram of Full Mesh Topology](./diagram_full_mesh.png)
 
 To be able to compare the performances of the Route Reflector Hierarchy with a full mesh topology, we also created a full mesh topology with the same ASes and hosts.
 
-The diagram shows all the IGP links between the routers, for clarity we opted to not show the BGP sessions since we know that in a full mesh topology, all routers are connected to each other using iBGP.
+The diagram shows all the IGP links between the routers, for clarity we opted to not show the BGP sessions since we know that in a full mesh topology, all routers of an AS/Area are connected to each other using iBGP.
 
 There is the same number of routers, but the number of IGP links is not exactly the same.
 
@@ -45,7 +45,7 @@ There are three hosts in our AS:
 - H2 connected to R6 (Host address: `fc00:2142:1:2::2`)
 - H3 connected to R11 (Host address: `fc00:2142:1:3::2`)
 
-## Configuration Generation
+## Configuration Generation Script
 For the Route Reflector Hierarchy, we used a script to generate the configurations of the routers.
 
 Our router configurations are created using the `generate_configs.py` script. This script uses the `jinja` template engine to create configurations from the `templates` directory.
