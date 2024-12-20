@@ -67,8 +67,8 @@ def create_convergence_graph():
         ax.bar_label(container, fmt='%.2f sec', label_type='center')
 
     plt.tight_layout()
-    plt.savefig('convergence_comparison.png')
-    print("\nGraph saved as 'convergence_comparison.png'")
+    plt.savefig('./images/convergence_comparison.png')
+    print("\nGraph saved as './images/convergence_comparison.png'")
 
     sns.set_style("whitegrid")
     plt.figure(figsize=(10, 6))
@@ -87,8 +87,8 @@ def create_convergence_graph():
         ax.bar_label(container, fmt='%.2f', label_type='center')
 
     plt.tight_layout()
-    plt.savefig('unique_paths_comparison.png')
-    print("\nGraph saved as 'unique_paths_comparison.png'")
+    plt.savefig('./images/unique_paths_comparison.png')
+    print("\nGraph saved as './images/unique_paths_comparison.png'")
     return True
 
 def main():
