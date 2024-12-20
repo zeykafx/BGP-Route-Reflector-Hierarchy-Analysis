@@ -72,7 +72,6 @@ def main(lab_name, router_to_monitor, router_to_pause, prefix_to_watch, check_in
             print(f"\nConvergence detected after {convergence_time:.3f} seconds")
             convergence_detected = True
             
-            # Print the old and new paths
             old_paths = initial_rib.get('routes', {}).get(PREFIX_TO_WATCH, [])
             new_paths = current_rib.get('routes', {}).get(PREFIX_TO_WATCH, [])
             
@@ -94,6 +93,3 @@ def main(lab_name, router_to_monitor, router_to_pause, prefix_to_watch, check_in
     subprocess.run(unpause_command, shell=True)
 
     return convergence_detected, convergence_time
-
-if __name__ == "__main__":
-    main("better-hierarchy", "R14", "R3", "fc00:2142:a:2::/64", 0.1)

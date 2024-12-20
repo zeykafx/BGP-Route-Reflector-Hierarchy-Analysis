@@ -1,8 +1,8 @@
 {
     "lab_name": "better-hierarchy",
-    "timestamp": 1734717578.384729,
+    "timestamp": 1734729826.474434,
     "average_paths": 1.0,
     "convergence_detected": true,
-    "convergence_time": 29.936769,
+    "convergence_time": 28.847489,
     "router_name": "R10"
 }

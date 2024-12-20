@@ -5,13 +5,11 @@ import sys
 import os
 from pathlib import Path
 import json
-import time
 from datetime import datetime
 from scripts.generate_routers import generate_routers
 
 verbose = False
 
-# Run a shell command and handle errors
 def run_command(command, check=True, override_verbose=False):
     try:
         result = subprocess.run(command, shell=True, check=check, 
@@ -22,7 +20,6 @@ def run_command(command, check=True, override_verbose=False):
         print(f"Error output: {e.stderr}")
         sys.exit(1)
 
-# Stop an existing lab
 def stop_lab(lab_name):
     print(f"Stopping lab {lab_name}...")
     run_command(f"sudo clab destroy -t {lab_name}.clab.yml", check=False)
@@ -32,7 +29,6 @@ def stop_lab(lab_name):
 def start_lab(lab_name):
     print(f"Starting lab {lab_name}...")
     
-    # Deploy the lab
     run_command(f"sudo clab deploy -t {lab_name}.clab.yml")
     
     print(f"\nLab {lab_name} has been started successfully!")
@@ -52,18 +48,17 @@ def write_info_file(lab_name):
         'timestamp': datetime.now().timestamp(),
     }
 
-    with open(f'./scripts/lab_info_{lab_name}.json', 'w') as f:
+    with open(f'./scripts/out/lab_info_{lab_name}.json', 'w') as f:
         json.dump(info, f, indent=2)
 
 
 def remove_info_file(lab_name):
     try:
-        os.remove(f'./scripts/lab_info_{lab_name}.json')
+        os.remove(f'./scripts/out/lab_info_{lab_name}.json')
     except FileNotFoundError:
         pass
 
 def check_host_image():
-    # Check if the host image exists
     result = run_command("sudo docker image inspect host:latest", check=False, override_verbose=True)
     if result.returncode != 0:
         return False
@@ -86,20 +81,7 @@ def main():
 
 
 def start_with_args(lab_name, clean_only, stop_previous, verbose_arg, rebuild_rr_configs, allow_multiple):
-    # parser = argparse.ArgumentParser(description='Start a network lab scenario', allow_abbrev=True)
-    # parser.add_argument('lab', choices=['better-hierarchy', 'full-mesh'],
-    #                   help='Lab scenario to start (better-hierarchy or full-mesh)')
-    # parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit', default=False)
-    # parser.add_argument('-s', '--stop-previous', action='store_true',
-    #                   help='Stop any previous lab deployment before starting', default=True)
-    # parser.add_argument('-v', '--verbose', action='store_true', help="Enable verbose output", default=False)
-    # parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations", default=False)
-    # parser.add_argument('-a', '--allow-multiple', action='store_true', help="Allow multiple containers to run at the same time (NOT RECOMMENDED)", default=False)
-    
-    
-    # args = parser.parse_args(args=None if sys.argv[1:] else ['--help']) # parse the arguments or show help message if no arguments are provided
-
-    # Check if docker and clab are installed
+    # check if docker and clab are installed
     if not (Path('/usr/bin/docker').exists() or Path('/usr/local/bin/docker').exists()):
         print("Error: docker is not installed")
         sys.exit(1)
@@ -113,7 +95,7 @@ def start_with_args(lab_name, clean_only, stop_previous, verbose_arg, rebuild_rr
 
     host_image_exists = check_host_image()
     if not host_image_exists:
-        # Build host image if it doesn't exist
+        # build host image if it doesn't exist
         print("Building host image because it doesn't exist")
         run_command("sudo docker build -t host:latest -f Dockerfile.host .")
 
@@ -129,19 +111,14 @@ def start_with_args(lab_name, clean_only, stop_previous, verbose_arg, rebuild_rr
         elif lab_name  == 'full-mesh':
             stop_lab('better-hierarchy')
 
-    # Stop previous lab if requested
+    # stop previous lab if requested
     if stop_previous:
         if lab_name == 'better-hierarchy':
             stop_lab('better-hierarchy')
         elif lab_name == 'full-mesh':
             stop_lab('full-mesh')
 
-    # if rebuild_rr_configs and lab_name == 'hierarchy':
-    #     print("Rebuilding Route Reflector configurations...")
-    #     # Rebuild the configurations
-    #     generate_routers()
 
-    # Start the requested lab
     start_lab(lab_name)
 
     write_info_file(lab_name)

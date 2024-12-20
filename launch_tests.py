@@ -37,7 +37,7 @@ def write_complete_test_results(lab_name, avg_paths, convergence_detected, conve
         'convergence_time': convergence_time,
         'router_name': router_name
     }
-    with open(f"./scripts/{lab_name}_complete_test_results.json", "w") as f:
+    with open(f"./scripts/out/{lab_name}_complete_test_results.json", "w") as f:
         json.dump(results, f, indent=4)
 
 def main():
@@ -48,10 +48,6 @@ def main():
     launch_test(args.lab, args.router)
 
 def launch_test(lab, router_name, should_exit=True):
-    # parser = argparse.ArgumentParser(description='Run connectivity tests on lab topology')
-    # parser.add_argument('-l', '--lab', choices=['better-hierarchy', 'full-mesh'], help='Specify the lab to test')
-    # parser.add_argument('-r', '--router', help='Specify the router from which to analyze BGP paths', default='R10')
-    # args = parser.parse_args()
 
     lab_name = lab if lab else get_running_lab()
     if not lab_name:
@@ -61,9 +57,9 @@ def launch_test(lab, router_name, should_exit=True):
         else:
             return False
 
-    # Read lab info from JSON file
+    # read info from JSON file
     try:
-        with open(f'./scripts/lab_info_{lab_name}.json', 'r') as f:
+        with open(f'./scripts/out/lab_info_{lab_name}.json', 'r') as f:
             lab_info = json.load(f)
     except FileNotFoundError:
         print("Error: lab_info.json not found. Please run start.py first")
@@ -72,7 +68,7 @@ def launch_test(lab, router_name, should_exit=True):
         else:
             return False
 
-    # Get lab start time from info
+    # get start time from info
     start_time_timestamp = lab_info.get('timestamp')
     if not start_time_timestamp:
         print("Error: Could not determine start time")
@@ -100,7 +96,6 @@ def launch_test(lab, router_name, should_exit=True):
     RESET = '\033[0m'
 
 
-    # Run appropriate test script
     if lab_name == 'better-hierarchy':
         has_failed_tests= full_mesh_test('better-hierarchy')
         if has_failed_tests:

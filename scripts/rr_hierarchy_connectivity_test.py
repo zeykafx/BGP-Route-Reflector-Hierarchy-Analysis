@@ -1,5 +1,4 @@
 import subprocess
-import time
 
 def run_docker_command(router, command):
     # run a command in a docker container and return the output
@@ -8,9 +7,7 @@ def run_docker_command(router, command):
     return result.stdout
 
 def ping_host(router, host_ip, count=1):
-    # Ping a host from a router and return True if successful
     output = run_docker_command(router, f"ping -c {count} {host_ip}")
-    # Check if we received any successful ping replies
     success = "0% packet loss" in output
     if not success:
         print(f"Error: {router} could not ping {host_ip}")
@@ -33,7 +30,7 @@ def test_connectivity():
         'AS3_H1': 'fc00:2142:b:2::2'   # host in AS 65020
     }
 
-    # Test connectivity from each router to each host
+    # test connectivity from each router to each host
     results = []
     for router in routers:
         print(f"\nTesting connectivity from {router}...")
@@ -62,7 +59,6 @@ def test_connectivity():
     print(f"Failed:  {RED}{total_tests - success_count}{RESET}")
     
     
-    # Print failed tests if any
     failed_tests = [r for r in results if not r['success']]
     if failed_tests:
         print("\nFailed Tests:")
@@ -71,7 +67,6 @@ def test_connectivity():
             print(f"{test['router']} → {test['host']} ({test['ip']})")
 
 if __name__ == "__main__":
-    # Give some time for the network to converge
     print("Starting connectivity tests...")
     print("Testing connectivity between all routers and hosts...")
     test_connectivity()

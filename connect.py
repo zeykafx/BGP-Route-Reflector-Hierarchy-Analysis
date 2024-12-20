@@ -5,7 +5,6 @@ import subprocess
 import argparse
 
 def is_lab_running(lab_name):
-    # Check if the lab is running by trying to access a router
     router = "R1"
     full_command = f"sudo docker exec -it clab-scenario-{lab_name}-{router} vtysh -c 'show bgp ipv6 unicast'"
     result = subprocess.run(full_command, shell=True, check=False, capture_output=True, text=True)
@@ -31,10 +30,8 @@ def connect_to_router(router_name, lab_name=None):
             print("Error: No lab is running")
             sys.exit(1)
 
-    # Build container name
     container = f"clab-scenario-{lab_name}-{router_name}"
 
-    # Connect to router's vtysh
     try:
         subprocess.run(['sudo', 'docker', 'exec', '-it', container, 'vtysh'], check=True)
     except subprocess.CalledProcessError:

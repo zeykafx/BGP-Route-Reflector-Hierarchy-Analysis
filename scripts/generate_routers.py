@@ -1,24 +1,22 @@
 import os
 from jinja2 import Environment, FileSystemLoader
 
-# Define the template directory and the output directory
 template_dir = './templates'
 scripts_dir = './clab-scenario-hierarchy'
 
-# Create the environment and load the template
 env = Environment(loader=FileSystemLoader(template_dir), trim_blocks=True, lstrip_blocks=True)
 
 def generate_top_level_rr():
     template_top_rr = env.get_template("top_rr.jinja")
 
-    # Define the contexts for each router
+    # define the contexts for each router
     contexts = []
     for i in range(1, 3):  # Assuming we have 2 RRs: RR1T and RR2T
         hostname = f'RR{i}T'
         bgp_router_cluster_id = f'1.0.0.{i}'
         net = f'47.0003.0000.0000.0000.0000.0000.0000.0000.000{i}.00'
 
-        # Interface connecting to the other top-level peer
+        # iface connecting to the other top-level peer
         interfaces = [
             {'name': f'eth-rr{3-i}t', "has_ip": False, "address": f'fc00:2142:1::{3-i}'}
         ]
@@ -36,7 +34,7 @@ def generate_top_level_rr():
         }
         contexts.append(context)
 
-    # Generate configuration files for each context
+    # generate configuration files for each context
     for ctx in contexts:
         output = template_top_rr.render(ctx)
         output_dir = f"{scripts_dir}/{ctx['hostname']}"
@@ -50,14 +48,14 @@ def generate_top_level_rr():
 def generate_second_level_rr():
     template_second_rr = env.get_template('second_rr.jinja')
 
-    # Define contexts for second level RRs (RR1S through RR4S)
+    # define contexts for second level RRs (RR1S through RR4S)
     contexts = []
     for i in range(1, 5):
         hostname = f'RR{i}S'
         bgp_router_cluster_id = f'2.0.0.{i}'
         net = f'47.0003.0000.0000.0000.0000.0000.0000.0000.000{i+2}.00'
         
-        # Interfaces connecting to top-level RRs
+        # interfaces connecting to top-level RRs
         top_rr_interfaces = [
             {'name': 'eth-rr1t', 'has_ip': False, "address": 'fc00:2142:1::1'},
             {'name': 'eth-rr2t', 'has_ip': False, "address": 'fc00:2142:1::2'},
@@ -88,7 +86,7 @@ def generate_second_level_rr():
             'has_host': (i == 1),  # Only RR1S has host interface
         }
         
-        # Add host interface for RR1S
+        # host interface (for RR1S)
         if i == 1:
             context['host_interface'] = {
                 'name': 'eth-h1',
@@ -98,7 +96,6 @@ def generate_second_level_rr():
             
         contexts.append(context)
 
-    # Generate configuration files
     for ctx in contexts:
         output = template_second_rr.render(ctx)
         output_dir = f"{scripts_dir}/{ctx['hostname']}"
@@ -112,7 +109,7 @@ def generate_second_level_rr():
 def generate_regular_routers():
     template_regular = env.get_template('regular_router.jinja')
     
-    # Define contexts for regular routers (R1 through R8)
+    # define contexts for regular routers (R1 through R8)
     contexts = []
     for i in range(1, 9):
         hostname = f'R{i}'
@@ -153,7 +150,6 @@ def generate_regular_routers():
 
         contexts.append(context)
 
-    # Generate configuration files
     for ctx in contexts:
         output = template_regular.render(ctx)
         output_dir = f"{scripts_dir}/{ctx['hostname']}"
@@ -203,7 +199,6 @@ def generate_external_router():
         }
     ]
 
-    # Generate configuration files
     for context in contexts:
         output = template_external.render(context)
         output_dir = f"{scripts_dir}/{context['hostname']}"
@@ -216,7 +211,6 @@ def generate_external_router():
 def generate_clab_file():
     template_clab = env.get_template('clab_file.jinja')
 
-    # Generate configuration file
     output = template_clab.render()
     output_dir = "./"
     os.makedirs(output_dir, exist_ok=True)

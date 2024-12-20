@@ -23,10 +23,8 @@ def start_lab_and_test(lab_name):
     """Start a lab and run its tests"""
     print(f"\nStarting {lab_name} lab...")
     
-    # Start the lab
     start_with_args(lab_name, clean_only=False, stop_previous=True, verbose_arg=True, allow_multiple=False,rebuild_rr_configs=False)
     
-    # Run the tests
     print(f"Running tests for {lab_name}...")
     res = launch_test(lab_name, "R10", should_exit=False)
     return res
@@ -34,7 +32,7 @@ def start_lab_and_test(lab_name):
 def load_test_results(lab_name):
     """Load test results from json file"""
     try:
-        with open(f"./scripts/{lab_name}_complete_test_results.json", 'r') as f:
+        with open(f"./scripts/out/{lab_name}_complete_test_results.json", 'r') as f:
             return json.load(f)
     except FileNotFoundError:
         print(f"Could not find test results for {lab_name}")
@@ -94,18 +92,16 @@ def create_convergence_graph():
     return True
 
 def main():
-    # Ensure we're starting fresh
-    # run_command("./start.py better-hierarchy -c")
+    # ensure we're starting fresh
     start_with_args("better-hierarchy", clean_only=True, stop_previous=True, verbose_arg=True, rebuild_rr_configs=False, allow_multiple=False)
     
-    # Run both labs sequentially
+    # run both labs sequentially
     labs = ["better-hierarchy", "full-mesh"]
     for lab in labs:
         if not start_lab_and_test(lab):
             print(f"Failed to complete tests for {lab}")
             return
             
-    # Create the comparison graph
     if not create_convergence_graph():
         print("Failed to create comparison graph")
         return

@@ -26,7 +26,7 @@ def check_connectivity(lab_name, router_name):
         "AS3_H1": "fc00:2142:b:2::2",
     }
 
-    print(f"Checking BGP convergence for {router_name} in {lab_name} lab...")
+    print(f"Waiting for BGP convergence ({router_name} in {lab_name})")
     start_time = datetime.now()
     while True:
         all_reachable = True

@@ -9,9 +9,7 @@ def run_docker_command(router, command, lab_name):
     return result.stdout
 
 def ping_host(router, host_ip,lab_name, count=1):
-    # Ping a host from a router and return True if successful
     output = run_docker_command(router, f"ping -c {count} {host_ip}", lab_name)
-    # Check if we received any successful ping replies
     success = "0% packet loss" in output
     return success
 
@@ -36,7 +34,7 @@ def test_connectivity(lab_name):
         'AS3_H1': 'fc00:2142:b:2::2'   # host in AS 65020
     }
 
-    # Test connectivity from each router to each host
+    # test connectivity from each router to each host
     results = []
     for router in routers:
         print(f"\nTesting connectivity from {router} for {lab_name} lab...")
@@ -60,7 +58,6 @@ def test_connectivity(lab_name):
     print(f"Successful:  {GREEN}{success_count}{RESET}")
     print(f"Failed:  {RED}{total_tests - success_count}{RESET}")
     
-    # Print failed tests if any
     failed_tests = [r for r in results if not r['success']]
     if failed_tests:
         has_failed_tests = True
@@ -70,9 +67,3 @@ def test_connectivity(lab_name):
             print(f"{test['router']} → {test['host']} ({test['ip']})")
 
     return has_failed_tests
-
-if __name__ == "__main__":
-    # Give some time for the network to converge
-    print("Starting connectivity tests...")
-    print("Testing connectivity between all routers and hosts...")
-    test_connectivity("full-mesh")
