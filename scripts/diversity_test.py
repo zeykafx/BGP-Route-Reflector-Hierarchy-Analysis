@@ -70,6 +70,10 @@ def analyze_bgp_paths(lab_name, router_name):
         save_results_to_file(results, lab_name)
         compare_current_res_to_other_lab_res(lab_name, results, router_name)
 
+        return avg_paths
+    return None
+
+
 def save_results_to_file(results, lab_name):
     with open(f"./scripts/bgp_path_diversity_results_{lab_name}.json", 'w') as f:
         json.dump(results, f, indent=2)

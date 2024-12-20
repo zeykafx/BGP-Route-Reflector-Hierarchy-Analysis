@@ -1,0 +1,8 @@
+{
+    "lab_name": "full-mesh",
+    "timestamp": 1734717869.957279,
+    "average_paths": 1.5714285714285714,
+    "convergence_detected": true,
+    "convergence_time": 144.118873,
+    "router_name": "R10"
+}

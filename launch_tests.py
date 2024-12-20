@@ -28,16 +28,38 @@ def get_running_lab():
         return "full-mesh"
     return None
 
+def write_complete_test_results(lab_name, avg_paths, convergence_detected, convergence_time, router_name):
+    results = {
+        'lab_name': lab_name,
+        'timestamp': datetime.now().timestamp(),
+        'average_paths': avg_paths,
+        'convergence_detected': convergence_detected,
+        'convergence_time': convergence_time,
+        'router_name': router_name
+    }
+    with open(f"./scripts/{lab_name}_complete_test_results.json", "w") as f:
+        json.dump(results, f, indent=4)
+
 def main():
     parser = argparse.ArgumentParser(description='Run connectivity tests on lab topology')
     parser.add_argument('-l', '--lab', choices=['better-hierarchy', 'full-mesh'], help='Specify the lab to test')
     parser.add_argument('-r', '--router', help='Specify the router from which to analyze BGP paths', default='R10')
     args = parser.parse_args()
+    launch_test(args.lab, args.router)
 
-    lab_name = args.lab if args.lab else get_running_lab()
+def launch_test(lab, router_name, should_exit=True):
+    # parser = argparse.ArgumentParser(description='Run connectivity tests on lab topology')
+    # parser.add_argument('-l', '--lab', choices=['better-hierarchy', 'full-mesh'], help='Specify the lab to test')
+    # parser.add_argument('-r', '--router', help='Specify the router from which to analyze BGP paths', default='R10')
+    # args = parser.parse_args()
+
+    lab_name = lab if lab else get_running_lab()
     if not lab_name:
         print("Error: No lab is running and no lab was specified")
-        sys.exit(1)
+        if should_exit:
+            sys.exit(1)
+        else:
+            return False
 
     # Read lab info from JSON file
     try:
@@ -45,54 +67,72 @@ def main():
             lab_info = json.load(f)
     except FileNotFoundError:
         print("Error: lab_info.json not found. Please run start.py first")
-        sys.exit(1)
+        if should_exit:
+            sys.exit(1)
+        else:
+            return False
 
     # Get lab start time from info
     start_time_timestamp = lab_info.get('timestamp')
     if not start_time_timestamp:
         print("Error: Could not determine start time")
-        sys.exit(1)
+        if should_exit:
+            sys.exit(1)
+        else:
+            return False
     
     start_date = datetime.fromtimestamp(start_time_timestamp)
     current_date = datetime.now()
     
     # wait for BGP to converge (i.e., wait for R7 to be able to reach both external hosts)
-
-    # if (current_date - start_date).seconds < 200:
     success, time = check_connectivity(lab_name, router_name="R7")
-    if not success:xxxxxxxxxx
+    if not success:
         print("Error: BGP has not converged, or at least R7 cannot reach both external hosts.")
-        sys.exit(1)
+        if should_exit:
+            sys.exit(1)
+        else:
+            return False
         
 
     print(f"Running connectivity tests for lab: {lab_name}")
 
     BOLD_YELLOW = '\033[1;33m'
     RESET = '\033[0m'
-    
-    router_name = args.router
+
 
     # Run appropriate test script
     if lab_name == 'better-hierarchy':
         has_failed_tests= full_mesh_test('better-hierarchy')
         if has_failed_tests:
             print(f"{BOLD_YELLOW}Some tests failed, skipping the rest of the tests!...{RESET}")
-            exit(1)
+            if should_exit:
+                sys.exit(1)
+            else:
+                return False
 
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        analyze_bgp_paths(lab_name='better-hierarchy', router_name=router_name)
+        avg_paths = analyze_bgp_paths(lab_name='better-hierarchy', router_name=router_name)
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        convergence_test("better-hierarchy", "R10", "R3", "fc00:2142:a:2::/64")
+        convergence_detected, convergence_time = convergence_test("better-hierarchy", router_name, "R3", "fc00:2142:a:2::/64")
+        write_complete_test_results("better-hierarchy", avg_paths, convergence_detected, convergence_time, router_name)
+
     elif lab_name == 'full-mesh':
         has_failed_tests = full_mesh_test("full-mesh")
         if has_failed_tests:
             print(f"{BOLD_YELLOW}Some tests failed, skipping the rest of the tests!...{RESET}")
-            exit(1)
+            if should_exit:
+                sys.exit(1)
+            else:
+                return False
             
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        analyze_bgp_paths(lab_name='full-mesh', router_name=router_name)
+        avg_paths = analyze_bgp_paths(lab_name='full-mesh', router_name=router_name)
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        convergence_test("full-mesh", "R10", "R3", "fc00:2142:a:2::/64")
+        convergence_detected, convergence_time = convergence_test("full-mesh", router_name, "R3", "fc00:2142:a:2::/64")
+        write_complete_test_results("full-mesh", avg_paths, convergence_detected, convergence_time, router_name)
+
+    return True
+
 
 if __name__ == "__main__":
     main()

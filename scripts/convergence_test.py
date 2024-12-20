@@ -36,11 +36,6 @@ def compare_ribs(old_rib, new_rib, prefix_to_watch):
     return old_nexthops != new_nexthops
 
 def main(lab_name, router_to_monitor, router_to_pause, prefix_to_watch, check_interval=0.1):
-    # LAB_NAME = "better-hierarchy"  # or "full-mesh"
-    # ROUTER_TO_MONITOR = "R14"
-    # ROUTER_TO_PAUSE = "R3"
-    # PREFIX_TO_WATCH = "fc00:2142:a:2::/64"  # Example prefix to monitor
-    # CHECK_INTERVAL = 0.1  # seconds
     LAB_NAME = lab_name
     ROUTER_TO_MONITOR = router_to_monitor
     ROUTER_TO_PAUSE = router_to_pause
@@ -62,6 +57,7 @@ def main(lab_name, router_to_monitor, router_to_pause, prefix_to_watch, check_in
 
     print(f"3. Monitoring RIB changes on {ROUTER_TO_MONITOR}")
     convergence_detected = False
+    convergence_time = 0
     iterations = 0
     max_iterations = 1000  # 1000 seconds maximum
 
@@ -96,6 +92,8 @@ def main(lab_name, router_to_monitor, router_to_pause, prefix_to_watch, check_in
     print(f"\n4. Unpausing router {ROUTER_TO_PAUSE}")
     unpause_command = f"sudo docker unpause clab-scenario-{LAB_NAME}-{ROUTER_TO_PAUSE}"
     subprocess.run(unpause_command, shell=True)
+
+    return convergence_detected, convergence_time
 
 if __name__ == "__main__":
     main("better-hierarchy", "R14", "R3", "fc00:2142:a:2::/64", 0.1)

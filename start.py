@@ -37,7 +37,7 @@ def start_lab(lab_name):
     
     print(f"\nLab {lab_name} has been started successfully!")
     print("\nYou can access the routers using:")
-    print(f"./connect.py RR1T" if lab_name == "hierarchy" else "./connect.py R1")
+    print(f"./connect.py RR1T" if lab_name == "better-hierarchy" else "./connect.py R1")
     print("\nTest connectivity and path diversity using:")
     print("./launch_tests.py")
     print("\nCheck routes when connected to a router using:")
@@ -77,11 +77,27 @@ def main():
     parser.add_argument('-s', '--stop-previous', action='store_true',
                       help='Stop any previous lab deployment before starting', default=True)
     parser.add_argument('-v', '--verbose', action='store_true', help="Enable verbose output", default=False)
-    parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations", default=False)
+    # parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations", default=False)
     parser.add_argument('-a', '--allow-multiple', action='store_true', help="Allow multiple containers to run at the same time (NOT RECOMMENDED)", default=False)
-    
-    
+
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help']) # parse the arguments or show help message if no arguments are provided
+
+    start_with_args(args.lab, args.clean_only, args.stop_previous, args.verbose, False, args.allow_multiple)
+
+
+def start_with_args(lab_name, clean_only, stop_previous, verbose_arg, rebuild_rr_configs, allow_multiple):
+    # parser = argparse.ArgumentParser(description='Start a network lab scenario', allow_abbrev=True)
+    # parser.add_argument('lab', choices=['better-hierarchy', 'full-mesh'],
+    #                   help='Lab scenario to start (better-hierarchy or full-mesh)')
+    # parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit', default=False)
+    # parser.add_argument('-s', '--stop-previous', action='store_true',
+    #                   help='Stop any previous lab deployment before starting', default=True)
+    # parser.add_argument('-v', '--verbose', action='store_true', help="Enable verbose output", default=False)
+    # parser.add_argument('-r', '--rebuild_rr_configs', action='store_true', help="Rebuild the RR configurations", default=False)
+    # parser.add_argument('-a', '--allow-multiple', action='store_true', help="Allow multiple containers to run at the same time (NOT RECOMMENDED)", default=False)
+    
+    
+    # args = parser.parse_args(args=None if sys.argv[1:] else ['--help']) # parse the arguments or show help message if no arguments are provided
 
     # Check if docker and clab are installed
     if not (Path('/usr/bin/docker').exists() or Path('/usr/local/bin/docker').exists()):
@@ -93,7 +109,7 @@ def main():
         sys.exit(1)
 
     global verbose
-    verbose = args.verbose
+    verbose = verbose_arg
 
     host_image_exists = check_host_image()
     if not host_image_exists:
@@ -101,34 +117,34 @@ def main():
         print("Building host image because it doesn't exist")
         run_command("sudo docker build -t host:latest -f Dockerfile.host .")
 
-    if args.clean_only:
+    if clean_only:
         print("Cleaning up previous lab deployments... (and not starting a new lab)")
         stop_lab('better-hierarchy')
         stop_lab('full-mesh')
-        sys.exit(0)
+        return
 
-    if not args.allow_multiple:
-        if args.lab == 'better-hierarchy':
+    if not allow_multiple:
+        if lab_name == 'better-hierarchy':
             stop_lab('full-mesh')
-        elif args.lab == 'full-mesh':
+        elif lab_name  == 'full-mesh':
             stop_lab('better-hierarchy')
 
     # Stop previous lab if requested
-    if args.stop_previous:
-        if args.lab == 'better-hierarchy':
+    if stop_previous:
+        if lab_name == 'better-hierarchy':
             stop_lab('better-hierarchy')
-        elif args.lab == 'full-mesh':
+        elif lab_name == 'full-mesh':
             stop_lab('full-mesh')
 
-    if args.rebuild_rr_configs and args.lab == 'better-hierarchy':
-        print("Rebuilding Route Reflector configurations...")
-        # Rebuild the configurations
-        generate_routers()
+    # if rebuild_rr_configs and lab_name == 'hierarchy':
+    #     print("Rebuilding Route Reflector configurations...")
+    #     # Rebuild the configurations
+    #     generate_routers()
 
     # Start the requested lab
-    start_lab(args.lab)
+    start_lab(lab_name)
 
-    write_info_file(args.lab)
+    write_info_file(lab_name)
 
 if __name__ == "__main__":
     main()
