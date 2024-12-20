@@ -10,6 +10,7 @@ from scripts.full_mesh_connectivity_tests import test_connectivity as full_mesh_
 from scripts.rr_hierarchy_connectivity_test import test_connectivity as hierarchy_test
 from scripts.diversity_test import analyze_bgp_paths
 from scripts.convergence_test import main as convergence_test
+from scripts.bgp_convergence_time import check_connectivity
 
 def is_lab_running(lab_name):
     # Check if the lab is running by trying to access a router
@@ -54,15 +55,15 @@ def main():
     
     start_date = datetime.fromtimestamp(start_time_timestamp)
     current_date = datetime.now()
-  
-    if (current_date - start_date).seconds < 50:
-        remaining = 50 - (current_date - start_date).seconds
-        print(f"Waiting for IGP to converge (Otherwise nothing is reachable)")
-        for i in range(int(remaining)):
-            sys.stdout.write(f'\rTime remaining: {remaining-i} seconds')
-            sys.stdout.flush()
-            time.sleep(1)
-        print("\nConvergence time complete")
+    
+    # wait for BGP to converge (i.e., wait for R7 to be able to reach both external hosts)
+
+    # if (current_date - start_date).seconds < 200:
+    success, time = check_connectivity(lab_name, router_name="R7")
+    if not success:xxxxxxxxxx
+        print("Error: BGP has not converged, or at least R7 cannot reach both external hosts.")
+        sys.exit(1)
+        
 
     print(f"Running connectivity tests for lab: {lab_name}")
 
