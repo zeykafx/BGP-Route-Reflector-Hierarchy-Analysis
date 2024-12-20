@@ -116,6 +116,16 @@ After that, it will compute the path diversity in the topology.
 
 Finally, it will crash R3 and measure the time it takes for BGP to converge.
 
+## A Note on the Configuration Files
+
+The configuration files for the Route Reflector Hierarchy are in the `clab-scenario-better-hierarchy` directory, and the configuration files for the Full Mesh topology are in the `clab-scenario-full-mesh` directory.
+
+The reason for the name `clab-scenario-better-hierarchy` is that we initially created a lab with a different hierarchy design, but we found that the hierarchy was not optimal, so we changed it to the current design. We kept the name for the directory to avoid confusion.
+
+The previous hierarchy design had the IGP topology follow the iBGP topology, but we realized after the Peer Review that this didn't make sense, so we changed the hierarchy design to the current one.
+
+In the process we had to abandon the configuration generation scripts that we made because it was far too complex to generate the configurations for the new hierarchy design with them.
+The templates are still in the `templates` directory, but they are not used in the current lab, and the generation script is called `generate_routers.py` in the scripts folder and is not used anymore either.
 
 ## Graphs and Results
 To create the graphs shown below, we developed a script that starts a lab, runs the tests, stops the lab, then starts another lab and runs the tests on that lab. This script is called `make_graphs.py` and can be run with `python3 make_graphs.py` or `./make_graphs.py`.
