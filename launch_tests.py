@@ -9,6 +9,7 @@ import argparse
 from scripts.full_mesh_connectivity_tests import test_connectivity as full_mesh_test
 from scripts.rr_hierarchy_connectivity_test import test_connectivity as hierarchy_test
 from scripts.diversity_test import analyze_bgp_paths
+from scripts.convergence_test import main as convergence_test
 
 def is_lab_running(lab_name):
     # Check if the lab is running by trying to access a router
@@ -72,13 +73,25 @@ def main():
 
     # Run appropriate test script
     if lab_name == 'better-hierarchy':
-        full_mesh_test('better-hierarchy')
+        has_failed_tests= full_mesh_test('better-hierarchy')
+        if has_failed_tests:
+            print(f"{BOLD_YELLOW}Some tests failed, skipping the rest of the tests!...{RESET}")
+            exit(1)
+
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
         analyze_bgp_paths(lab_name='better-hierarchy', router_name=router_name)
+        print(f"{BOLD_YELLOW}-{RESET}" * 100)
+        convergence_test("better-hierarchy", "R10", "R3", "fc00:2142:a:2::/64")
     elif lab_name == 'full-mesh':
-        full_mesh_test("full-mesh")
+        has_failed_tests = full_mesh_test("full-mesh")
+        if has_failed_tests:
+            print(f"{BOLD_YELLOW}Some tests failed, skipping the rest of the tests!...{RESET}")
+            exit(1)
+            
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
         analyze_bgp_paths(lab_name='full-mesh', router_name=router_name)
+        print(f"{BOLD_YELLOW}-{RESET}" * 100)
+        convergence_test("full-mesh", "R10", "R3", "fc00:2142:a:2::/64")
 
 if __name__ == "__main__":
     main()

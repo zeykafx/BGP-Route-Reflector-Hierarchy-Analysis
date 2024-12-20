@@ -16,6 +16,8 @@ def ping_host(router, host_ip,lab_name, count=1):
     return success
 
 def test_connectivity(lab_name):
+    has_failed_tests = False
+
     BLUE = '\033[0;34m'
     GREEN = '\033[0;32m'
     RED = '\033[0;31m'
@@ -49,7 +51,6 @@ def test_connectivity(lab_name):
             status = f"{GREEN}✓{RESET}" if success else f"{RED}✗{RESET}"
             print(f"{router} → {host_name} ({host_ip}): {status}")
 
- 
 
     print("\nConnectivity Test Summary:")
     print("=" * 50)
@@ -62,10 +63,13 @@ def test_connectivity(lab_name):
     # Print failed tests if any
     failed_tests = [r for r in results if not r['success']]
     if failed_tests:
+        has_failed_tests = True
         print("\nFailed Tests:")
         print("-" * 50)
         for test in failed_tests:
             print(f"{test['router']} → {test['host']} ({test['ip']})")
+
+    return has_failed_tests
 
 if __name__ == "__main__":
     # Give some time for the network to converge
