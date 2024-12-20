@@ -16,6 +16,11 @@ def ping_host(router, host_ip,lab_name, count=1):
     return success
 
 def test_connectivity(lab_name):
+    BLUE = '\033[0;34m'
+    GREEN = '\033[0;32m'
+    RED = '\033[0;31m'
+    RESET = '\033[0m'
+
     routers = [
         'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8',
         'R9', 'R10', 'R11', 'R12', 'R13', 'R14'
@@ -41,13 +46,10 @@ def test_connectivity(lab_name):
                 'ip': host_ip,
                 'success': success
             })
-            status = "✓" if success else "✗"
+            status = f"{GREEN}✓{RESET}" if success else f"{RED}✗{RESET}"
             print(f"{router} → {host_name} ({host_ip}): {status}")
 
-    BLUE = '\033[0;34m'
-    GREEN = '\033[0;32m'
-    RED = '\033[0;31m'
-    RESET = '\033[0m'
+ 
 
     print("\nConnectivity Test Summary:")
     print("=" * 50)

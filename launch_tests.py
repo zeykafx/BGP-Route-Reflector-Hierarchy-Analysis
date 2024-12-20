@@ -29,6 +29,7 @@ def get_running_lab():
 def main():
     parser = argparse.ArgumentParser(description='Run connectivity tests on lab topology')
     parser.add_argument('-l', '--lab', choices=['better-hierarchy', 'full-mesh'], help='Specify the lab to test')
+    parser.add_argument('-r', '--router', help='Specify the router from which to analyze BGP paths', default='R10')
     args = parser.parse_args()
 
     lab_name = args.lab if args.lab else get_running_lab()
@@ -67,18 +68,17 @@ def main():
     BOLD_YELLOW = '\033[1;33m'
     RESET = '\033[0m'
     
+    router_name = args.router
+
     # Run appropriate test script
     if lab_name == 'better-hierarchy':
-        # hierarchy_test()
-        # print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        # analyze_bgp_paths(lab_name='hierarchy', router_name='R1')
         full_mesh_test('better-hierarchy')
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        analyze_bgp_paths(lab_name='better-hierarchy', router_name='R10')
+        analyze_bgp_paths(lab_name='better-hierarchy', router_name=router_name)
     elif lab_name == 'full-mesh':
         full_mesh_test("full-mesh")
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        analyze_bgp_paths(lab_name='full-mesh', router_name='R10')
+        analyze_bgp_paths(lab_name='full-mesh', router_name=router_name)
 
 if __name__ == "__main__":
     main()

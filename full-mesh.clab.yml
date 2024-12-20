@@ -123,6 +123,7 @@ topology:
     - endpoints: [R7:eth-r14, R14:eth-r7]
     #  AS3_R1
     - endpoints: [R7:eth-as3r1, AS3_R1:eth-r7]
+    - endpoints: [R8:eth-as3r1, AS3_R1:eth-r8]
 
     - endpoints: [R8:eth-r9, R9:eth-r8]
     #  H1
