@@ -58,7 +58,7 @@ def create_convergence_graph():
 
     ax = sns.barplot(x="Topology", y="Convergence Time (s)", data=data, palette='Set2', hue="Topology")
 
-    plt.title("BGP Convergence time after central router failure Comparison (Lower is Better)", pad=20)
+    plt.title("BGP Convergence Time after Failure of R3 (Lower is Better)", pad=20)
     plt.ylabel("Convergence Time (seconds)")
     plt.xlabel('''Topology
             
