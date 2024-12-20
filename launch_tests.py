@@ -12,7 +12,7 @@ from scripts.diversity_test import analyze_bgp_paths
 
 def is_lab_running(lab_name):
     # Check if the lab is running by trying to access a router
-    router = "RR1T" if lab_name == "hierarchy" else "R1"
+    router = "R1"
     full_command = f"sudo docker exec -it clab-scenario-{lab_name}-{router} vtysh -c 'show bgp ipv6 unicast'"
     result = subprocess.run(full_command, shell=True, check=False, capture_output=True, text=True)
     if "No such container" in result.stderr:
@@ -20,15 +20,15 @@ def is_lab_running(lab_name):
     return True
 
 def get_running_lab():
-    if is_lab_running("hierarchy"):
-        return "hierarchy"
+    if is_lab_running("better-hierarchy"):
+        return "better-hierarchy"
     elif is_lab_running("full-mesh"):
         return "full-mesh"
     return None
 
 def main():
     parser = argparse.ArgumentParser(description='Run connectivity tests on lab topology')
-    parser.add_argument('-l', '--lab', choices=['hierarchy', 'full-mesh'], help='Specify the lab to test')
+    parser.add_argument('-l', '--lab', choices=['better-hierarchy', 'full-mesh'], help='Specify the lab to test')
     args = parser.parse_args()
 
     lab_name = args.lab if args.lab else get_running_lab()
@@ -68,14 +68,17 @@ def main():
     RESET = '\033[0m'
     
     # Run appropriate test script
-    if lab_name == 'hierarchy':
-        hierarchy_test()
+    if lab_name == 'better-hierarchy':
+        # hierarchy_test()
+        # print(f"{BOLD_YELLOW}-{RESET}" * 100)
+        # analyze_bgp_paths(lab_name='hierarchy', router_name='R1')
+        full_mesh_test('better-hierarchy')
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        analyze_bgp_paths(lab_name='hierarchy', router_name='RR1T')
+        analyze_bgp_paths(lab_name='better-hierarchy', router_name='R10')
     elif lab_name == 'full-mesh':
-        full_mesh_test()
+        full_mesh_test("full-mesh")
         print(f"{BOLD_YELLOW}-{RESET}" * 100)
-        analyze_bgp_paths(lab_name='full-mesh', router_name='R1')
+        analyze_bgp_paths(lab_name='full-mesh', router_name='R10')
 
 if __name__ == "__main__":
     main()

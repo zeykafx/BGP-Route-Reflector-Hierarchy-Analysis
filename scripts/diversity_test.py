@@ -36,6 +36,10 @@ def analyze_bgp_paths(lab_name, router_name):
         # Look for prefix lines
         match = re.search(prefix_pattern, line)
         if match:
+            # ignore fc00:2142:1::/48
+            if match.group(2) == 'fc00:2142:1::/48':
+                continue
+
             # If we were processing a prefix, save its count
             if current_prefix:
                 path_counts[current_prefix] = current_paths
@@ -81,7 +85,7 @@ def save_results_to_file(results, lab_name):
         
 
 def compare_current_res_to_other_lab_res(lab_name, results):
-    other_lab = 'full-mesh' if lab_name == 'hierarchy' else 'hierarchy'
+    other_lab = 'full-mesh' if lab_name == 'better-hierarchy' else 'better-hierarchy'
     # Load previous results (if any)
     try:
         with open(f"./scripts/bgp_path_diversity_results_{other_lab}.json", 'r') as f:

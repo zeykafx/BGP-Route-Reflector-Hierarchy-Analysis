@@ -1,12 +1,12 @@
 {
-  "name": "scenario-full-mesh",
+  "name": "scenario-better-hierarchy",
   "type": "clab",
   "clab": {
     "config": {
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-4e7ea7c55301",
+        "bridge": "br-c7ad4c090538",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -20,10 +20,10 @@
     "AS2_H1": {
       "index": "0",
       "shortname": "AS2_H1",
-      "longname": "clab-scenario-full-mesh-AS2_H1",
-      "fqdn": "AS2_H1.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-AS2_H1",
+      "fqdn": "AS2_H1.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_H1",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS2_H1",
       "kind": "linux",
       "image": "host:latest",
       "mgmt-net": "",
@@ -34,15 +34,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_H1",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS2_H1",
         "clab-node-name": "AS2_H1",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -50,10 +50,10 @@
     "AS2_R1": {
       "index": "1",
       "shortname": "AS2_R1",
-      "longname": "clab-scenario-full-mesh-AS2_R1",
-      "fqdn": "AS2_R1.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-AS2_R1",
+      "fqdn": "AS2_R1.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_R1",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS2_R1",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -64,15 +64,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS2_R1",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS2_R1",
         "clab-node-name": "AS2_R1",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -80,10 +80,10 @@
     "AS3_H1": {
       "index": "2",
       "shortname": "AS3_H1",
-      "longname": "clab-scenario-full-mesh-AS3_H1",
-      "fqdn": "AS3_H1.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-AS3_H1",
+      "fqdn": "AS3_H1.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_H1",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS3_H1",
       "kind": "linux",
       "image": "host:latest",
       "mgmt-net": "",
@@ -94,15 +94,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_H1",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS3_H1",
         "clab-node-name": "AS3_H1",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -110,10 +110,10 @@
     "AS3_R1": {
       "index": "3",
       "shortname": "AS3_R1",
-      "longname": "clab-scenario-full-mesh-AS3_R1",
-      "fqdn": "AS3_R1.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-AS3_R1",
+      "fqdn": "AS3_R1.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_R1",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS3_R1",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -124,15 +124,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/AS3_R1",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/AS3_R1",
         "clab-node-name": "AS3_R1",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -140,10 +140,10 @@
     "H1": {
       "index": "4",
       "shortname": "H1",
-      "longname": "clab-scenario-full-mesh-H1",
-      "fqdn": "H1.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-H1",
+      "fqdn": "H1.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/H1",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/H1",
       "kind": "linux",
       "image": "host:latest",
       "mgmt-net": "",
@@ -154,15 +154,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/H1",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/H1",
         "clab-node-name": "H1",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -170,10 +170,10 @@
     "H2": {
       "index": "5",
       "shortname": "H2",
-      "longname": "clab-scenario-full-mesh-H2",
-      "fqdn": "H2.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-H2",
+      "fqdn": "H2.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/H2",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/H2",
       "kind": "linux",
       "image": "host:latest",
       "mgmt-net": "",
@@ -184,15 +184,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/H2",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/H2",
         "clab-node-name": "H2",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -200,10 +200,10 @@
     "H3": {
       "index": "6",
       "shortname": "H3",
-      "longname": "clab-scenario-full-mesh-H3",
-      "fqdn": "H3.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-H3",
+      "fqdn": "H3.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/H3",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/H3",
       "kind": "linux",
       "image": "host:latest",
       "mgmt-net": "",
@@ -214,15 +214,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/H3",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/H3",
         "clab-node-name": "H3",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -230,10 +230,10 @@
     "R1": {
       "index": "7",
       "shortname": "R1",
-      "longname": "clab-scenario-full-mesh-R1",
-      "fqdn": "R1.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R1",
+      "fqdn": "R1.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R1",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R1",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -244,15 +244,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R1",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R1",
         "clab-node-name": "R1",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -260,10 +260,10 @@
     "R10": {
       "index": "8",
       "shortname": "R10",
-      "longname": "clab-scenario-full-mesh-R10",
-      "fqdn": "R10.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R10",
+      "fqdn": "R10.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R10",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R10",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -274,15 +274,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R10",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R10",
         "clab-node-name": "R10",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -290,10 +290,10 @@
     "R11": {
       "index": "9",
       "shortname": "R11",
-      "longname": "clab-scenario-full-mesh-R11",
-      "fqdn": "R11.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R11",
+      "fqdn": "R11.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R11",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R11",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -304,15 +304,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R11",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R11",
         "clab-node-name": "R11",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -320,10 +320,10 @@
     "R12": {
       "index": "10",
       "shortname": "R12",
-      "longname": "clab-scenario-full-mesh-R12",
-      "fqdn": "R12.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R12",
+      "fqdn": "R12.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R12",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R12",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -334,15 +334,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R12",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R12",
         "clab-node-name": "R12",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -350,10 +350,10 @@
     "R13": {
       "index": "11",
       "shortname": "R13",
-      "longname": "clab-scenario-full-mesh-R13",
-      "fqdn": "R13.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R13",
+      "fqdn": "R13.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R13",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R13",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -364,15 +364,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R13",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R13",
         "clab-node-name": "R13",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -380,10 +380,10 @@
     "R14": {
       "index": "12",
       "shortname": "R14",
-      "longname": "clab-scenario-full-mesh-R14",
-      "fqdn": "R14.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R14",
+      "fqdn": "R14.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R14",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R14",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -394,15 +394,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R14",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R14",
         "clab-node-name": "R14",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -410,10 +410,10 @@
     "R2": {
       "index": "13",
       "shortname": "R2",
-      "longname": "clab-scenario-full-mesh-R2",
-      "fqdn": "R2.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R2",
+      "fqdn": "R2.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R2",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R2",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -424,15 +424,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R2",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R2",
         "clab-node-name": "R2",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -440,10 +440,10 @@
     "R3": {
       "index": "14",
       "shortname": "R3",
-      "longname": "clab-scenario-full-mesh-R3",
-      "fqdn": "R3.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R3",
+      "fqdn": "R3.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R3",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R3",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -454,15 +454,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R3",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R3",
         "clab-node-name": "R3",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -470,10 +470,10 @@
     "R4": {
       "index": "15",
       "shortname": "R4",
-      "longname": "clab-scenario-full-mesh-R4",
-      "fqdn": "R4.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R4",
+      "fqdn": "R4.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R4",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R4",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -484,15 +484,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R4",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R4",
         "clab-node-name": "R4",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -500,10 +500,10 @@
     "R5": {
       "index": "16",
       "shortname": "R5",
-      "longname": "clab-scenario-full-mesh-R5",
-      "fqdn": "R5.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R5",
+      "fqdn": "R5.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R5",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R5",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -514,15 +514,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R5",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R5",
         "clab-node-name": "R5",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -530,10 +530,10 @@
     "R6": {
       "index": "17",
       "shortname": "R6",
-      "longname": "clab-scenario-full-mesh-R6",
-      "fqdn": "R6.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R6",
+      "fqdn": "R6.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R6",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R6",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -544,15 +544,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R6",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R6",
         "clab-node-name": "R6",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -560,10 +560,10 @@
     "R7": {
       "index": "18",
       "shortname": "R7",
-      "longname": "clab-scenario-full-mesh-R7",
-      "fqdn": "R7.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R7",
+      "fqdn": "R7.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R7",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R7",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -574,15 +574,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R7",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R7",
         "clab-node-name": "R7",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -590,10 +590,10 @@
     "R8": {
       "index": "19",
       "shortname": "R8",
-      "longname": "clab-scenario-full-mesh-R8",
-      "fqdn": "R8.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R8",
+      "fqdn": "R8.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R8",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R8",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -604,15 +604,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R8",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R8",
         "clab-node-name": "R8",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -620,10 +620,10 @@
     "R9": {
       "index": "20",
       "shortname": "R9",
-      "longname": "clab-scenario-full-mesh-R9",
-      "fqdn": "R9.scenario-full-mesh.io",
+      "longname": "clab-scenario-better-hierarchy-R9",
+      "fqdn": "R9.scenario-better-hierarchy.io",
       "group": "",
-      "labdir": "/home/corentindetry/project/clab-scenario-full-mesh/R9",
+      "labdir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R9",
       "kind": "linux",
       "image": "quay.io/frrouting/frr:10.1.1",
       "mgmt-net": "",
@@ -634,15 +634,15 @@
       "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-4e7ea7c55301",
+        "clab-mgmt-net-bridge": "br-c7ad4c090538",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-full-mesh/R9",
+        "clab-node-lab-dir": "/home/corentindetry/project/clab-scenario-better-hierarchy/R9",
         "clab-node-name": "R9",
         "clab-node-type": "",
         "clab-owner": "corentindetry",
-        "clab-topo-file": "/home/corentindetry/project/full-mesh.clab.yml",
-        "containerlab": "scenario-full-mesh"
+        "clab-topo-file": "/home/corentindetry/project/better-hierarchy.clab.yml",
+        "containerlab": "scenario-better-hierarchy"
       },
       "port-bindings": [
       ]
@@ -653,13 +653,13 @@
       "a": {
         "node": "R1",
         "interface": "eth-r2",
-        "mac": "aa:c1:ab:b7:66:dc",
+        "mac": "aa:c1:ab:fc:13:6a",
         "peer": "z"
       },
       "z": {
         "node": "R2",
         "interface": "eth-r1",
-        "mac": "aa:c1:ab:f5:a1:3c",
+        "mac": "aa:c1:ab:c4:13:8c",
         "peer": "a"
       }
     },
@@ -667,13 +667,13 @@
       "a": {
         "node": "R1",
         "interface": "eth-r3",
-        "mac": "aa:c1:ab:1e:18:25",
+        "mac": "aa:c1:ab:9b:8d:86",
         "peer": "z"
       },
       "z": {
         "node": "R3",
         "interface": "eth-r1",
-        "mac": "aa:c1:ab:db:d5:94",
+        "mac": "aa:c1:ab:83:4e:c8",
         "peer": "a"
       }
     },
@@ -681,13 +681,13 @@
       "a": {
         "node": "R1",
         "interface": "eth-r5",
-        "mac": "aa:c1:ab:d2:c7:f3",
+        "mac": "aa:c1:ab:1f:52:03",
         "peer": "z"
       },
       "z": {
         "node": "R5",
         "interface": "eth-r1",
-        "mac": "aa:c1:ab:76:4a:cc",
+        "mac": "aa:c1:ab:ea:7a:72",
         "peer": "a"
       }
     },
@@ -695,13 +695,13 @@
       "a": {
         "node": "R2",
         "interface": "eth-r6",
-        "mac": "aa:c1:ab:ec:e2:50",
+        "mac": "aa:c1:ab:81:e1:3b",
         "peer": "z"
       },
       "z": {
         "node": "R6",
         "interface": "eth-r2",
-        "mac": "aa:c1:ab:69:a6:ad",
+        "mac": "aa:c1:ab:c6:11:74",
         "peer": "a"
       }
     },
@@ -709,13 +709,13 @@
       "a": {
         "node": "R2",
         "interface": "eth-r4",
-        "mac": "aa:c1:ab:87:8a:3b",
+        "mac": "aa:c1:ab:03:23:d7",
         "peer": "z"
       },
       "z": {
         "node": "R4",
         "interface": "eth-r2",
-        "mac": "aa:c1:ab:34:af:de",
+        "mac": "aa:c1:ab:36:0b:01",
         "peer": "a"
       }
     },
@@ -723,13 +723,13 @@
       "a": {
         "node": "R2",
         "interface": "eth-r8",
-        "mac": "aa:c1:ab:a5:ed:ef",
+        "mac": "aa:c1:ab:78:00:5b",
         "peer": "z"
       },
       "z": {
         "node": "R8",
         "interface": "eth-r2",
-        "mac": "aa:c1:ab:cc:27:35",
+        "mac": "aa:c1:ab:b0:02:4c",
         "peer": "a"
       }
     },
@@ -737,13 +737,13 @@
       "a": {
         "node": "R3",
         "interface": "eth-r4",
-        "mac": "aa:c1:ab:34:0e:dd",
+        "mac": "aa:c1:ab:28:23:93",
         "peer": "z"
       },
       "z": {
         "node": "R4",
         "interface": "eth-r3",
-        "mac": "aa:c1:ab:b9:6b:99",
+        "mac": "aa:c1:ab:54:4f:df",
         "peer": "a"
       }
     },
@@ -751,13 +751,13 @@
       "a": {
         "node": "R3",
         "interface": "eth-r11",
-        "mac": "aa:c1:ab:91:78:76",
+        "mac": "aa:c1:ab:a4:5c:d6",
         "peer": "z"
       },
       "z": {
         "node": "R11",
         "interface": "eth-r3",
-        "mac": "aa:c1:ab:0e:a1:42",
+        "mac": "aa:c1:ab:a9:3f:1e",
         "peer": "a"
       }
     },
@@ -765,13 +765,13 @@
       "a": {
         "node": "R4",
         "interface": "eth-r9",
-        "mac": "aa:c1:ab:02:12:b3",
+        "mac": "aa:c1:ab:07:12:4e",
         "peer": "z"
       },
       "z": {
         "node": "R9",
         "interface": "eth-r4",
-        "mac": "aa:c1:ab:c5:d8:58",
+        "mac": "aa:c1:ab:8b:34:39",
         "peer": "a"
       }
     },
@@ -779,13 +779,13 @@
       "a": {
         "node": "R5",
         "interface": "eth-r6",
-        "mac": "aa:c1:ab:b6:3f:16",
+        "mac": "aa:c1:ab:1a:3f:1f",
         "peer": "z"
       },
       "z": {
         "node": "R6",
         "interface": "eth-r5",
-        "mac": "aa:c1:ab:ff:50:5f",
+        "mac": "aa:c1:ab:b9:b3:db",
         "peer": "a"
       }
     },
@@ -793,13 +793,13 @@
       "a": {
         "node": "R5",
         "interface": "eth-r13",
-        "mac": "aa:c1:ab:4e:22:cf",
+        "mac": "aa:c1:ab:be:fb:d3",
         "peer": "z"
       },
       "z": {
         "node": "R13",
         "interface": "eth-r5",
-        "mac": "aa:c1:ab:a7:89:c7",
+        "mac": "aa:c1:ab:e2:94:d8",
         "peer": "a"
       }
     },
@@ -807,13 +807,13 @@
       "a": {
         "node": "R5",
         "interface": "eth-r14",
-        "mac": "aa:c1:ab:da:4f:53",
+        "mac": "aa:c1:ab:3d:bd:ca",
         "peer": "z"
       },
       "z": {
         "node": "R14",
         "interface": "eth-r5",
-        "mac": "aa:c1:ab:31:6b:ba",
+        "mac": "aa:c1:ab:03:9c:0b",
         "peer": "a"
       }
     },
@@ -821,13 +821,13 @@
       "a": {
         "node": "R6",
         "interface": "eth-r7",
-        "mac": "aa:c1:ab:c1:bc:f1",
+        "mac": "aa:c1:ab:df:cb:0f",
         "peer": "z"
       },
       "z": {
         "node": "R7",
         "interface": "eth-r6",
-        "mac": "aa:c1:ab:53:03:bd",
+        "mac": "aa:c1:ab:51:ce:28",
         "peer": "a"
       }
     },
@@ -835,13 +835,13 @@
       "a": {
         "node": "R6",
         "interface": "eth-h2",
-        "mac": "aa:c1:ab:23:b7:8b",
+        "mac": "aa:c1:ab:e2:c5:85",
         "peer": "z"
       },
       "z": {
         "node": "H2",
         "interface": "eth-r6",
-        "mac": "aa:c1:ab:40:fa:10",
+        "mac": "aa:c1:ab:dc:56:86",
         "peer": "a"
       }
     },
@@ -849,13 +849,13 @@
       "a": {
         "node": "R7",
         "interface": "eth-r8",
-        "mac": "aa:c1:ab:8e:58:00",
+        "mac": "aa:c1:ab:25:1d:7e",
         "peer": "z"
       },
       "z": {
         "node": "R8",
         "interface": "eth-r7",
-        "mac": "aa:c1:ab:d2:85:20",
+        "mac": "aa:c1:ab:d8:1e:3b",
         "peer": "a"
       }
     },
@@ -863,13 +863,13 @@
       "a": {
         "node": "R7",
         "interface": "eth-r14",
-        "mac": "aa:c1:ab:b5:11:07",
+        "mac": "aa:c1:ab:ee:65:be",
         "peer": "z"
       },
       "z": {
         "node": "R14",
         "interface": "eth-r7",
-        "mac": "aa:c1:ab:72:10:cf",
+        "mac": "aa:c1:ab:ee:87:0e",
         "peer": "a"
       }
     },
@@ -877,13 +877,13 @@
       "a": {
         "node": "R7",
         "interface": "eth-as3r1",
-        "mac": "aa:c1:ab:53:f8:8d",
+        "mac": "aa:c1:ab:f8:24:51",
         "peer": "z"
       },
       "z": {
         "node": "AS3_R1",
         "interface": "eth-r7",
-        "mac": "aa:c1:ab:ce:77:e1",
+        "mac": "aa:c1:ab:bf:9c:39",
         "peer": "a"
       }
     },
@@ -891,13 +891,13 @@
       "a": {
         "node": "R8",
         "interface": "eth-r9",
-        "mac": "aa:c1:ab:1a:13:f4",
+        "mac": "aa:c1:ab:e3:a4:98",
         "peer": "z"
       },
       "z": {
         "node": "R9",
         "interface": "eth-r8",
-        "mac": "aa:c1:ab:fa:d3:5f",
+        "mac": "aa:c1:ab:ad:3e:95",
         "peer": "a"
       }
     },
@@ -905,13 +905,13 @@
       "a": {
         "node": "R8",
         "interface": "eth-h1",
-        "mac": "aa:c1:ab:ee:43:9c",
+        "mac": "aa:c1:ab:ef:fb:bb",
         "peer": "z"
       },
       "z": {
         "node": "H1",
         "interface": "eth-r8",
-        "mac": "aa:c1:ab:89:6c:75",
+        "mac": "aa:c1:ab:cb:78:97",
         "peer": "a"
       }
     },
@@ -919,13 +919,13 @@
       "a": {
         "node": "R9",
         "interface": "eth-r10",
-        "mac": "aa:c1:ab:90:f8:41",
+        "mac": "aa:c1:ab:d6:b8:63",
         "peer": "z"
       },
       "z": {
         "node": "R10",
         "interface": "eth-r9",
-        "mac": "aa:c1:ab:95:ea:80",
+        "mac": "aa:c1:ab:8e:8e:a2",
         "peer": "a"
       }
     },
@@ -933,13 +933,13 @@
       "a": {
         "node": "R3",
         "interface": "eth-as2r1",
-        "mac": "aa:c1:ab:d5:0a:db",
+        "mac": "aa:c1:ab:4c:82:67",
         "peer": "z"
       },
       "z": {
         "node": "AS2_R1",
         "interface": "eth-r3",
-        "mac": "aa:c1:ab:15:42:3d",
+        "mac": "aa:c1:ab:37:a6:c0",
         "peer": "a"
       }
     },
@@ -947,13 +947,13 @@
       "a": {
         "node": "R9",
         "interface": "eth-as2r1",
-        "mac": "aa:c1:ab:8e:b5:9a",
+        "mac": "aa:c1:ab:68:58:dd",
         "peer": "z"
       },
       "z": {
         "node": "AS2_R1",
         "interface": "eth-r9",
-        "mac": "aa:c1:ab:3d:af:27",
+        "mac": "aa:c1:ab:6f:37:dc",
         "peer": "a"
       }
     },
@@ -961,13 +961,13 @@
       "a": {
         "node": "R10",
         "interface": "eth-r11",
-        "mac": "aa:c1:ab:0d:4c:41",
+        "mac": "aa:c1:ab:a7:6b:4b",
         "peer": "z"
       },
       "z": {
         "node": "R11",
         "interface": "eth-r10",
-        "mac": "aa:c1:ab:14:56:82",
+        "mac": "aa:c1:ab:e5:a6:07",
         "peer": "a"
       }
     },
@@ -975,13 +975,13 @@
       "a": {
         "node": "R11",
         "interface": "eth-r12",
-        "mac": "aa:c1:ab:48:a7:4d",
+        "mac": "aa:c1:ab:c5:c1:73",
         "peer": "z"
       },
       "z": {
         "node": "R12",
         "interface": "eth-r11",
-        "mac": "aa:c1:ab:72:1d:28",
+        "mac": "aa:c1:ab:6a:35:d9",
         "peer": "a"
       }
     },
@@ -989,13 +989,13 @@
       "a": {
         "node": "R11",
         "interface": "eth-h3",
-        "mac": "aa:c1:ab:b1:08:06",
+        "mac": "aa:c1:ab:4a:8b:fe",
         "peer": "z"
       },
       "z": {
         "node": "H3",
         "interface": "eth-r11",
-        "mac": "aa:c1:ab:c2:1f:4f",
+        "mac": "aa:c1:ab:31:3e:79",
         "peer": "a"
       }
     },
@@ -1003,13 +1003,13 @@
       "a": {
         "node": "R12",
         "interface": "eth-r13",
-        "mac": "aa:c1:ab:c9:78:a5",
+        "mac": "aa:c1:ab:4a:6d:b2",
         "peer": "z"
       },
       "z": {
         "node": "R13",
         "interface": "eth-r12",
-        "mac": "aa:c1:ab:a9:f3:f9",
+        "mac": "aa:c1:ab:55:06:7f",
         "peer": "a"
       }
     },
@@ -1017,13 +1017,13 @@
       "a": {
         "node": "R13",
         "interface": "eth-r14",
-        "mac": "aa:c1:ab:60:81:06",
+        "mac": "aa:c1:ab:29:ec:93",
         "peer": "z"
       },
       "z": {
         "node": "R14",
         "interface": "eth-r13",
-        "mac": "aa:c1:ab:56:1c:c4",
+        "mac": "aa:c1:ab:2e:31:93",
         "peer": "a"
       }
     },
@@ -1031,13 +1031,13 @@
       "a": {
         "node": "AS2_R1",
         "interface": "eth-as2h1",
-        "mac": "aa:c1:ab:dc:72:bd",
+        "mac": "aa:c1:ab:71:0c:33",
         "peer": "z"
       },
       "z": {
         "node": "AS2_H1",
         "interface": "eth-as2r1",
-        "mac": "aa:c1:ab:07:99:a3",
+        "mac": "aa:c1:ab:89:62:90",
         "peer": "a"
       }
     },
@@ -1045,13 +1045,13 @@
       "a": {
         "node": "AS3_R1",
         "interface": "eth-as3h1",
-        "mac": "aa:c1:ab:a7:6e:cc",
+        "mac": "aa:c1:ab:cd:d3:4f",
         "peer": "z"
       },
       "z": {
         "node": "AS3_H1",
         "interface": "eth-as3r1",
-        "mac": "aa:c1:ab:84:66:a2",
+        "mac": "aa:c1:ab:b7:6b:2d",
         "peer": "a"
       }
     }

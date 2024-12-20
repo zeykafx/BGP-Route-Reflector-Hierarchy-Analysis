@@ -130,6 +130,7 @@ topology:
 
     - endpoints: [R9:eth-r10, R10:eth-r9]
     #  AS2_R1
+    - endpoints: [R3:eth-as2r1, AS2_R1:eth-r3]
     - endpoints: [R9:eth-as2r1, AS2_R1:eth-r9]
 
     - endpoints: [R10:eth-r11, R11:eth-r10]

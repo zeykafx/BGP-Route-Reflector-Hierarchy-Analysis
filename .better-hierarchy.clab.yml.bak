@@ -1,4 +1,4 @@
-name: scenario-full-mesh
+name: scenario-better-hierarchy
 
 topology:
   defaults:
@@ -17,13 +17,13 @@ topology:
       - vtysh.conf:/etc/frr/vtysh.conf
       - __clabNodeDir__/frr.conf:/etc/frr/frr.ro.conf:ro
   nodes:
-    # Equivalent of the two top level RRs (but they are not RRs in this topo)
+    # Two top level RRs
     R1:
       cmd: /etc/frr/startup.sh
     R2:
       cmd: /etc/frr/startup.sh
 
-    # Equivalent of the 4 second level RRs (but they are not RRs in this topo)
+    # 4 Second level RRs 
     R3:
       cmd: /etc/frr/startup.sh
     R4:
@@ -33,7 +33,7 @@ topology:
     R6:
       cmd: /etc/frr/startup.sh
     
-    # equivalent of the 8 regular routers
+    #  8 regular routers
     R7:
       cmd: /etc/frr/startup.sh
     R8:

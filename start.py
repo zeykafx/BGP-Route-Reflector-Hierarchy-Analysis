@@ -64,15 +64,15 @@ def remove_info_file(lab_name):
 
 def check_host_image():
     # Check if the host image exists
-    result = run_command("sudo docker image inspect host:latest", check=False)
+    result = run_command("sudo docker image inspect host:latest", check=False, override_verbose=True)
     if result.returncode != 0:
-        print("Error: host:latest image not found. Please run start.py with the -b flag")
-        sys.exit(1)
+        return False
+    return True
 
 def main():
     parser = argparse.ArgumentParser(description='Start a network lab scenario', allow_abbrev=True)
-    parser.add_argument('lab', choices=['hierarchy', 'full-mesh'],
-                      help='Lab scenario to start (hierarchy or full-mesh)')
+    parser.add_argument('lab', choices=['better-hierarchy', 'full-mesh'],
+                      help='Lab scenario to start (better-hierarchy or full-mesh)')
     parser.add_argument('-c', '--clean-only', action='store_true', help='Clean up previous lab deployments and exit', default=False)
     parser.add_argument('-s', '--stop-previous', action='store_true',
                       help='Stop any previous lab deployment before starting', default=True)
@@ -103,24 +103,24 @@ def main():
 
     if args.clean_only:
         print("Cleaning up previous lab deployments... (and not starting a new lab)")
-        stop_lab('hierarchy')
+        stop_lab('better-hierarchy')
         stop_lab('full-mesh')
         sys.exit(0)
 
     if not args.allow_multiple:
-        if args.lab == 'hierarchy':
+        if args.lab == 'better-hierarchy':
             stop_lab('full-mesh')
         elif args.lab == 'full-mesh':
-            stop_lab('hierarchy')
+            stop_lab('better-hierarchy')
 
     # Stop previous lab if requested
     if args.stop_previous:
-        if args.lab == 'hierarchy':
-            stop_lab('hierarchy')
+        if args.lab == 'better-hierarchy':
+            stop_lab('better-hierarchy')
         elif args.lab == 'full-mesh':
             stop_lab('full-mesh')
 
-    if args.rebuild_rr_configs and args.lab == 'hierarchy':
+    if args.rebuild_rr_configs and args.lab == 'better-hierarchy':
         print("Rebuilding Route Reflector configurations...")
         # Rebuild the configurations
         generate_routers()

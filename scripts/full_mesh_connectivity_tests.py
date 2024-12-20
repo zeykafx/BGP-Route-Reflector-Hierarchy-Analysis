@@ -2,20 +2,20 @@ import subprocess
 import re
 import time
 
-def run_docker_command(router, command):
+def run_docker_command(router, command, lab_name):
     # run a command in a docker container and return the output
-    docker_command = f"docker exec clab-scenario-full-mesh-{router} {command}"
+    docker_command = f"docker exec clab-scenario-{lab_name}-{router} {command}"
     result = subprocess.run(docker_command, shell=True, capture_output=True, text=True, timeout=60)
     return result.stdout
 
-def ping_host(router, host_ip, count=1):
+def ping_host(router, host_ip,lab_name, count=1):
     # Ping a host from a router and return True if successful
-    output = run_docker_command(router, f"ping -c {count} {host_ip}")
+    output = run_docker_command(router, f"ping -c {count} {host_ip}", lab_name)
     # Check if we received any successful ping replies
     success = "0% packet loss" in output
     return success
 
-def test_connectivity():
+def test_connectivity(lab_name):
     routers = [
         'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8',
         'R9', 'R10', 'R11', 'R12', 'R13', 'R14'
@@ -32,9 +32,9 @@ def test_connectivity():
     # Test connectivity from each router to each host
     results = []
     for router in routers:
-        print(f"\nTesting connectivity from {router}...")
+        print(f"\nTesting connectivity from {router} for {lab_name} lab...")
         for host_name, host_ip in hosts.items():
-            success = ping_host(router, host_ip)
+            success = ping_host(router, host_ip, lab_name)
             results.append({
                 'router': router,
                 'host': host_name,
@@ -69,4 +69,4 @@ if __name__ == "__main__":
     # Give some time for the network to converge
     print("Starting connectivity tests...")
     print("Testing connectivity between all routers and hosts...")
-    test_connectivity()
+    test_connectivity("full-mesh")
