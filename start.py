@@ -22,14 +22,14 @@ def run_command(command, check=True, override_verbose=False):
 
 def stop_lab(lab_name):
     print(f"Stopping lab {lab_name}...")
-    run_command(f"sudo clab destroy -t {lab_name}.clab.yml", check=False)
+    run_command(f"sudo containerlab destroy -t {lab_name}.clab.yml", check=False)
     remove_info_file(lab_name)
 
 # Start a new lab deployment
 def start_lab(lab_name):
     print(f"Starting lab {lab_name}...")
     
-    run_command(f"sudo clab deploy -t {lab_name}.clab.yml")
+    run_command(f"sudo containerlab deploy -t {lab_name}.clab.yml")
     
     print(f"\nLab {lab_name} has been started successfully!")
     print("\nYou can access the routers using:")
@@ -86,7 +86,7 @@ def start_with_args(lab_name, clean_only, stop_previous, verbose_arg, rebuild_rr
         print("Error: docker is not installed")
         sys.exit(1)
     
-    if not (Path('/usr/bin/clab').exists() or Path('/usr/local/bin/clab').exists()):
+    if not (Path('/usr/bin/clab').exists() or Path('/usr/local/bin/clab').exists() or Path('/usr/bin/containerlab').exists() or Path('/usr/local/bin/containerlab').exists()):
         print("Error: containerlab (clab) is not installed")
         sys.exit(1)
 
