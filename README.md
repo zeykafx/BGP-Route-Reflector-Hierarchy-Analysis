@@ -1,9 +1,5 @@
 # BGP Route Reflector Hierarchy Lab
 
-Authors (**Group 3**):
-- Detry Corentin
-- Thomas Juan
-
 ## Introduction
 
 This lab is designed to showcase BGP Route Reflection in a hiearchical design using FRRouting and containerlab (IPv6 only).
